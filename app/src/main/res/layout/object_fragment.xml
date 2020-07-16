@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/object_fragment"
+    android:layout_width="match_parent"
+    android:layout_height="314dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <!--        object list -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/object_recyclerview_object"
+        android:layout_width="match_parent"
+        android:layout_height="314dp"
+        app:spanCount="4"
+        app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"/>
+
+    </LinearLayout>
+
+    <!--위에서 2번째에 올라가는 FAB
+    사용자 객체를 추가할 때 사용함-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addImage"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|right"
+        android:src="@drawable/add_object"/>
+
+</FrameLayout>
