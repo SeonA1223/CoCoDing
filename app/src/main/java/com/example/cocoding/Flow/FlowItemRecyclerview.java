@@ -36,7 +36,7 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        if(flowItemData ==null){
+        if (flowItemData == null) {
             flowItemData = new FlowItemData();
         }
 
@@ -48,10 +48,9 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_flow_item_recyclerview, container, false);
-      //  context = container.getContext();
+        //  context = container.getContext();
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.flow_recyclerview);
-
-        Recyclerview_Flow_ItemAdapter flowItemAdapter= new Recyclerview_Flow_ItemAdapter(getActivity(), flowItemData.getFlowItems());
+        Recyclerview_Flow_ItemAdapter flowItemAdapter = new Recyclerview_Flow_ItemAdapter(getActivity(), flowItemData.getFlowItems());
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3) {
                                           @Override
@@ -63,8 +62,8 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
 
         recyclerView.setAdapter(flowItemAdapter);
         /*
-        * 참조 사이트 https://recipes4dev.tistory.com/168
-        * */
+         * 참조 사이트 https://recipes4dev.tistory.com/168
+         * */
 
         flowItemAdapter.setOnItemClickListener(new Recyclerview_Flow_ItemAdapter.OnItemClickListener() {
             @Override

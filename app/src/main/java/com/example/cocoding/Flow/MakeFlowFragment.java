@@ -15,6 +15,7 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
 
 import com.example.cocoding.R;
 import com.example.cocoding.RecyclerviewItem;
@@ -117,6 +119,31 @@ public class MakeFlowFragment extends Fragment  {
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (flowItemRecyclerview != null) {
+            getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+                @Override
+                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                    imageNumber = result.getInt("itemPosition");
+                    Log.e("Fragment data send", "[" + imageNumber + "]");
+                    ImageView imageview = makeImageview(getActivity(), imageNumber);
+                }
+            });
+        }
+    }
+
+    private ImageView makeImageview(Context context, int imageNumber) {
+        ImageView imageview = new ImageView(context);
+        imageview.setImageResource(flowItemData.getItem(imageNumber).getImage());
+        imageview.setLayoutParams(new ViewGroup.LayoutParams(300, 200));
+
+        ViewGroup.LayoutParams lllp = (ViewGroup.LayoutParams)imageview.getLayoutParams();
+        linearLayout.addView(imageview);
+        return imageview;
+    }
+
 //    @Override
 //    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
 //        super.onViewCreated(view, savedInstanceState);
@@ -135,29 +162,7 @@ public class MakeFlowFragment extends Fragment  {
 //        }
 //    }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        if (flowItemRecyclerview != null) {
-            getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-                @Override
-                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                    imageNumber = result.getInt("itemPosition");
-                    Log.e("Fragment data send", "[" + imageNumber + "]");
-                    ImageView imageView = makeImageview(getActivity());
-                    imageView.setImageResource(flowItemData.getItem(imageNumber).getImage());
-                    imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-                    linearLayout.addView(imageView);
-                }
-            });
-        }
-    }
 
-    private ImageView makeImageview(Context context) {
-        ImageView imageView = new ImageView(context);
-
-        return imageView;
-    }
 
 //    @Override
 //    public void onButtonClicked(String text) {
