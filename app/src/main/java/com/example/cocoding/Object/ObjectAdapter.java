@@ -1,5 +1,7 @@
 package com.example.cocoding.Object;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,8 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cocoding.MainActivity;
+import com.example.cocoding.ObjectActivity;
 import com.example.cocoding.R;
 
 import java.util.ArrayList;
@@ -73,8 +77,10 @@ public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolde
                     int pos = getAdapterPosition() ;
                     if (pos != RecyclerView.NO_POSITION) {
                         // TODO : 객체 클릭시 폴더에 넣는거 여기에 작업,,
-
-
+                        Bundle bundle = new Bundle();
+                        //bundle.putParcelableArrayList(objectData.get(pos).toString(), objectData);
+                        bundle.getString("hi", String.valueOf(pos));
+                        
                     }
                 }
             });
