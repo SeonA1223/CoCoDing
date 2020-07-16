@@ -2,10 +2,12 @@ package com.example.cocoding.Flow;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -20,10 +22,13 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.cocoding.R;
 import com.example.cocoding.RecyclerviewItem;
@@ -31,15 +36,18 @@ import com.example.cocoding.RecyclerviewItem;
 import java.util.ArrayList;
 
 
-public class MakeFlowFragment extends Fragment  {
+public class MakeFlowFragment extends Fragment {
     //흐름도 만들기 페이지
     Button flow_shape;
-    LinearLayout linearLayout;
-
+    ListView listView;
     FlowItemData flowItemData;
-    int imageNumber;
     FlowItemRecyclerview flowItemRecyclerview;
+    MakeFlowListAdapter makeFlowListAdapter;
+
+    int imageNumber;
     int mNumber = 0;
+
+    ArrayList<Integer> listItems = new ArrayList<>();
 
     public MakeFlowFragment() {
         // Required empty public constructor
@@ -61,60 +69,19 @@ public class MakeFlowFragment extends Fragment  {
         View view = inflater.inflate(R.layout.fragment_flow_make_flow, container, false);
 
         flow_shape = (Button) view.findViewById(R.id.flow_figure);
-        linearLayout = (LinearLayout) view.findViewById(R.id.second_fragment_flow_make_flow);
+        listView = (ListView) view.findViewById(R.id.flow_make_listview);
 
-
-
+        makeFlowListAdapter = new ArrayAdapter<Integer>(this, )
         flowItemRecyclerview = new FlowItemRecyclerview();
         flowItemData = new FlowItemData();
         flow_shape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 flowItemRecyclerview.show(getChildFragmentManager(), "please");
-               // FragmentTransaction transaction = getChildFragmentManager().beginTransaction();
-
-                //transaction.add(R.id.fragment_flow_make_flow, flowItemRecyclerview, "recycle")
-
-//                if (mNumber % 2 == 0 || flowItemRecyclerview == null) {
-//                    Log.e("a", "come?");
-//                    transaction.replace(R.id.second_fragment_flow_make_flow, flowItemRecyclerview);
-//
-//                } else {
-//                    Log.e("b", "come?");
-//                    transaction.remove(flowItemRecyclerview);
-//                    //  transaction.replace(R.id.fragment)
-//
-//
-//                }
-//                mNumber++;
-//                transaction.commit();
             }
 
         });
 
-//        linearLayout.setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                Log.e("problem", "please I want to know");
-//                FragmentManager fragmentManager = getChildFragmentManager();
-//                if (flowItemRecyclerview.isVisible()) {
-//                    transaction.remove(flowItemRecyclerview).commitAllowingStateLoss();
-//                    mNumber++;
-//                }
-//
-//            }
-//        });
-
-
-//        linearLayout.setOnTouchListener(new View.OnTouchListener() {
-//
-//            @Override
-//            public boolean onTouch(View v, MotionEvent event) {
-//                return false;
-//            }
-//        });
-//
         return view;
 
     }
@@ -128,45 +95,23 @@ public class MakeFlowFragment extends Fragment  {
                 public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
                     imageNumber = result.getInt("itemPosition");
                     Log.e("Fragment data send", "[" + imageNumber + "]");
-                    ImageView imageview = makeImageview(getActivity(), imageNumber);
+                    listItems.add(flowItemData.getItem(imageNumber).getImage());
                 }
             });
         }
     }
 
-    private ImageView makeImageview(Context context, int imageNumber) {
-        ImageView imageview = new ImageView(context);
-        imageview.setImageResource(flowItemData.getItem(imageNumber).getImage());
-        imageview.setLayoutParams(new ViewGroup.LayoutParams(300, 200));
-
-        ViewGroup.LayoutParams lllp = (ViewGroup.LayoutParams)imageview.getLayoutParams();
-        linearLayout.addView(imageview);
-        return imageview;
-    }
-
-//    @Override
-//    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-//        super.onViewCreated(view, savedInstanceState);
-//        if (flowItemRecyclerview != null) {
-//            getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-//                @Override
-//                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-//                    imageNumber = result.getInt("itemPosition");
-//                    Log.e("Fragment data send", "[" + imageNumber + "]");
-//                    ImageView imageView = makeImageview(getActivity());
-//                    imageView.setImageResource(flowItemData.getItem(imageNumber).getImage());
-//                    imageView.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-//                    linearLayout.addView(imageView);
-//                }
-//            });
-//        }
+//    private TextView makeTextView(int imageNumber) {
+//        TextView imageview = new TextView(context);
+//        imageview.setBackgroundResource(flowItemData.getItem(imageNumber).getImage());
+//        LinearLayout.LayoutParams layoutParams = (LayoutParams) new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        layoutParams.gravity = Gravity.CENTER;
+//        layoutParams.setMargins(100, 20, 100, 20);
+//        imageview.setLayoutParams(layoutParams);
+//
+//        linearLayout.addView(imageview);
+//
+//        return imageview;
 //    }
 
-
-
-//    @Override
-//    public void onButtonClicked(String text) {
-//        Log.e("d", "d");
-//    }
 }
-

@@ -32,20 +32,12 @@
 
     </LinearLayout>
 
-    <ScrollView
-        android:id="@+id/flow_fragment_flow_scrollview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+<ListView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/flow_make_listview">
 
-        <LinearLayout
-            android:id="@+id/second_fragment_flow_make_flow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </ScrollView>
+</ListView>
 
 </LinearLayout>
 
