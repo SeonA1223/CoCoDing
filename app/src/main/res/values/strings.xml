@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">CoCoDing</string>
+    <string name="title_idea">Idea</string>
+    <string name="title_flow">Flow</string>
+    <string name="title_object">Object</string>
+    <string name="title_code">Code</string>
 </resources>
