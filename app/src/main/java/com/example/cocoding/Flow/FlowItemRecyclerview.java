@@ -1,8 +1,11 @@
 package com.example.cocoding.Flow;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -36,6 +39,7 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         if (flowItemData == null) {
             flowItemData = new FlowItemData();
         }
@@ -43,11 +47,13 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
     }
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         final View view = inflater.inflate(R.layout.fragment_flow_item_recyclerview, container, false);
+
         //  context = container.getContext();
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.flow_recyclerview);
         Recyclerview_Flow_ItemAdapter flowItemAdapter = new Recyclerview_Flow_ItemAdapter(getActivity(), flowItemData.getFlowItems());
@@ -84,7 +90,9 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
         return view;
     }
 
-//    @Override
+
+
+    //    @Override
 //    public void onAttach(Context context) {
 //        super.onAttach(context);
 //        try {
