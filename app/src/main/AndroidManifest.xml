@@ -9,22 +9,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
 
-        </activity>
-        <activity android:name="IdeaActivity">
+        <activity android:name="MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="IdeaActivity"
+            android:label="@string/app_name" android:parentActivityName=".MainActivity">
 
-        <activity android:name="FlowActivity" />
+        </activity>
 
-        <activity android:name=".ObjectActivity" />
+        <activity android:name=".FlowActivity" android:label="@string/app_name" android:parentActivityName=".MainActivity"/>
 
-        <activity android:name=".CodeActivity" />
+        <activity android:name=".ObjectActivity" android:label="@string/app_name" android:parentActivityName=".MainActivity"/>
+
+        <activity android:name=".CodeActivity" android:label="@string/app_name" android:parentActivityName=".MainActivity"/>
     </application>
 
 </manifest>

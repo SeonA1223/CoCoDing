@@ -1,5 +1,7 @@
 package com.example.cocoding;
 
+import android.view.Menu;
+
 public class FlowActivity extends BaseActivity {
 
 
@@ -11,6 +13,13 @@ public class FlowActivity extends BaseActivity {
     @Override
     int getNavigationMenuItemId() {
         return R.id.navigation_flow;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.back, menu);
+        return true;
     }
 
 }
