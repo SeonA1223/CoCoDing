@@ -1,6 +1,7 @@
 package com.example.cocoding;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ImageButton;
 
@@ -17,7 +18,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class ObjectActivity extends AppCompatActivity {
+public class ObjectActivity extends BaseActivity {
 
     private FragmentManager manager;
     private ObjectFragment oFragment = new ObjectFragment();
@@ -42,7 +43,7 @@ public class ObjectActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.object_activity);
+        setContentView(R.layout.activity_object);
 
         // 폴더 추가하는 버튼
         ImageButton addFolder = (ImageButton) findViewById(R.id.add_folder);
@@ -95,4 +96,22 @@ public class ObjectActivity extends AppCompatActivity {
         fAdapter.addData(data);
 
     }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_code;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_code;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.back, menu);
+        return true;
+    }
+
 }

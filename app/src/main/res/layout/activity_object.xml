@@ -1,28 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".ObjectActivity">
 
-    <FrameLayout
-        android:id="@+id/content"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/message"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/activity_vertical_margin"
-            android:layout_marginLeft="@dimen/activity_horizontal_margin"
-            android:layout_marginRight="@dimen/activity_horizontal_margin"
-            android:layout_marginTop="@dimen/activity_vertical_margin"
-            android:text="@string/title_object" />
+        <!-- 클릭시 폴더 추가-->
+        <ImageButton
+            android:id="@+id/add_folder"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/add_folder" />
 
-    </FrameLayout>
+        <!-- 클릭시 객체 리스트 fragment 등장-->
+        <ImageButton
+            android:id="@+id/add_object"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/add_object" />
+
+    </LinearLayout>
+
+    <!-- 폴더 동적 생성하기 위한 recyclerview-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/object_recyclerview_folder"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"
+        app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:ignore="MissingConstraints" />
+
+
 
     <include
         layout="@layout/element_bottom_navigation"
