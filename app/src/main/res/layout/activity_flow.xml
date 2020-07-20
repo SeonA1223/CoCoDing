@@ -7,6 +7,13 @@
     android:id="@+id/flow_recyclerview_location"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:id="@+id/flow_content"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/flow_tablayout"
         android:layout_width="match_parent"
@@ -18,5 +25,13 @@
         android:id="@+id/flow_viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+    </LinearLayout>
+
+    <include
+        layout="@layout/element_bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"/>
 
 </LinearLayout>

@@ -1,6 +1,7 @@
 package com.example.cocoding;
 
 import android.os.Bundle;
+import android.view.Menu;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,7 +10,7 @@ import androidx.viewpager.widget.ViewPager;
 import com.example.cocoding.Flow.FlowPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class FlowActivity extends AppCompatActivity {
+public class FlowActivity extends BaseActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,5 +44,22 @@ public class FlowActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_flow;
+    }
+
+    @Override
+    int getNavigationMenuItemId() {
+        return R.id.navigation_flow;
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.back, menu);
+        return true;
     }
 }
