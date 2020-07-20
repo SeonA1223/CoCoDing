@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ObjectActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+    <!-- 클릭시 폴더 추가-->
+    <ImageButton
+        android:id="@+id/add_folder"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/add_folder" />
+
+    <!-- 클릭시 객체 리스트 fragment 등장-->
+    <ImageButton
+        android:id="@+id/add_object"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:src="@drawable/add_object" />
+
+    </LinearLayout>
+
+    <!-- 폴더 동적 생성하기 위한 recyclerview-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/object_recyclerview_folder"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="2"
+        tools:ignore="MissingConstraints" />
+
+
+</LinearLayout>
