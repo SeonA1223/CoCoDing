@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cocoding.Object.FolderAdapter;
 import com.example.cocoding.Object.FolderData;
 import com.example.cocoding.Object.ObjectFragment;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -43,7 +44,7 @@ public class ObjectActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_object);
+
 
         // 폴더 추가하는 버튼
         ImageButton addFolder = (ImageButton) findViewById(R.id.add_folder);
@@ -97,14 +98,16 @@ public class ObjectActivity extends BaseActivity {
 
     }
 
-    @Override
-    int getContentViewId() {
-        return R.layout.activity_code;
-    }
+
 
     @Override
     int getNavigationMenuItemId() {
-        return R.id.navigation_code;
+        return R.id.navigation_object;
+    }
+
+    @Override
+    int getContentViewId() {
+        return R.layout.activity_object;
     }
 
     @Override

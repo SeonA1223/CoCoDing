@@ -4,10 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button btn;
     @Override
@@ -16,17 +17,18 @@ public class MainActivity extends AppCompatActivity {
        setContentView(R.layout.activity_main);
 
         Button btn = (Button) findViewById(R.id.btn);
-        btn.setOnClickListener(
-                new Button.OnClickListener() {
-                    public void onClick(View v) {
-                        //SubActivity로 가는 인텐트를 생성
-                        Intent intent = new Intent(v.getContext(), IdeaActivity.class);
-                        //액티비티 시작!
-                        startActivity(intent);
-                    }
-                }
-        );
+        btn.setOnClickListener(this);
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.btn:
+                Intent intent = new Intent(this, IdeaActivity.class);
+                Log.e("access?", "?");
+                startActivity(intent);
+
+        }
+    }
 }

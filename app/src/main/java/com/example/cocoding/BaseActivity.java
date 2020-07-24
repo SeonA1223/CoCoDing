@@ -1,7 +1,9 @@
 package com.example.cocoding;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -12,16 +14,20 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public abstract class BaseActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    protected BottomNavigationView navigationView;
+    public BottomNavigationView navigationView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(getContentViewId());
 
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
         navigationView.setOnNavigationItemSelectedListener(this);
+
     }
+
 
     @Override
     protected void onStart() {
@@ -33,24 +39,26 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
     @Override
     public void onPause() {
         super.onPause();
-        overridePendingTransition(0, 0);
+        //overridePendingTransition(0, 0);
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        navigationView.postDelayed(() -> {
-            int itemId = item.getItemId();
-            if (itemId == R.id.navigation_idea) {
-                startActivity(new Intent(this, IdeaActivity.class));
-            } else if (itemId == R.id.navigation_flow) {
-                startActivity(new Intent(this, FlowActivity.class));
-            } else if (itemId == R.id.navigation_object) {
-                startActivity(new Intent(this, ObjectActivity.class));
-            } else if (itemId == R.id.navigation_code) {
-                startActivity(new Intent(this, CodeActivity.class));
-            }
-            finish();
-        }, 100);
+
+        switch (item.getItemId()) {
+            case R.id.navigation_idea:
+                startActivity(new Intent(this.getApplicationContext(), IdeaActivity.class));
+                break;
+            case R.id.navigation_flow:
+                startActivity(new Intent(this.getApplicationContext(), FlowActivity.class));
+                break;
+            case R.id.navigation_object:
+                startActivity(new Intent(this.getApplicationContext(), ObjectActivity.class));
+                break;
+            case R.id.navigation_code:
+                startActivity(new Intent(this.getApplicationContext(), CodeActivity.class));
+                break;
+        }
         return true;
     }
 
@@ -71,8 +79,10 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
         }
     }
 
-    abstract int getContentViewId();
-
     abstract int getNavigationMenuItemId();
+
+    int getContentViewId() {
+        return R.layout.activity_idea;
+    }
 
 }

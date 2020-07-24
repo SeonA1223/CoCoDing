@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.cocoding.Flow.FlowPagerAdapter;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 public class FlowActivity extends BaseActivity {
@@ -15,7 +16,7 @@ public class FlowActivity extends BaseActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_flow);
+
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.flow_tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("흐름도 만들기"), 0, true);
@@ -47,13 +48,13 @@ public class FlowActivity extends BaseActivity {
     }
 
     @Override
-    int getContentViewId() {
-        return R.layout.activity_flow;
+    int getNavigationMenuItemId() {
+        return R.id.navigation_flow;
     }
 
     @Override
-    int getNavigationMenuItemId() {
-        return R.id.navigation_flow;
+    int getContentViewId() {
+        return R.layout.activity_flow;
     }
 
     @Override
