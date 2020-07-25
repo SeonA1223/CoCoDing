@@ -29,6 +29,11 @@
         <activity android:name=".CodeActivity" android:label="@string/app_name" android:parentActivityName=".MainActivity"/>
 
         <activity android:name=".Object.Object_List"/>
+
+        <activity android:name=".Idea.Idea_Topic" android:parentActivityName=".IdeaActivity"/>
+        <activity android:name=".Idea.Idea_Topic_Content" android:parentActivityName=".IdeaActivity"/>
+        <activity android:name=".Idea.Idea_Algorithm" android:parentActivityName=".IdeaActivity"/>
+
     </application>
 
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
