@@ -41,6 +41,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="CLICK!"
+            android:textColor="@color/colorPrimary"
             android:textAlignment="center"
             android:lines="30"
             android:layout_margin="10dp"
