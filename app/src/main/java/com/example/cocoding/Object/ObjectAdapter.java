@@ -18,7 +18,6 @@ import java.util.ArrayList;
 
 public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolder> {
 
-
     //Fragment>oRecyclerView 에서 가져온 정보를 ObjectData형식으로 현 자바 파일 속 arraylist속에 차곡차곡 저장할거에요
     private ArrayList<ObjectData> objectData = new ArrayList<>();
 
@@ -39,21 +38,16 @@ public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolde
         objectData.add(input);
     }
 
-
     // onBindViewHolder() - position에 해당하는 데이터를 뷰홀더의 아이템뷰에 표시.
     @Override
     public void onBindViewHolder(ObjectAdapter.ViewHolder holder, int position) {
         holder.onBind(objectData.get(position));
     }
-
-
     // getItemCount() - 전체 데이터 갯수 리턴.
     @Override
     public int getItemCount() {
         return objectData.size() ;
     }
-
-
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
