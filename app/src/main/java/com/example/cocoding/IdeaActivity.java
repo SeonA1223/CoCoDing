@@ -28,6 +28,9 @@ public class IdeaActivity extends BaseActivity {
 
 //    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
 
+    private TextView idea_topic_textview;
+    static boolean calledAlready = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +40,10 @@ public class IdeaActivity extends BaseActivity {
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.idea_topic);
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.idea_topic_contents);
         LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.idea_algorithm);
+
+
+
+
 
 //        TextView idea_topic_textview = (TextView) findViewById(R.id.idea_topic_textview);
 //
