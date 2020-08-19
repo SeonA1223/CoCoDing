@@ -11,9 +11,9 @@ public class CodeBlockData0 extends CodeBlockData {
         CodeBlocks.add(cshape2);
         CodeBlocks.add(cshape1);
 
-        CodeBlocks.add(cshape2);
-        CodeBlocks.add(cshape1);
-        CodeBlocks.add(cshape2);
+        CodeBlocks.add(cshape4);
+        CodeBlocks.add(cshape5);
+        CodeBlocks.add(cshape6);
     }
 
 

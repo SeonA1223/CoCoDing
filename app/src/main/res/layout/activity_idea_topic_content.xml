@@ -41,8 +41,7 @@
             android:textColor="@color/colorPrimary"
             android:textAlignment="center"
             android:lines="30"
-            android:layout_margin="10dp"
-            android:background="@drawable/edittext_line"/>
+            android:layout_margin="10dp" />
 
     </LinearLayout>
 
