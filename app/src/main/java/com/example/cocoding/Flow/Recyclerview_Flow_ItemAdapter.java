@@ -56,6 +56,7 @@ public class Recyclerview_Flow_ItemAdapter extends RecyclerView.Adapter<Recycler
                     Log.e("check", "[" + v.getId() + "]");
                     Log.e("check", "[" + position + "]");
                     mOnItemClickListener.onItemClick(v, position);
+                    //conditionRef.push().setValue(position); // 파이어베이스에 순서도 도형의 position 저장 -> MakeFlowFragment에 imageNumber를 활용하기로,,
                 }
             });
         }

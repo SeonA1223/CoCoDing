@@ -21,7 +21,7 @@ public class Idea_Algorithm extends AppCompatActivity {
     private EditText edit_idea_algorithm;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference conditionRef = mRootRef.child("idea_algorithm");
+    DatabaseReference conditionRef = mRootRef.child("idea").child("idea_algorithm");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

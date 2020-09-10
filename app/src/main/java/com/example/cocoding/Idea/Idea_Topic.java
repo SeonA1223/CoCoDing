@@ -42,7 +42,7 @@ public class Idea_Topic extends AppCompatActivity {
 
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference conditionRef = mRootRef.child("idea_topic");
+    DatabaseReference conditionRef = mRootRef.child("idea").child("idea_topic");
 
 //    public void saveData(){
 //        Text txt = new Text(edit_topic.getText().toString());

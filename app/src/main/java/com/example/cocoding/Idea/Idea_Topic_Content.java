@@ -21,7 +21,7 @@ public class Idea_Topic_Content extends AppCompatActivity {
     private EditText edit_idea_topic_content;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
-    DatabaseReference conditionRef = mRootRef.child("idea_topic_content");
+    DatabaseReference conditionRef = mRootRef.child("idea").child("idea_topic_content");
 
 
     @Override

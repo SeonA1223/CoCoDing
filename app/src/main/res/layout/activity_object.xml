@@ -33,7 +33,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/object_recyclerview_folder"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="550dp"
         android:layout_weight="0.5"
         app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"
         app:spanCount="2"
