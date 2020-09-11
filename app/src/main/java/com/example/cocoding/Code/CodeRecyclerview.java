@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,11 +22,13 @@ public class CodeRecyclerview extends Fragment {
 
     //viewpager 내에 보여지는 recyclerview
     RecyclerView recyclerView;
-    Recyclerview_Code_ItemAdapter recyclerviewItemAdapter;
-    CodeBlockData codeBlockData0, codeBlockData1, codeBlockData2, codeBlockData3, codeBlockData4, codeBlockData5, codeBlockData6, codeBlockData7;
+    Recyclerview_Code_ItemAdapter codeItemAdapter;
+    CodeBlockData codeBlockData0, codeBlockData1, codeBlockData2, codeBlockData3, codeBlockData4, codeBlockData5, codeBlockData6, codeBlockData7; //data 모음
     Context context;
     int position;
-   ArrayList<RecyclerviewItem> arrayList;
+   ArrayList<RecyclerviewItem> arrayList; //RecyclerviewItem = image set 하는 class
+
+    private CodeRecyclerviewToPage mCallback; //fragment에서 activity로 데이터 전달
 
    //ViewPager와 연결하기 위한 positioin 설정 위해 생성자에서 설정
     public CodeRecyclerview(int position) {
@@ -39,12 +43,34 @@ public class CodeRecyclerview extends Fragment {
     }
 
     @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        try {
+            mCallback = (CodeRecyclerviewToPage) context;
+        } catch (ClassCastException e) {
+            throw new ClassCastException(context.toString()
+                    + " must implement FragmentToActivity");
+        }
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_code_item_recyclerview, container, false);
         context = container.getContext();
         recyclerView = (RecyclerView) view.findViewById(R.id.code_recyclerview);
+        //카테고리에 해당하는 블럭들(이미지) 객체 생성
+        /*
+        * codeBlockData0 : motion
+        * codeBlockData1 : shape
+        * codeBlockData2 : event
+        * codeBlockData3 : control
+        * codeBlockData4 : calculation
+        * codeBlockData5 : variable
+        * codeBlockData6 : object(image)
+        * codeBlockData7 : ?더 있나?
+        * */
         codeBlockData0 = new CodeBlockData0();
         codeBlockData1 = new CodeBlockData1();
         codeBlockData2 = new CodeBlockData2();
@@ -56,13 +82,14 @@ public class CodeRecyclerview extends Fragment {
 
   //      Log.e("확인", "[" + codeBlockData0.getCodeBlocks() + codeBlockData0.getCodeBlocks().size() + "]");
 
-        //초기 설정
+
+        //현재 블럭 한 열당 4개 해놓았는데 1개씩으로 바뀔 수 있음 이야기해봐야함
         GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
         arrayList = new ArrayList<RecyclerviewItem>();
-        arrayList.addAll(codeBlockData0.getCodeBlocks());
-        recyclerviewItemAdapter = new Recyclerview_Code_ItemAdapter(context, arrayList);
+        arrayList.addAll(codeBlockData0.getCodeBlocks()); //초기 설정 codeBlockData0으로 set
+        codeItemAdapter = new Recyclerview_Code_ItemAdapter(context, arrayList);
         recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.setAdapter(recyclerviewItemAdapter);
+        recyclerView.setAdapter(codeItemAdapter);
 
 
      //    Log.e("arraylist", "[" + CodeBlockPage.Position + "]");
@@ -107,17 +134,33 @@ public class CodeRecyclerview extends Fragment {
 
         //arraylist값 바뀐 것 Adapter에 알려주기
       //  recyclerView.invalidate();
-        recyclerviewItemAdapter.notifyDataSetChanged();
+        codeItemAdapter.notifyDataSetChanged();
 
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        recyclerView.setAdapter(recyclerviewItemAdapter);
+        recyclerView.setAdapter(codeItemAdapter);
+
+
+
 
         return view;
 
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
 
+        codeItemAdapter.setOnItemClickListener(new Recyclerview_Code_ItemAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View view, int position) {
+//                ImageView imageView = new ImageView(getContext());
+//                imageView.
+
+               // mCallback.sendData(position);
+            }
+        });
+    }
 }
 

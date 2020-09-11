@@ -1,17 +1,16 @@
 package com.example.cocoding.Code;
 
 import com.example.cocoding.R;
+import com.example.cocoding.RecyclerviewItem;
+
 import java.util.ArrayList;
 
 public class CodeBlockData3 extends CodeBlockData {
 
     public CodeBlockData3() {
-        CodeBlocks.add(cshape5);
-        CodeBlocks.add(cshape1);
-        CodeBlocks.add(cshape2);
+        RecyclerviewItem block5 = new RecyclerviewItem(R.drawable.block5);
 
-        CodeBlocks.add(cshape3);
-        CodeBlocks.add(cshape4);
+        CodeBlocks.add(block5);
     }
 
 

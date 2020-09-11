@@ -9,14 +9,15 @@ public class CodeBlockData {
 
     ArrayList<RecyclerviewItem> CodeBlocks = new ArrayList<>();
 
-    RecyclerviewItem cshape1 = new RecyclerviewItem(R.drawable.cshape1);
-    RecyclerviewItem cshape2 = new RecyclerviewItem(R.drawable.cshape2);
-    RecyclerviewItem cshape3 = new RecyclerviewItem(R.drawable.cshape3);
-    RecyclerviewItem cshape4 = new RecyclerviewItem(R.drawable.cshape4);
-    RecyclerviewItem cshape5 = new RecyclerviewItem(R.drawable.cshape5);
-    RecyclerviewItem cshape6 = new RecyclerviewItem(R.drawable.cshape6);
+    //각 BlockData마다 이미지 종류 다르기 때문에 지금은 여기서 이미지 선언하지만 후에는 각 클래스에서 다르게 선언해줘야 함
+    //서버에서 가져올 수도 있음
 
     public ArrayList<RecyclerviewItem> getCodeBlocks(){
         return CodeBlocks;
+    }
+
+    public int getImageData(int data_position){
+        return 0;
+
     }
 }

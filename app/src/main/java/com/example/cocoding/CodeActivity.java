@@ -1,6 +1,7 @@
 package com.example.cocoding;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
@@ -8,11 +9,12 @@ import android.widget.Button;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.cocoding.Code.CodeBlockPage;
+import com.example.cocoding.Code.CodeRecyclerviewToPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-public class CodeActivity extends BaseActivity {
+public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage {
 
-    Button code_shape;
+    Button code_shape; //버튼 클릭시 CodeBlockPage fragment 뜸
     CodeBlockPage codeBlockPage;
 
     @Override
@@ -57,4 +59,9 @@ public class CodeActivity extends BaseActivity {
         return true;
     }
 
+    @Override
+    public void sendData(int position) {
+        Log.d("codePosition", "[" + position + "]");
+
+    }
 }

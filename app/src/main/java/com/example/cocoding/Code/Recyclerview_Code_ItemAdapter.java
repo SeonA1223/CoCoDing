@@ -20,27 +20,21 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
     private Context context;
     private ArrayList<RecyclerviewItem> ArrayList;
 
-    public com.example.cocoding.Flow.Recyclerview_Flow_ItemAdapter.OnItemClickListener mOnItemClickListener = null;
+    public OnItemClickListener mOnItemClickListener = null;
+    public int block_image;
 
     public interface OnItemClickListener {
-        void onItemClick(View view, int position);
+        void onItemClick(View view, int image);
     }
 
-    public void setOnItemClickListener(com.example.cocoding.Flow.Recyclerview_Flow_ItemAdapter.OnItemClickListener listener) {
+    public void setOnItemClickListener(OnItemClickListener listener) {
         mOnItemClickListener = listener;
     }
 
-    public Recyclerview_Code_ItemAdapter(Context context, ArrayList<RecyclerviewItem> flowItemArrayList) {
+    public Recyclerview_Code_ItemAdapter(Context context, ArrayList<RecyclerviewItem> CodeItemArrayList) {
         this.context = context;
-        this.ArrayList = flowItemArrayList;
+        this.ArrayList = CodeItemArrayList;
     }
-
-
-//    public void updateData(ArrayList<RecyclerviewItem> arrayList){
-//        arrayList.clear();
-//        arrayList.addAll(arrayList);
-//        notifyDataSetChanged();
-//    }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
 
@@ -50,9 +44,23 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.flow_image);
 
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    int image = itemView.getId();
+                    mOnItemClickListener.onItemClick(view, image);
+                }
+            });
         }
     }
+
+//    앞에서 정의한 뷰 홀더가 새롭게 만들어지는 시점에 호출이 됩니다.
+//
+//    그 안에서 각각의 아이템을 위해 정의한 XML 레이아웃을 뷰 객체로 만들어줍니다.
+//
+//    그 후 그 객체를 반환하면서 ViewHolder 클래스에서 레이아웃을 참조할 수 있도록 도와줍니다.
+//
+//    즉 리사이클러뷰에 보이는 레이아웃 구성을 설정하고 인플레이션하는 매서드이라고 생각하면 됩니다.
 
     @NonNull
     @Override
@@ -61,11 +69,15 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
         return new Recyclerview_Code_ItemAdapter.ViewHolder(view);
     }
 
+//    onCreateViewHolder 매서드를 통해 생성한 객체를 재활용하여 내부의 데이터만 바꾸는 형식입니다.
+//
+//    ViewHolder 클래스에 새로운 데이터를 담아 설정을 하여서 같은 객체에 다른 데이터를 포함합니다.
+
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final RecyclerviewItem flowItem = ArrayList.get(position);
-        holder.imageView.setImageResource(flowItem.getImage());
-        Log.e("Click 전" , "[" + flowItem.getImage() + "]");
+        final RecyclerviewItem codeItem = ArrayList.get(position);
+        holder.imageView.setImageResource(codeItem.getImage());
+        Log.e("code" , "[" + codeItem.getImage() + "]");
     }
 
 
@@ -73,7 +85,7 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
     @Override
     public int getItemCount() {
         return ArrayList.size();
-    }
+    } //어댑터에서 관리하는 아이템의 개수를 반환
 
 //    public void setItems(ArrayList<RecyclerviewItem> ArrayList){
 //        this.ArrayList = ArrayList;
