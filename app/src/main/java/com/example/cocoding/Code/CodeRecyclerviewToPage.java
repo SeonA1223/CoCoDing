@@ -1,5 +1,7 @@
 package com.example.cocoding.Code;
 
+import android.widget.ImageView;
+
 public interface CodeRecyclerviewToPage {
-    void sendData(int position);
+    ImageView makeBlock(int blockImage);
 }

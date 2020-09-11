@@ -21,10 +21,10 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
     private ArrayList<RecyclerviewItem> ArrayList;
 
     public OnItemClickListener mOnItemClickListener = null;
-    public int block_image;
+
 
     public interface OnItemClickListener {
-        void onItemClick(View view, int image);
+        void onItemClick(View view, int blockImage);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -47,8 +47,9 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int image = itemView.getId();
-                    mOnItemClickListener.onItemClick(view, image);
+                    int position = getAdapterPosition();
+                    int block_image = ArrayList.get(position).getImage();
+                    mOnItemClickListener.onItemClick(view, block_image);
                 }
             });
         }

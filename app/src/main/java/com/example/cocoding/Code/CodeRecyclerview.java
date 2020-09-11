@@ -154,11 +154,8 @@ public class CodeRecyclerview extends Fragment {
 
         codeItemAdapter.setOnItemClickListener(new Recyclerview_Code_ItemAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int position) {
-//                ImageView imageView = new ImageView(getContext());
-//                imageView.
-
-               // mCallback.sendData(position);
+            public void onItemClick(View view, int blockImage) {
+                mCallback.makeBlock(blockImage);
             }
         });
     }

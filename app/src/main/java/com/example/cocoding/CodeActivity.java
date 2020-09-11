@@ -5,12 +5,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.cocoding.Code.CodeBlockPage;
 import com.example.cocoding.Code.CodeRecyclerviewToPage;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import java.util.ArrayList;
 
 public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage {
 
@@ -20,20 +23,13 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_code);
-
-
         code_shape = (Button) findViewById(R.id.code_block);
 
         codeBlockPage = new CodeBlockPage();
-
         code_shape.setOnClickListener(new Button.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.add(R.id.content, codeBlockPage);
-//                transaction.commit();
                 codeBlockPage.show(getSupportFragmentManager(), "check");
 
             }
@@ -42,6 +38,11 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
         });
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
 
     @Override
     int getNavigationMenuItemId() {
@@ -60,8 +61,13 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
     }
 
     @Override
-    public void sendData(int position) {
-        Log.d("codePosition", "[" + position + "]");
-
+    public ImageView makeBlock(int blockImage) {
+        ImageView imageView = new ImageView(this);
+        imageView.setImageResource(blockImage);
+        return imageView;
     }
+
+//    public ArrayList BlockDB(){
+//
+//    }
 }
