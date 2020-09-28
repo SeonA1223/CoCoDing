@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cocoding.Code.Block.BlockItem;
 import com.example.cocoding.R;
 import com.example.cocoding.RecyclerviewItem;
 
@@ -18,20 +19,20 @@ import java.util.ArrayList;
 
 public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recyclerview_Code_ItemAdapter.ViewHolder> {
     private Context context;
-    private ArrayList<RecyclerviewItem> ArrayList;
+    private ArrayList<BlockItem> ArrayList;
 
     public OnItemClickListener mOnItemClickListener = null;
 
 
     public interface OnItemClickListener {
-        void onItemClick(View view, int blockImage);
+        void onItemClick(View view, BlockItem blockItem);
     }
 
     public void setOnItemClickListener(OnItemClickListener listener) {
         mOnItemClickListener = listener;
     }
 
-    public Recyclerview_Code_ItemAdapter(Context context, ArrayList<RecyclerviewItem> CodeItemArrayList) {
+    public Recyclerview_Code_ItemAdapter(Context context, ArrayList<BlockItem> CodeItemArrayList) {
         this.context = context;
         this.ArrayList = CodeItemArrayList;
     }
@@ -48,8 +49,13 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
                 @Override
                 public void onClick(View view) {
                     int position = getAdapterPosition();
-                    int block_image = ArrayList.get(position).getImage();
-                    mOnItemClickListener.onItemClick(view, block_image);
+                    BlockItem blockItem;
+                    if(ArrayList != null) {
+                        blockItem = ArrayList.get(position);
+                        Log.d("block_image", "[" + blockItem + "]");
+                        mOnItemClickListener.onItemClick(view, blockItem);
+                    }
+
                 }
             });
         }
@@ -76,8 +82,8 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        final RecyclerviewItem codeItem = ArrayList.get(position);
-        holder.imageView.setImageResource(codeItem.getImage());
+        final BlockItem codeItem = ArrayList.get(position);
+        holder.imageView.setImageResource(codeItem.getBlockImage());
         Log.e("code" , "[" + codeItem.getImage() + "]");
     }
 

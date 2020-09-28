@@ -5,16 +5,22 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.cocoding.Code.Block.BlockItem;
+import com.example.cocoding.Code.Block.Caculation.Calculation;
+import com.example.cocoding.Code.Block.BlockItems;
+import com.example.cocoding.Code.Block.Control.Control;
+import com.example.cocoding.Code.Block.Event.Event;
+import com.example.cocoding.Code.Block.Motion.Motion;
+import com.example.cocoding.Code.Block.Object;
+import com.example.cocoding.Code.Block.Shape.Shape;
+import com.example.cocoding.Code.Block.Variable.Variable;
 import com.example.cocoding.R;
-import com.example.cocoding.RecyclerviewItem;
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 import java.util.ArrayList;
 
@@ -23,10 +29,10 @@ public class CodeRecyclerview extends Fragment {
     //viewpager 내에 보여지는 recyclerview
     RecyclerView recyclerView;
     Recyclerview_Code_ItemAdapter codeItemAdapter;
-    CodeBlockData codeBlockData0, codeBlockData1, codeBlockData2, codeBlockData3, codeBlockData4, codeBlockData5, codeBlockData6, codeBlockData7; //data 모음
+    BlockItems Motion, Shape, Event, Control, Calculation, variable, Object; //data 모음
     Context context;
     int position;
-   ArrayList<RecyclerviewItem> arrayList; //RecyclerviewItem = image set 하는 class
+   ArrayList<BlockItem> arrayList; //RecyclerviewItem = image set 하는 class
 
     private CodeRecyclerviewToPage mCallback; //fragment에서 activity로 데이터 전달
 
@@ -69,27 +75,29 @@ public class CodeRecyclerview extends Fragment {
         * codeBlockData4 : calculation
         * codeBlockData5 : variable
         * codeBlockData6 : object(image)
-        * codeBlockData7 : ?더 있나?
         * */
-        codeBlockData0 = new CodeBlockData0();
-        codeBlockData1 = new CodeBlockData1();
-        codeBlockData2 = new CodeBlockData2();
-        codeBlockData3 = new CodeBlockData3();
-        codeBlockData4 = new CodeBlockData4();
-        codeBlockData5 = new CodeBlockData5();
-        codeBlockData6 = new CodeBlockData6();
-        codeBlockData7 = new CodeBlockData7();
+        Motion = new Motion();
+        Shape = new Shape();
+        Event = new Event();
+        Control = new Control();
+        Calculation = new Calculation();
+        variable = new Variable();
+        Object = new Object();
+
 
   //      Log.e("확인", "[" + codeBlockData0.getCodeBlocks() + codeBlockData0.getCodeBlocks().size() + "]");
 
 
         //현재 블럭 한 열당 4개 해놓았는데 1개씩으로 바뀔 수 있음 이야기해봐야함
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 4);
-        arrayList = new ArrayList<RecyclerviewItem>();
-        arrayList.addAll(codeBlockData0.getCodeBlocks()); //초기 설정 codeBlockData0으로 set
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
+        arrayList = new ArrayList<BlockItem>();
+        arrayList.addAll(Motion.getCodeBlocks()); //초기 설정 codeBlockData0으로 set
         codeItemAdapter = new Recyclerview_Code_ItemAdapter(context, arrayList);
         recyclerView.setLayoutManager(gridLayoutManager);
+
         recyclerView.setAdapter(codeItemAdapter);
+
+        recyclerView.addItemDecoration(new CodeRecyclerview_ItemDecoration(getContext()));
 
 
      //    Log.e("arraylist", "[" + CodeBlockPage.Position + "]");
@@ -98,37 +106,34 @@ public class CodeRecyclerview extends Fragment {
         switch (position) {
             case 0:
                 arrayList.clear();
-                arrayList.addAll(codeBlockData0.getCodeBlocks());
-               //recyclerviewItemAdapter.updateData(codeBlockData0.getCodeBlocks());
+                arrayList.addAll(Object.getCodeBlocks());
                 break;
             case 1:
                 arrayList.clear();
-                arrayList.addAll(codeBlockData1.getCodeBlocks());
+                arrayList.addAll(Motion.getCodeBlocks());
+               //recyclerviewItemAdapter.updateData(codeBlockData0.getCodeBlocks());
                 break;
             case 2:
                 arrayList.clear();
-                arrayList.addAll(codeBlockData2.getCodeBlocks());
+                arrayList.addAll(Shape.getCodeBlocks());
                 break;
             case 3:
                 arrayList.clear();
-                arrayList.addAll(codeBlockData3.getCodeBlocks());
+                arrayList.addAll(Event.getCodeBlocks());
                 break;
             case 4:
                 arrayList.clear();
-                arrayList.addAll(codeBlockData4.getCodeBlocks());
+                arrayList.addAll(Control.getCodeBlocks());
                 break;
             case 5:
                 arrayList.clear();
-                arrayList.addAll(codeBlockData5.getCodeBlocks());
+                arrayList.addAll(Calculation.getCodeBlocks());
                 break;
             case 6:
                 arrayList.clear();
-                arrayList.addAll(codeBlockData6.getCodeBlocks());
+                arrayList.addAll(variable.getCodeBlocks());
                 break;
-            case 7:
-                arrayList.clear();
-                arrayList.addAll(codeBlockData7.getCodeBlocks());
-                break;
+
 
         }
 
@@ -154,8 +159,8 @@ public class CodeRecyclerview extends Fragment {
 
         codeItemAdapter.setOnItemClickListener(new Recyclerview_Code_ItemAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick(View view, int blockImage) {
-                mCallback.makeBlock(blockImage);
+            public void onItemClick(View view, BlockItem blockItem) {
+                mCallback.getBlockImage(blockItem);
             }
         });
     }
