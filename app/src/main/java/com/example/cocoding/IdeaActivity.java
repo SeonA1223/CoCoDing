@@ -46,6 +46,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
 
 import static android.content.ContentValues.TAG;
 
@@ -210,7 +211,8 @@ public class IdeaActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
-                finish();
+               // finish();
+                NavUtils.navigateUpFromSameTask(this);
                 return true;
             }
         }

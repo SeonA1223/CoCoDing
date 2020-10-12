@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.cocoding.Flow.FlowPagerAdapter;
@@ -67,7 +68,7 @@ public class FlowActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
-                finish();
+                NavUtils.navigateUpFromSameTask(this);
                 return true;
             }
         }

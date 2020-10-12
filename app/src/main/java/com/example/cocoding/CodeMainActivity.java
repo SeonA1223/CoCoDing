@@ -10,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
 
 import com.example.cocoding.Idea.Idea_Algorithm;
 import com.example.cocoding.Idea.Idea_Topic;
@@ -68,7 +69,7 @@ public class CodeMainActivity extends BaseActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()){
             case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
-                finish();
+                NavUtils.navigateUpFromSameTask(this);
                 return true;
             }
         }
