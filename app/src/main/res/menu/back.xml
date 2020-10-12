@@ -2,9 +2,28 @@
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-<!--    <item-->
-<!--        android:id="@+id/back_btn"-->
-<!--        android:icon="@android:drawable/ic_delete"-->
-<!--        android:title="Item"-->
-<!--        app:showAsAction="never" />-->
+    <item
+        android:id="@+id/new_person"
+        android:icon="@drawable/teamateone_ideamain_icon"
+        android:title="me2"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/person"
+        android:icon="@drawable/teamatetwo_ideamain_icon"
+        android:title="마이페이지"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/person1"
+        android:icon="@drawable/teamatethree_ideamain_icon"
+        android:title="마이페이지1"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/person2"
+        android:icon="@drawable/teamatefour_ideamain_icon"
+        android:title="마이페이지2"
+        app:showAsAction="ifRoom" />
+
 </menu>

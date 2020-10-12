@@ -1,121 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <LinearLayout
+        android:id="@+id/flow_content"
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:layout_height="0dp"
         android:layout_weight="1">
 
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:id="@+id/idea_toolbar">
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="2dp"
+            android:src="@drawable/teamateone_ideamain_icon" />
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/teamatetwo_ideamain_icon" />
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/teamatethree_ideamain_icon" />
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/teamatefour_ideamain_icon" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="77dp"
+            android:src="@drawable/teamateplus_ideamain_icon" />
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@color/colorBackground">
+
         <LinearLayout
-            android:layout_width="328dp"
             android:id="@+id/idea_topic"
-            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
             android:layout_marginLeft="16dp"
-            android:layout_marginTop="34dp"
+            android:layout_marginTop="32dp"
             android:layout_marginRight="16dp"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Project Theme"/>
-
-            <TextView
+                android:id="@+id/idea_topic_textview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/idea_topic_textview"
-                android:textColor="@color/colorPrimary"/>
+                android:fontFamily="@font/roboto_bold"
+                android:hint="Project Theme"
+                android:textColorHint="#424242"
+                android:textAlignment="center"
+                android:gravity="center"
+                android:textColor="#424242"
+                android:textSize="29sp"
+                android:background="@drawable/edittext_shape"/>
+
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:id="@+id/idea_topic_contents"
-            android:layout_height="162dp"
-            android:layout_marginLeft="16dp"
+            android:layout_height="200dp"
             android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/edittext_shape">
 
             <TextView
                 android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Project Description" />
+                android:text="Project Description"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#424242"
+                android:textSize="20sp"
+                android:paddingTop="20dp"
+                android:paddingLeft="23dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/idea_topic_contents_textview"
-                android:textColor="@color/colorPrimary"/>
+                android:textColor="#848484"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Enter project description."
+                android:textSize="18sp"
+                android:textColorHint="#848484"
+                android:paddingTop="5dp"
+                android:paddingLeft="23dp"/>
 
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="328dp"
+            android:layout_width="match_parent"
             android:id="@+id/idea_algorithm"
-            android:layout_height="162dp"
-            android:layout_marginLeft="16dp"
+            android:layout_height="200dp"
             android:layout_marginTop="24dp"
+            android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="@drawable/edittext_shape">
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Natural Language Algorithm" />
+                android:text="Natural Language Algorithm"
+                android:fontFamily="@font/roboto_bold"
+                android:textColor="#424242"
+                android:textSize="20sp"
+                android:paddingTop="20dp"
+                android:paddingLeft="23dp"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:id="@+id/idea_algorithm_textview"
-                android:textColor="@color/colorPrimary"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/ll"
-            android:layout_width="328dp"
-            android:layout_height="162dp"
-            android:layout_marginLeft="16dp"
-            android:layout_marginTop="24dp"
-            android:layout_marginRight="16dp"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:id="@+id/iv"
-                android:textColor="@color/colorPrimary"/>
-
-            <TextView
-                android:id="@+id/tv"
-                android:text="Upload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <Button
-                android:id="@+id/btn"
-                android:text="Choose"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-
+                android:textColor="#848484"
+                android:fontFamily="@font/roboto_medium"
+                android:hint="Please enter a natural language algorithm."
+                android:textSize="18sp"
+                android:textColorHint="#848484"
+                android:paddingTop="5dp"
+                android:paddingLeft="23dp"/>
 
         </LinearLayout>
 
     </LinearLayout>
+
+    </LinearLayout>
+
 
     <include
         layout="@layout/element_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"/>
+
 </LinearLayout>

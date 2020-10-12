@@ -32,7 +32,8 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.EditText;
-        import android.widget.ImageView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
         import android.widget.LinearLayout;
         import android.widget.LinearLayout.LayoutParams;
         import android.widget.ListView;
@@ -70,7 +71,7 @@ import static android.content.Context.MODE_PRIVATE;
 
 public class MakeFlowFragment extends Fragment {
     //흐름도 만들기 페이지
-    Button flow_shape;
+    ImageButton flow_shape;
     LinearLayout linearLayout;
     FlowItemData flowItemData;
     FlowItemRecyclerview flowItemRecyclerview;
@@ -82,7 +83,7 @@ public class MakeFlowFragment extends Fragment {
     static ArrayList<String> arrayData = new ArrayList<String>();
 
     EditText imageview;
-    Button flow_save;
+    ImageButton flow_part;
     String flow_text;
 
 
@@ -120,8 +121,8 @@ public class MakeFlowFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_flow_make_flow, container, false);
 
-        flow_shape = (Button) view.findViewById(R.id.flow_figure);
-        flow_save = (Button) view.findViewById(R.id.flow_save);
+        flow_shape = (ImageButton) view.findViewById(R.id.flow_shape);
+        flow_part = (ImageButton) view.findViewById(R.id.flow_part);
         linearLayout = (LinearLayout) view.findViewById(R.id.second_fragment_flow_make_flow);
 
         flowItemRecyclerview = new FlowItemRecyclerview();

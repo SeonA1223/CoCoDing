@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:id="@+id/idea_shop_toolbar">
+
+        <TextView
+            android:layout_width="120dp"
+            android:layout_height="54dp"
+            android:gravity="center"
+            android:text="Theme Shop"
+            android:fontFamily="@font/roboto_bold"
+            android:textColor="#424242"
+            android:textSize="20sp"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout
+        android:id="@+id/review"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/shop_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="313dp"
+            android:background="#ffffff"
+            android:fontFamily="@font/roboto_medium"
+            android:text="My"
+            android:textAllCaps="false"
+            android:textColor="#838383"
+            style="?android:attr/borderlessButtonStyle"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/shop_img"
+            android:layout_width="432dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/shop_my_cropped"
+            android:layout_gravity="center"/>
+
+        <ImageView
+            android:id="@+id/shop_img2"
+            android:layout_width="432dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/shop_crop"
+            android:layout_gravity="center"/>
+
+    </RelativeLayout>
+
+
+
+</LinearLayout>

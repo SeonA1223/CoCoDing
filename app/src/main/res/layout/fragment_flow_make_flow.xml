@@ -12,24 +12,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="right">
 
-        <Button
-            android:id="@+id/flow_figure"
+        <ImageButton
+            android:id="@+id/flow_shape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="순서도도형" />
+            android:src="@drawable/drawable_flow_shape_image_customise"
+            android:background="@android:color/transparent"
+            android:adjustViewBounds="true"/>
 
-        <Button
-            android:id="@+id/flow_save"
+
+        <ImageButton
+            android:id="@+id/flow_part"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="저장" />
+            android:src="@drawable/drawable_flow_mypart_image_customise"
+            android:background="@android:color/transparent"
+            android:adjustViewBounds="true"/>
 
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="button3" />
+
 
     </LinearLayout>
 

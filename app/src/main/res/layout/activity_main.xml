@@ -7,13 +7,43 @@
     android:layout_margin="0dp"
     android:padding="0dp"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/colorBackground"
+     >
+
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/main_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <ImageView
+            android:id="@+id/man"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
+            android:layout_marginLeft="287dp"
+            android:src="@drawable/mypage_main_icon" />
+
+        <ImageView
+            android:id="@+id/shop"
+            android:layout_width="63dp"
+            android:layout_height="63dp"
+            android:src="@drawable/store_main_icon" />
+
+    </androidx.appcompat.widget.Toolbar>
+    
+
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="216dp"
-        android:layout_height="44dp"
+        android:layout_width="265dp"
+        android:layout_height="63dp"
         android:layout_gravity="center"
         android:layout_marginTop="24dp"
         app:srcCompat="@drawable/title_main_image" />
@@ -21,86 +51,106 @@
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="24dp"
+        android:layout_height="600dp"
         android:layout_marginLeft="16dp"
+        android:layout_marginTop="34dp"
         android:layout_marginRight="16dp">
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:gravity="center">
 
             <Button
                 android:id="@+id/button1"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
-                android:text="project_123"
-                android:textColor="#ffffff" />
+                android:layout_width="187dp"
+                android:layout_height="187dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="12dp"
+                android:textAllCaps="false"
+                android:text="   Project \n   Title \n  \n"
+                android:fontFamily="@font/roboto_bold"
+                android:textSize="27sp"
+                android:textColor="#424242"
+                android:lineSpacingExtra="3sp"
+                android:textAlignment="2"
+                android:backgroundTint="#f5f5f5"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_shape"/>
 
             <Button
                 android:id="@+id/button2"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:drawableLeft="@drawable/plusbutton_main_icon"
-                android:padding="56dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginBottom="4dp"
-                />
-        </TableRow>
+                android:layout_width="187dp"
+                android:layout_height="187dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@drawable/drawable_plus_image_customise"
+                android:padding="65dp"
+                android:backgroundTint="#f5f5f5"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_shape"/>
 
-        <TableRow
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <Button
-                android:id="@+id/button3"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:drawableLeft="@drawable/plusbutton_main_icon"
-                android:padding="56dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
-                />
-
-            <Button
-                android:id="@+id/button4"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:drawableLeft="@drawable/lockbutton_main_icon"
-                android:padding="56dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginBottom="4dp"
-
-                />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            >
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="187dp"
+                android:layout_height="187dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@drawable/drawable_plus_image_customise"
+                android:padding="63dp"
+                android:backgroundTint="#f5f5f5"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_shape"/>
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="187dp"
+                android:layout_height="187dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@drawable/drawable_lock_image_customise"
+                android:padding="67dp"
+                android:backgroundTint="#f5f5f5"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_shape"/>
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <Button
                 android:id="@+id/button5"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:drawableLeft="@drawable/lockbutton_main_icon"
-                android:padding="56dp"
-                android:layout_marginRight="4dp"
-                android:layout_marginBottom="4dp"
-                />
+                android:layout_width="187dp"
+                android:layout_height="187dp"
+                android:layout_marginRight="6dp"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@drawable/drawable_lock_image_customise"
+                android:padding="66dp"
+                android:backgroundTint="#f5f5f5"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_shape"/>
 
             <Button
                 android:id="@+id/button6"
-                android:layout_width="160dp"
-                android:layout_height="160dp"
-                android:drawableLeft="@drawable/lockbutton_main_icon"
-                android:padding="56dp"
-                android:layout_marginLeft="4dp"
-                android:layout_marginBottom="4dp"
-                ></Button>
+                android:layout_width="187dp"
+                android:layout_height="187dp"
+                android:layout_marginLeft="6dp"
+                android:layout_marginBottom="12dp"
+                android:drawableLeft="@drawable/drawable_lock_image_customise"
+                android:padding="67dp"
+                android:backgroundTint="#f5f5f5"
+                android:stateListAnimator="@null"
+                android:background="@drawable/button_shape"/>
         </TableRow>
     </TableLayout>
 

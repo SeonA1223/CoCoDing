@@ -3,22 +3,18 @@
 
     <item
         android:id="@+id/navigation_idea"
-        android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/title_idea" />
 
     <item
         android:id="@+id/navigation_flow"
-        android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/title_flow" />
 
     <item
         android:id="@+id/navigation_object"
-        android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/title_object" />
 
     <item
         android:id="@+id/navigation_code"
-        android:icon="@drawable/ic_launcher_foreground"
         android:title="@string/title_code" />
 
 </menu>

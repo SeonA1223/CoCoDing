@@ -38,13 +38,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
-import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import androidx.appcompat.widget.Toolbar;
 
 import static android.content.ContentValues.TAG;
 
@@ -60,18 +61,23 @@ public class IdeaActivity extends BaseActivity {
     DatabaseReference conditionRef2 = mRootRef.child("idea").child("idea_algorithm");
 
 
-    private StorageReference mStorageRef;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.idea_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.drawable_back_image_customise);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
+
         Log.e("come?", "[" + savedInstanceState + "]");
 
-        final ImageView iv = (ImageView)findViewById(R.id.iv);
-        Button btn = (Button)findViewById(R.id.btn);
-        final TextView tv = (TextView)findViewById(R.id.tv);
 
+        ImageView man = (ImageView)findViewById(R.id.man);
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.idea_topic);
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.idea_topic_contents);
@@ -84,53 +90,7 @@ public class IdeaActivity extends BaseActivity {
 
 
 
-        FirebaseStorage storage = FirebaseStorage.getInstance();
-        StorageReference storageReference = storage.getReferenceFromUrl("gs://cocoding-c743c.appspot.com/");
 
-        //다운로드할 파일을 가르키는 참조 만들기
-        StorageReference pathReference = storageReference.child("image.jpg");
-
-
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //Url을 다운받기
-                pathReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                    @Override
-                    public void onSuccess(Uri uri) {
-                        Toast.makeText(getApplicationContext(), "다운로드 성공 : "+ uri, Toast.LENGTH_SHORT).show();
-                        tv.setText(uri.toString());
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(getApplicationContext(), "다운로드 실패", Toast.LENGTH_SHORT).show();
-                    }
-                });
-
-                //휴대폰 로컬 영역에 저장하기
-                try {
-                    final File localFile = File.createTempFile("images", "jpg" );
-                    pathReference.getFile(localFile).addOnSuccessListener(new OnSuccessListener<FileDownloadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(FileDownloadTask.TaskSnapshot taskSnapshot) {
-                            Toast.makeText(getApplicationContext(), "파일 저장 성공", Toast.LENGTH_SHORT).show();
-                            tv.setText(localFile.getPath());
-                            Bitmap bitmapImage = BitmapFactory.decodeFile(localFile.getPath()); //로컬영역에 저장한것을 보여줄 수 있음.
-                            iv.setImageBitmap(bitmapImage);
-
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(), "파일 저장 실패", Toast.LENGTH_SHORT).show();
-                        }
-                    });
-                } catch (IOException e) { Toast.makeText(getApplicationContext(), "예외가 발생", Toast.LENGTH_SHORT).show();
-                    e.printStackTrace();
-                }
-            }
-        });
 
 
 
@@ -231,6 +191,8 @@ public class IdeaActivity extends BaseActivity {
             }
         });
 
+
+
     }
 
 
@@ -245,10 +207,14 @@ public class IdeaActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.back, menu);
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 

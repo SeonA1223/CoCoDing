@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.cocoding">
+    package="com.example.cocoding"
+    >
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light">
@@ -16,7 +16,7 @@
 
         <activity android:name=".SignupActivity"></activity>
 
-        <activity android:name=".MainActivity">
+        <activity android:name=".MainActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -24,22 +24,27 @@
         </activity>
 
         <activity
-            android:name=".IdeaActivity"
-            android:label="@string/app_name" android:parentActivityName=".MainActivity">
+            android:name=".IdeaActivity" android:parentActivityName=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         </activity>
 
-        <activity android:name=".FlowActivity" android:label="@string/app_name" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".Man"  android:parentActivityName=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".Shop"  android:parentActivityName=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
-        <activity android:name=".ObjectActivity" android:label="@string/app_name" android:parentActivityName=".MainActivity"/>
+        <activity android:name=".FlowActivity"  android:parentActivityName=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
 
-        <activity android:name=".CodeActivity" android:label="@string/app_name" android:parentActivityName=".MainActivity"/>
+        </activity>
+
+        <activity android:name=".ObjectActivity"  android:parentActivityName=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+
+        <activity android:name=".CodeActivity"  android:parentActivityName=".CodeMainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".CodeMainActivity"  android:parentActivityName=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity android:name=".Object.Object_List"/>
 
-        <activity android:name=".Idea.Idea_Topic" android:parentActivityName=".IdeaActivity"/>
-        <activity android:name=".Idea.Idea_Topic_Content" android:parentActivityName=".IdeaActivity"/>
-        <activity android:name=".Idea.Idea_Algorithm" android:parentActivityName=".IdeaActivity"/>
+        <activity android:name=".Idea.Idea_Topic" android:parentActivityName=".IdeaActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Idea.Idea_Topic_Content" android:parentActivityName=".IdeaActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Idea.Idea_Algorithm" android:parentActivityName=".IdeaActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
     </application>
 

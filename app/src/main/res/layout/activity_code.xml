@@ -6,19 +6,64 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <FrameLayout
+    <androidx.appcompat.widget.Toolbar
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorBackground"
+        android:minHeight="?attr/actionBarSize"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:id="@+id/code_toolbar">
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginLeft="2dp"
+            android:src="@drawable/teamateone_ideamain_icon" />
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/teamatetwo_ideamain_icon" />
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/teamatethree_ideamain_icon" />
+
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/teamatefour_ideamain_icon" />
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/playbutton_coding_pressed"
+            android:id="@+id/code_block"/>
+
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/playbutton_codemain_icon" />
+
+
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
         android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:background="@color/colorBackground">
 
-        <Button
-            android:id="@+id/code_block"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="코드블럭"/>
 
-    </FrameLayout>
+
+    </LinearLayout>
 
     <include
         layout="@layout/element_bottom_navigation"

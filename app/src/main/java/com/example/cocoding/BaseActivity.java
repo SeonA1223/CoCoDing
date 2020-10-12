@@ -56,7 +56,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
                 startActivity(new Intent(this.getApplicationContext(), ObjectActivity.class));
                 break;
             case R.id.navigation_code:
-                startActivity(new Intent(this.getApplicationContext(), CodeActivity.class));
+                startActivity(new Intent(this.getApplicationContext(), CodeMainActivity.class));
                 break;
         }
         return true;

@@ -2,9 +2,12 @@ package com.example.cocoding;
 
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.cocoding.Code.CodeBlockPage;
@@ -12,16 +15,16 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class CodeActivity extends BaseActivity {
 
-    Button code_shape;
+    ImageView code_shape;
     CodeBlockPage codeBlockPage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_code);
+        setContentView(R.layout.activity_code);
 
 
-        code_shape = (Button) findViewById(R.id.code_block);
+        code_shape = (ImageView) findViewById(R.id.code_block);
 
         codeBlockPage = new CodeBlockPage();
 
@@ -38,6 +41,13 @@ public class CodeActivity extends BaseActivity {
 
 
         });
+
+        Toolbar mmToolbar = (Toolbar) findViewById(R.id.code_toolbar);
+        setSupportActionBar(mmToolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.drawable_back_image_customise);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
+
     }
 
 
@@ -52,9 +62,14 @@ public class CodeActivity extends BaseActivity {
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.back, menu);
-        return true;
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                finish();
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

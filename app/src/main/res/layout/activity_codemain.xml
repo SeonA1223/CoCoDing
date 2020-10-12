@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorBackground">
+    android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -17,7 +15,7 @@
         android:minHeight="?attr/actionBarSize"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
         app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:id="@+id/object_toolbar">
+        android:id="@+id/codemain_toolbar">
 
         <ImageView
             android:layout_width="54dp"
@@ -39,50 +37,56 @@
             android:layout_height="54dp"
             android:src="@drawable/teamatefour_ideamain_icon" />
 
-        <ImageButton
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/objectplus_objectmain_icon"
-            android:id="@+id/add_object"
-            android:background="@android:color/transparent"/>
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/folderplus_objectmain_icon"
-            android:id="@+id/add_folder"
-            android:background="@android:color/transparent"/>
+            android:layout_marginLeft="77dp"
+            android:src="@drawable/playbutton_codemain_icon" />
 
 
 
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
+        android:id="@+id/content"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:background="@color/colorBackground">
 
-        <!-- 클릭시 폴더 추가-->
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/codeboxellipse_codemain_image"
+            android:id="@+id/codeflow_one"/>
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/codeboxrectangleone_codemain_image"/>
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/codeboxrhombus_codemain_image"/>
+
+        <ImageView
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:src="@drawable/codeboxrectangletwo_codemain_image"/>
 
 
     </LinearLayout>
-
-    <!-- 폴더 동적 생성하기 위한 recyclerview-->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/object_recyclerview_folder"
-        android:layout_width="match_parent"
-        android:layout_height="550dp"
-        android:layout_weight="0.5"
-        app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"
-        app:spanCount="2"
-        tools:ignore="MissingConstraints" />
 
     <include
         layout="@layout/element_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="bottom"/>
 
 </LinearLayout>
