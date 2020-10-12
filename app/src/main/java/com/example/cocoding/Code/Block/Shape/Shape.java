@@ -7,11 +7,11 @@ import com.example.cocoding.R;
 public class Shape extends BlockItems {
 
     public Shape() {
-        BlockItem block2 = new BlockItem(R.drawable.block2);
-        BlockItem block3 = new BlockItem(R.drawable.block3);
-
-        CodeBlocks.add(block2);
-        CodeBlocks.add(block3);
+//        BlockItem block2 = new BlockItem(R.drawable.block2);
+//        BlockItem block3 = new BlockItem(R.drawable.block3);
+//
+//        CodeBlocks.add(block2);
+//        CodeBlocks.add(block3);
     }
 
 

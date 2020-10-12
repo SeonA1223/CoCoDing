@@ -7,11 +7,11 @@ import com.example.cocoding.R;
 public class Calculation extends BlockItems {
 
     public Calculation() {
-        BlockItem block6 = new BlockItem(R.drawable.block6);
-        BlockItem block7 = new BlockItem(R.drawable.block7);
-
-        CodeBlocks.add(block6);
-        CodeBlocks.add(block7);
+//        BlockItem block6 = new BlockItem(R.drawable.block6);
+//        BlockItem block7 = new BlockItem(R.drawable.block7);
+//
+//        CodeBlocks.add(block6);
+//        CodeBlocks.add(block7);
     }
 
 

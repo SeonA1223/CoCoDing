@@ -7,9 +7,9 @@ import com.example.cocoding.R;
 public class Control extends BlockItems {
 
     public Control() {
-        BlockItem block5 = new BlockItem(R.drawable.block5);
+      //  BlockItem block5 = new BlockItem(R.drawable.block5);
 
-        CodeBlocks.add(block5);
+      //  CodeBlocks.add(block5);
     }
 
 

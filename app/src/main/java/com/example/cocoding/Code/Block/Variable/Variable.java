@@ -7,9 +7,9 @@ import com.example.cocoding.R;
 public class Variable extends BlockItems {
 
     public Variable() {
-        BlockItem block8 = new BlockItem(R.drawable.block8);
-
-        CodeBlocks.add(block8);
+//        BlockItem block8 = new BlockItem(R.drawable.block8);
+//
+//        CodeBlocks.add(block8);
     }
 
 

@@ -5,9 +5,9 @@ import com.example.cocoding.R;
 public class Object extends BlockItems {
 
     public Object() {
-        BlockItem block9 = new BlockItem(R.drawable.block9);
-
-        CodeBlocks.add(block9);
+//        BlockItem block9 = new BlockItem(R.drawable.block9);
+//
+//        CodeBlocks.add(block9);
     }
 
 
