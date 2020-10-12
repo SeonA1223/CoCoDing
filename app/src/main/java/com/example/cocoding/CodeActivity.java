@@ -17,6 +17,7 @@ import android.widget.ImageView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.cocoding.Code.Block.BlockItem;
@@ -28,7 +29,7 @@ import java.util.LinkedList;
 
 public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage {
 
-    Button code_shape; //버튼 클릭시 CodeBlockPage fragment 뜸
+    ImageView code_shape; //버튼 클릭시 CodeBlockPage fragment 뜸
     LinearLayout linearLayout;
     CodeBlockPage codeBlockPage;
     LinkedList<BlockItem> BlockDB;
@@ -41,9 +42,15 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        code_shape = (Button) findViewById(R.id.code_block);
+        code_shape = (ImageView) findViewById(R.id.code_block);
         linearLayout = (LinearLayout) findViewById(R.id.code_container);
         linearLayout.setOnDragListener(mDragListener);
+
+        Toolbar mmToolbar = (Toolbar) findViewById(R.id.code_toolbar);
+        setSupportActionBar(mmToolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.drawable_back_image_customise);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
 
 
         BlockDB = new LinkedList<>();
@@ -61,19 +68,6 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
 
             }
         });
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-
-        });
-
-        Toolbar mmToolbar = (Toolbar) findViewById(R.id.code_toolbar);
-        setSupportActionBar(mmToolbar);
-        getSupportActionBar().setHomeAsUpIndicator(R.drawable.drawable_back_image_customise);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("");
 
 
     }
