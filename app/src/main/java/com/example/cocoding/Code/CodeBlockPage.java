@@ -36,14 +36,13 @@ public class CodeBlockPage extends BottomSheetDialogFragment {
         View view = inflater.inflate(R.layout.fragment_code_block_page, container, false);
         viewPager = (ViewPager) view.findViewById(R.id.code_viewpager);
         tabLayout = (TabLayout) view.findViewById(R.id.code_tablayout);
-        tabLayout.addTab(tabLayout.newTab().setText("객체"), 0);
-        tabLayout.addTab(tabLayout.newTab().setText("동작"), 1);
-        tabLayout.addTab(tabLayout.newTab().setText("형태"), 2);
-        tabLayout.addTab(tabLayout.newTab().setText("이벤트"), 3);
-        tabLayout.addTab(tabLayout.newTab().setText("제어"), 4);
-        tabLayout.addTab(tabLayout.newTab().setText("감지"), 5);
-        tabLayout.addTab(tabLayout.newTab().setText("연산"), 6);
-        tabLayout.addTab(tabLayout.newTab().setText("변수"), 7);
+        tabLayout.addTab(tabLayout.newTab().setText("Object"), 0);
+        tabLayout.addTab(tabLayout.newTab().setText("Motion"), 1);
+        tabLayout.addTab(tabLayout.newTab().setText("Shape"), 2);
+        tabLayout.addTab(tabLayout.newTab().setText("Event"), 3);
+        tabLayout.addTab(tabLayout.newTab().setText("Control"), 4);
+        tabLayout.addTab(tabLayout.newTab().setText("calculation"), 5);
+        tabLayout.addTab(tabLayout.newTab().setText("variable"), 6);
         tabLayout.setTabMode(MODE_SCROLLABLE);
 
         //   Log.e("확인", "[" + tabLayout.getSelectedTabPosition() + "]");
