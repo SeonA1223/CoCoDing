@@ -17,8 +17,16 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity extends AppCompatActivity{
+
+    DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+    DatabaseReference conditionRef = mRootRef.child("idea").child("idea_topic");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +50,19 @@ public class MainActivity extends AppCompatActivity{
                 Log.e("check", "c");
                 Intent intent = new Intent(MainActivity.this, IdeaActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        conditionRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                String idea_topic_text = dataSnapshot.getValue(String.class);
+                button.setText("     " + idea_topic_text);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
             }
         });
 

@@ -58,7 +58,7 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
         RecyclerView recyclerView = (RecyclerView) view.findViewById(R.id.flow_recyclerview);
         Recyclerview_Flow_ItemAdapter flowItemAdapter = new Recyclerview_Flow_ItemAdapter(getActivity(), flowItemData.getFlowItems());
 
-        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3) {
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 2) {
                                           @Override
                                           public boolean canScrollVertically() {
                                               return false;
