@@ -6,28 +6,24 @@ import com.example.cocoding.R;
 
 public class Motion extends BlockItems {
 
-    BlockItem motion;
-    BlockItem rotation_right;
-    BlockItem changeX;
-    BlockItem changeY;
-    BlockItem motion_;
 
+    BlockItem motion_change;
+    BlockItem motion_rotate_left;
+    BlockItem motion_rotate_right;
+    BlockItem motion_set;
 
     public Motion() {
-//        rotation_left = new Rotation_Left(R.drawable.block1);
-//        rotation_right = new Rotation_Right(R.drawable.block2);
-//        changeX = new ChangeX(R.drawable.block3);
-//        changeY = new ChangeY(R.drawable.block6);
-//        setX = new SetX(R.drawable.block7);
-//        setY = new SetY(R.drawable.block8);
-//
-//
-//        CodeBlocks.add(rotation_left);
-//        CodeBlocks.add(rotation_right);
-//        CodeBlocks.add(changeX);
-//        CodeBlocks.add(changeY);
-//        CodeBlocks.add(setX);
-//        CodeBlocks.add(setY);
+        motion_rotate_left = new Rotate_Left(R.drawable.motion_rotate_left);
+        motion_rotate_right = new Rotate_Right(R.drawable.motion_rotate_right);
+        motion_change = new Change(R.drawable.motion_change);
+        motion_set = new Set(R.drawable.motion_set);
+
+        CodeBlocks.add(motion_set);
+        CodeBlocks.add(motion_rotate_left);
+        CodeBlocks.add(motion_rotate_right);
+        CodeBlocks.add(motion_change);
+
+
 
     }
 

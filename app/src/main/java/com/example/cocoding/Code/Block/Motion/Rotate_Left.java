@@ -5,11 +5,11 @@ import android.animation.ObjectAnimator;
 
 import com.example.cocoding.Code.Block.BlockItem;
 
-public class Rotation_Right extends BlockItem {
+public class Rotate_Left extends BlockItem {
 
     int rotation = 0;
 
-    public Rotation_Right(int image) {
+    public Rotate_Left(int image) {
         super(image);
     }
 
@@ -19,12 +19,14 @@ public class Rotation_Right extends BlockItem {
 
     @Override
     public String getID() {
-        return "Rotation_Right";
+        return "Rotate_Left";
     }
+
 
 
     public Animator getCode(){
-        return ObjectAnimator.ofFloat(object, "rotation", rotation);
+        return ObjectAnimator.ofFloat(object, "rotation", -rotation);
     }
+
 
 }

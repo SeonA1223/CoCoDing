@@ -38,7 +38,7 @@ public class CodeBlockPage extends BottomSheetDialogFragment {
         tabLayout = (TabLayout) view.findViewById(R.id.code_tablayout);
         tabLayout.addTab(tabLayout.newTab().setText("Object"), 0);
         tabLayout.addTab(tabLayout.newTab().setText("Motion"), 1);
-        tabLayout.addTab(tabLayout.newTab().setText("Shape"), 2);
+        tabLayout.addTab(tabLayout.newTab().setText("Looks"), 2);
         tabLayout.addTab(tabLayout.newTab().setText("Event"), 3);
         tabLayout.addTab(tabLayout.newTab().setText("Control"), 4);
         tabLayout.addTab(tabLayout.newTab().setText("calculation"), 5);

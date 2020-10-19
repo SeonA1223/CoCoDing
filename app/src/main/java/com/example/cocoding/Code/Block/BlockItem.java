@@ -5,6 +5,8 @@ import android.media.Image;
 import android.provider.ContactsContract;
 import android.widget.ImageView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.cocoding.RecyclerviewItem;
 
 public class BlockItem {
@@ -12,10 +14,16 @@ public class BlockItem {
     int block_image;
     public ImageView object;
     public ImageView imageView;
+    ConstraintLayout constraintLayout;
 
     public BlockItem(int image) {
         block_image = image;
     }
+
+    public BlockItem(ConstraintLayout constraintLayout){
+        this.constraintLayout = constraintLayout;
+    }
+
 
     public int getBlockImage() {
         return block_image;
@@ -45,7 +53,15 @@ public class BlockItem {
         return imageView;
     }
 
-//    public int getInt() {
+    public ConstraintLayout getConstraintLayout() {
+        return constraintLayout;
+    }
+
+    public void setConstraintLayout(ConstraintLayout constraintLayout) {
+        this.constraintLayout = constraintLayout;
+    }
+
+    //    public int getInt() {
 //        return 0;
 //    }
 

@@ -18,7 +18,7 @@ import com.example.cocoding.Code.Block.Control.Control;
 import com.example.cocoding.Code.Block.Event.Event;
 import com.example.cocoding.Code.Block.Motion.Motion;
 import com.example.cocoding.Code.Block.Object;
-import com.example.cocoding.Code.Block.Shape.Shape;
+import com.example.cocoding.Code.Block.Looks.Looks;
 import com.example.cocoding.Code.Block.Variable.Variable;
 import com.example.cocoding.R;
 
@@ -77,7 +77,7 @@ public class CodeRecyclerview extends Fragment {
         * codeBlockData6 : object(image)
         * */
         Motion = new Motion();
-        Shape = new Shape();
+        Shape = new Looks();
         Event = new Event();
         Control = new Control();
         Calculation = new Calculation();
@@ -89,7 +89,7 @@ public class CodeRecyclerview extends Fragment {
 
 
         //현재 블럭 한 열당 4개 해놓았는데 1개씩으로 바뀔 수 있음 이야기해봐야함
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 2);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 1);
         arrayList = new ArrayList<BlockItem>();
         arrayList.addAll(Motion.getCodeBlocks()); //초기 설정 codeBlockData0으로 set
         codeItemAdapter = new Recyclerview_Code_ItemAdapter(context, arrayList);

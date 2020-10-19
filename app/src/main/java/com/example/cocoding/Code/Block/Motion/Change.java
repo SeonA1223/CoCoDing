@@ -5,25 +5,25 @@ import android.animation.ObjectAnimator;
 
 import com.example.cocoding.Code.Block.BlockItem;
 
-public class ChangeY extends BlockItem {
+public class Change extends BlockItem {
 
-    int y = 0;
+    int x = 0;
 
-    public ChangeY(int image) {
+    public Change(int image) {
         super(image);
     }
 
-    public void setY(int y){
-        this.y = y;
+    public void setX(int x){
+        this.x = x;
     }
 
     @Override
     public String getID() {
-        return "ChangeY";
+        return "Change";
     }
 
     @Override
     public Animator getCode() {
-        return ObjectAnimator.ofFloat(object, "translationY", y);
+        return ObjectAnimator.ofFloat(object, "translationX", x);
     }
 }

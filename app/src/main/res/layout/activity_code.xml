@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <androidx.appcompat.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/code_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground"
         android:minHeight="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        android:id="@+id/code_toolbar">
+        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
         <ImageView
             android:layout_width="54dp"
@@ -27,6 +27,7 @@
             android:layout_width="54dp"
             android:layout_height="54dp"
             android:src="@drawable/teamatetwo_ideamain_icon" />
+
         <ImageView
             android:layout_width="54dp"
             android:layout_height="54dp"
@@ -38,11 +39,11 @@
             android:src="@drawable/teamatefour_ideamain_icon" />
 
         <ImageView
+            android:id="@+id/code_block"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/playbutton_coding_pressed"
-            android:id="@+id/code_block"/>
+            android:src="@drawable/playbutton_coding_pressed" />
 
         <ImageView
             android:layout_width="60dp"
@@ -50,25 +51,33 @@
             android:src="@drawable/playbutton_codemain_icon" />
 
 
-
     </androidx.appcompat.widget.Toolbar>
 
+    
+
     <ScrollView
+        android:id="@+id/vertical_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <LinearLayout
-            android:id="@+id/code_container"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="10">
-        </LinearLayout>
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/code_toolbar"
+        >
+
+            <LinearLayout
+                android:id="@+id/code_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+
+
     </ScrollView>
 
     <include
         layout="@layout/element_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

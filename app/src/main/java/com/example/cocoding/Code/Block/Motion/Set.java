@@ -1,19 +1,22 @@
 package com.example.cocoding.Code.Block.Motion;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.cocoding.Code.Block.BlockItem;
 
-public class SetY extends BlockItem {
+public class Set extends BlockItem {
 
-    public SetY(int image) {
+    public Set(int image) {
         super(image);
     }
 
     @Override
     public String getID() {
-        return "SetY";
+        return "Set";
     }
 
-    public void setY(int y){
+    public void set(int x, int y){
+        object.setX(x);
         object.setY(y);
 
     }
