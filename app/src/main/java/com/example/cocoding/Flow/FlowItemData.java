@@ -8,33 +8,34 @@ import java.util.ArrayList;
 
 public class FlowItemData {
 
-    RecyclerviewItem shape1 = new RecyclerviewItem(R.drawable.shape1);
-    RecyclerviewItem shape2 = new RecyclerviewItem(R.drawable.shape2);
-    RecyclerviewItem shape3 = new RecyclerviewItem(R.drawable.shape3);
-    RecyclerviewItem shape4 = new RecyclerviewItem(R.drawable.shape4);
-    RecyclerviewItem shape5 = new RecyclerviewItem(R.drawable.shape5);
-    RecyclerviewItem shape6 = new RecyclerviewItem(R.drawable.shape6);
+    FlowItem shape1 = new FlowItem(R.drawable.shapeellipse_flowmain_popup_image_nocolor, "Start");
+    FlowItem shape2 = new FlowItem(R.drawable.shaperectangle_flowmain_popup_image_nocolor, "Command");
+    FlowItem shape3 = new FlowItem(R.drawable.shape_rectangle_left_flowmain_popup_image_nocolor, "Command\n" + "for left side");
+    FlowItem shape4 = new FlowItem(R.drawable.shape_rectangle_right_flowmain_popup_image_nocolor, "Command\n" + "for right side");
+    FlowItem shape5 = new FlowItem(R.drawable.shaperhombus_flowmain_popup_image_nocolor, "Condition");
 
-    ArrayList<RecyclerviewItem> flowItems = new ArrayList<>();
+
+
+    ArrayList<FlowItem> flowItems = new ArrayList<>();
 
     public FlowItemData() {
+
         flowItems.add(shape1);
         flowItems.add(shape2);
         flowItems.add(shape3);
 
         flowItems.add(shape4);
         flowItems.add(shape5);
-        flowItems.add(shape6);
 
     }
 
-    public ArrayList<RecyclerviewItem> getFlowItems() {
+    public ArrayList<FlowItem> getFlowItems() {
 
 
         return flowItems;
     }
 
-    public RecyclerviewItem getItem(int position) {
+    public FlowItem getItem(int position) {
         return flowItems.get(position);
     }
 }

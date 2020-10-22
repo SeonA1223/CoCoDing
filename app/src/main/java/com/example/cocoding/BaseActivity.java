@@ -28,7 +28,6 @@ public abstract class BaseActivity extends AppCompatActivity implements BottomNa
 
     }
 
-
     @Override
     protected void onStart() {
         super.onStart();

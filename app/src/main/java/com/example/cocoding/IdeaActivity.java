@@ -61,10 +61,6 @@ public class IdeaActivity extends BaseActivity {
     DatabaseReference conditionRef1 = mRootRef.child("idea").child("idea_topic_content");
     DatabaseReference conditionRef2 = mRootRef.child("idea").child("idea_algorithm");
 
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,14 +83,6 @@ public class IdeaActivity extends BaseActivity {
         idea_topic_textview = (TextView) findViewById(R.id.idea_topic_textview);
         idea_topic_contents_textview = (TextView) findViewById(R.id.idea_topic_contents_textview);
         idea_algorithm_textview = (TextView) findViewById(R.id.idea_algorithm_textview);
-
-
-
-
-
-
-
-
 
         conditionRef.addValueEventListener(new ValueEventListener() {
             @Override

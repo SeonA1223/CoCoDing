@@ -27,9 +27,10 @@ public class CodeMainActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        execution = (ImageView) findViewById(R.id.video_execution);
 
         Toolbar mToolbar = (Toolbar) findViewById(R.id.codemain_toolbar);
-        execution = (ImageView) findViewById(R.id.video_execution);
+
         setSupportActionBar(mToolbar);
         getSupportActionBar().setHomeAsUpIndicator(R.drawable.drawable_back_image_customise);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

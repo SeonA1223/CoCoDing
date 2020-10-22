@@ -9,46 +9,48 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-        import androidx.annotation.RequiresApi;
-        import androidx.fragment.app.DialogFragment;
-        import androidx.fragment.app.Fragment;
-        import androidx.fragment.app.FragmentManager;
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.widget.ConstraintLayout;
+import androidx.fragment.app.DialogFragment;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 //import androidx.fragment.app.FragmentResultListener;
-        import androidx.fragment.app.FragmentResultListener;
-        import androidx.fragment.app.FragmentTransaction;
-        import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentResultListener;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.text.InputType;
 import android.util.Log;
-        import android.view.Gravity;
-        import android.view.KeyEvent;
-        import android.view.LayoutInflater;
-        import android.view.MotionEvent;
-        import android.view.View;
-        import android.view.ViewGroup;
+import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
-        import android.widget.Button;
-        import android.widget.EditText;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-        import android.widget.LinearLayout;
-        import android.widget.LinearLayout.LayoutParams;
-        import android.widget.ListView;
-        import android.widget.TextView;
+import android.widget.LinearLayout;
+import android.widget.LinearLayout.LayoutParams;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cocoding.R;
-        import com.example.cocoding.RecyclerviewItem;
+import com.example.cocoding.RecyclerviewItem;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
-        import com.google.firebase.database.DatabaseError;
-        import com.google.firebase.database.DatabaseReference;
-        import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FileDownloadTask;
@@ -62,10 +64,11 @@ import java.io.File;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
-        import java.util.HashMap;
+import java.util.HashMap;
 import java.util.Map;
 
 import static android.content.ContentValues.TAG;
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
 import static android.content.Context.MODE_PRIVATE;
 
 
@@ -79,24 +82,29 @@ public class MakeFlowFragment extends Fragment {
 
     ArrayAdapter<String> arrayAdapter;
 
-    static ArrayList<String> arrayIndex =  new ArrayList<String>();
+    static ArrayList<String> arrayIndex = new ArrayList<String>();
     static ArrayList<String> arrayData = new ArrayList<String>();
+
+    boolean check_flow_part = false;
+    boolean check_flow_shape = false;
 
     EditText imageview;
     ImageButton flow_part;
     String flow_text;
 
+    ImageView flow_start_imageview;
+    ImageView flow_command_imageview1;
+    ImageView flow_command_imageview2;
+    ImageView flow_condition_imageview;
 
-
-
-
-
+    EditText flow_start_edittext;
+    EditText flow_condition_edittext;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference(); //
-  //  DatabaseReference conditionRef = mRootRef.child("flow").child("flow_data");
-  //  DatabaseReference conditionRef2 = mRootRef.child("flow").child("flow_data").child("flow_order");//
- //   DatabaseReference conditionRef3 = mRootRef.child("flow").child("flow_data").child("flow_number");
- //   DatabaseReference conditionRef = mRootRef.child("flow").child("flow_data");
+    //  DatabaseReference conditionRef = mRootRef.child("flow").child("flow_data");
+    //  DatabaseReference conditionRef2 = mRootRef.child("flow").child("flow_data").child("flow_order");//
+    //   DatabaseReference conditionRef3 = mRootRef.child("flow").child("flow_data").child("flow_number");
+    //   DatabaseReference conditionRef = mRootRef.child("flow").child("flow_data");
 
 
     int imageNumber;
@@ -113,6 +121,7 @@ public class MakeFlowFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
     }
+
 
     @SuppressLint("ClickableViewAccessibility")
     @Override
@@ -139,88 +148,175 @@ public class MakeFlowFragment extends Fragment {
 //        editor = pref.edit();
 
 
-
         flow_shape.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 flowItemRecyclerview.show(getChildFragmentManager(), "please");
+
             }
 
         });
+
+        flow_part.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                if (!check_flow_part) {
+                    flow_part.setImageResource(R.drawable.mypart_flowmain_button_pressed);
+                    check_flow_part = !check_flow_part;
+                } else {
+                    flow_part.setImageResource(R.drawable.mypart_flowmain_button);
+                    check_flow_part = !check_flow_part;
+                }
+            }
+        });
+
+        if (flowItemRecyclerview != null) {
+            getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
+                @Override
+                public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                    imageNumber = result.getInt("itemPosition");
+                    Log.e("Fragment data send", "[" + imageNumber + "]");
+                    image = new ArrayList<EditText>();
+                    makeTextView(getContext(), imageNumber);
+                    getData();
+                }
+            });
+        }
 
 
         return view;
 
     }
 
+    private View.OnClickListener StartClick = new View.OnClickListener() {
 
-    @Override
-    public void onResume() {
-        super.onResume();
-
-            if (flowItemRecyclerview != null) {
-                getChildFragmentManager().setFragmentResultListener("requestKey", this, new FragmentResultListener() {
-                    @Override
-                    public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
-                            imageNumber = result.getInt("itemPosition");
-                            Log.e("Fragment data send", "[" + imageNumber + "]");
-                            image = new ArrayList<EditText>();
-                            image.add(makeTextView(getActivity(), imageNumber));
-                            getData();
-//                            conditionRef.push().setValue(imageNumber);
-                            // imageNumber가 DB에 저장됨
-
-                            //DB로 바로 담아야 함 그래야 함.
-                        }
-                });
+        @Override
+        public void onClick(View v) {
+            if (check_flow_part) {
+                flow_start_edittext.setText("");
+                flow_start_imageview.setImageResource(R.drawable.start_flow_color);
             }
+        }
+    };
+
+    private View.OnClickListener ConditionClick = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            if (check_flow_part) {
+                flow_condition_edittext.setText("");
+                flow_condition_imageview.setImageResource(R.drawable.press_flow_color);
+            }
+        }
+    };
+
+    private View.OnClickListener Command1_Click = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            if (check_flow_part) {
+                flow_command_imageview1.setImageResource(R.drawable.show_3_flow_color);
+
+
+             //   HorizontalScrollView horizontalScrollView =  new HorizontalScrollView(v.getContext());
+            //    linearLayout.addView(horizontalScrollView);
+//                ImageView imageView2 = new ImageView(v.getContext());
+//            imageView2.setImageResource(R.drawable.flow_color);
+//            linearLayout.addView(imageView2);
         }
 
 
+        }
+    };
 
-    private EditText makeTextView(Context context, int imageNumber) {
-        imageview = new EditText(context);
-        int index = View.generateViewId() ;
-        int image_number = imageNumber;
+    private View.OnClickListener Command2_Click = new View.OnClickListener() {
 
+        @Override
+        public void onClick(View v) {
+            if (check_flow_part) {
+                flow_command_imageview2.setImageResource(R.drawable.notplay_flow_color);
+                LayoutInflater layoutInflater = (LayoutInflater) v.getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+                layoutInflater.inflate(R.layout.flow_item_command_left, linearLayout, true);
 
-        imageview.setBackgroundResource(flowItemData.getItem(imageNumber).getImage());
-        LinearLayout.LayoutParams layoutParams = (LayoutParams) new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.CENTER;
-        layoutParams.setMargins(100, 20, 100, 20);
-        imageview.setLayoutParams(layoutParams);
-        linearLayout.addView(imageview);
-
- //       imageview.setOnKeyListener(new EditMessageOnKeyListener()); -> 하드웨어 키보드 이벤트..
-        Log.d("string값 체크", "[" + imageview.getText().toString() +"]");
-
-        imageview.setImeOptions(EditorInfo.IME_ACTION_DONE); //keyboard enter
-        imageview.setInputType(InputType.TYPE_CLASS_TEXT);//inpute type = text
-
-
-        imageview.setOnEditorActionListener(new TextView.OnEditorActionListener() { //When entered, keyboard enter change and store
-            @Override
-            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
-                switch (actionId){
-                    case EditorInfo.IME_ACTION_DONE:
-                        Toast.makeText(getContext(),"완료", Toast.LENGTH_LONG).show();
-//                        conditionRef4.push().setValue(imageview.getText().toString());
-                        flow_text = imageview.getText().toString();
-                        Flow flow = new Flow(index, image_number, flow_text);
-                        Map<String, Object> childUpdates = new HashMap<>();
-                        Map<String, Object> flowItem = null;
-                        flowItem = flow.toMap();
-                        Log.d("flow_store_right?", "{" + flowItem + "}" );
-                        childUpdates.put("/flow_data/" + index, flow);
-                        mRootRef.updateChildren(childUpdates);
-                        break;
-                    default:
-                        Toast.makeText(getContext(),"기본", Toast.LENGTH_LONG).show();
-                        return false;
-                }
-                return true;
+                layoutInflater.inflate(R.layout.flow_item_all, linearLayout, true);
             }
-        });
+        }
+    };
+
+    public void makeTextView(Context context, int imageNumber) {
+        if (context != null) {
+            LayoutInflater layoutInflater = (LayoutInflater) context.getSystemService(LAYOUT_INFLATER_SERVICE);
+            int index = View.generateViewId();
+            int image_number = imageNumber;
+
+
+            switch (image_number) {
+                case 0:
+                    layoutInflater.inflate(R.layout.flow_item_start, linearLayout, true);
+                    flow_start_imageview = (ImageView) linearLayout.findViewById(R.id.flow_start_imageview);
+                    flow_start_edittext = (EditText) linearLayout.findViewById(R.id.flow_start_edittext);
+
+
+                    flow_start_imageview.setOnClickListener(StartClick);
+
+                    break;
+                case 1:
+                    layoutInflater.inflate(R.layout.flow_item_command, linearLayout, true);
+                    flow_command_imageview1 = (ImageView) linearLayout.findViewById(R.id.flow_command_imageview1);
+                    flow_command_imageview2 = (ImageView) linearLayout.findViewById(R.id.flow_command_imageview2);
+                    flow_command_imageview1.setOnClickListener(Command1_Click);
+                    flow_command_imageview2.setOnClickListener(Command2_Click);
+                    break;
+                case 4:
+                    layoutInflater.inflate(R.layout.flow_item_condition, linearLayout, true);
+                    flow_condition_imageview = (ImageView) linearLayout.findViewById(R.id.flow_condition_imageview);
+                    flow_condition_edittext = (EditText) linearLayout.findViewById(R.id.flow_condition_edittext);
+                    flow_condition_imageview.setOnClickListener(ConditionClick);
+                    break;
+            }
+
+
+        }
+
+
+//        LinearLayout.LayoutParams layoutParams = (LayoutParams) new LinearLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+//        layoutParams.gravity = Gravity.CENTER;
+        //       layoutParams.setMargins(100, 20, 100, 20);
+//        imageview.setLayoutParams(layoutParams);
+//        linearLayout.addView(imageview);
+//
+// //       imageview.setOnKeyListener(new EditMessageOnKeyListener()); -> 하드웨어 키보드 이벤트..
+//        Log.d("string값 체크", "[" + imageview.getText().toString() +"]");
+//
+//        imageview.setImeOptions(EditorInfo.IME_ACTION_DONE); //keyboard enter
+//        imageview.setInputType(InputType.TYPE_CLASS_TEXT);//inpute type = text
+//
+//
+//        imageview.setOnEditorActionListener(new TextView.OnEditorActionListener() { //When entered, keyboard enter change and store
+//            @Override
+//            public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
+//                switch (actionId){
+//                    case EditorInfo.IME_ACTION_DONE:
+//                        Toast.makeText(getContext(),"완료", Toast.LENGTH_LONG).show();
+////                        conditionRef4.push().setValue(imageview.getText().toString());
+//                        flow_text = imageview.getText().toString();
+//                        Flow flow = new Flow(index, image_number, flow_text);
+//                        Map<String, Object> childUpdates = new HashMap<>();
+//                        Map<String, Object> flowItem = null;
+//                        flowItem = flow.toMap();
+//                        Log.d("flow_store_right?", "{" + flowItem + "}" );
+//                        childUpdates.put("/flow_data/" + index, flow);
+//                        mRootRef.updateChildren(childUpdates);
+//                        break;
+//                    default:
+//                        Toast.makeText(getContext(),"기본", Toast.LENGTH_LONG).show();
+//                        return false;
+//                }
+//                return true;
+//            }
+//        });
 
         //when value change, this works
         mRootRef.addValueEventListener(new ValueEventListener() {
@@ -236,25 +332,25 @@ public class MakeFlowFragment extends Fragment {
             }
         });
 
-        return imageview;
+        //   return imageview;
     }
 
-    public void getData(){
+    public void getData() {
         ValueEventListener getListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 Log.e("getFirebaseDatabase", "key: " + snapshot.getChildrenCount());
                 arrayData.clear();
                 arrayIndex.clear();
-                for(DataSnapshot flowSnapshot : snapshot.getChildren()){
+                for (DataSnapshot flowSnapshot : snapshot.getChildren()) {
                     String key = flowSnapshot.getKey();
                     Flow get = flowSnapshot.getValue(Flow.class);
-                //    String[] info = {String.valueOf(get.id), String.valueOf(get.number), get.text};
-                //    String Result = setTextLength(info[0],10) + setTextLength(info[1],10) + setTextLength(info[2],10) + setTextLength(info[3],10);
-                //    arrayData.add(Result);
+                    //    String[] info = {String.valueOf(get.id), String.valueOf(get.number), get.text};
+                    //    String Result = setTextLength(info[0],10) + setTextLength(info[1],10) + setTextLength(info[2],10) + setTextLength(info[3],10);
+                    //    arrayData.add(Result);
                     arrayIndex.add(key); // ===> [12, 22, 32] 으로 최종 출력되는데 왜인지,,,흠
                     Log.d("getFirebaseDatabase", "key: " + key);
-                //    Log.d("getFirebaseDatabase", "info: " + info[0] + info[1] + info[2] + info[3]);
+                    //    Log.d("getFirebaseDatabase", "info: " + info[0] + info[1] + info[2] + info[3]);
                 }
                 arrayAdapter.clear();
                 arrayAdapter.addAll(arrayData);
@@ -266,7 +362,7 @@ public class MakeFlowFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Log.w("getFirebaseDatabase","loadPost:onCancelled", error.toException());
+                Log.w("getFirebaseDatabase", "loadPost:onCancelled", error.toException());
             }
         };
         Query getData = FirebaseDatabase.getInstance().getReference().child("flow_data");
@@ -274,18 +370,15 @@ public class MakeFlowFragment extends Fragment {
 
     }
 
-    public String setTextLength(String text, int length){
-        if(text.length()<length){
+    public String setTextLength(String text, int length) {
+        if (text.length() < length) {
             int gap = length - text.length();
-            for (int i=0; i<gap; i++){
+            for (int i = 0; i < gap; i++) {
                 text = text + " ";
             }
         }
         return text;
     }
-
-
-
 
 
 //    class EditMessageOnKeyListener implements View.OnKeyListener {

@@ -20,7 +20,7 @@ public class BlockItem {
         block_image = image;
     }
 
-    public BlockItem(ConstraintLayout constraintLayout){
+    public BlockItem(ConstraintLayout constraintLayout) {
         this.constraintLayout = constraintLayout;
     }
 
@@ -33,7 +33,7 @@ public class BlockItem {
         block_image = image;
     }
 
-    public void setObject(ImageView imageView){
+    public void setObject(ImageView imageView) {
         this.object = imageView;
     }
 
@@ -49,7 +49,7 @@ public class BlockItem {
         this.imageView = imageView;
     }
 
-    public ImageView getImage(){
+    public ImageView getImage() {
         return imageView;
     }
 
@@ -64,7 +64,6 @@ public class BlockItem {
     //    public int getInt() {
 //        return 0;
 //    }
-
 
 
 }

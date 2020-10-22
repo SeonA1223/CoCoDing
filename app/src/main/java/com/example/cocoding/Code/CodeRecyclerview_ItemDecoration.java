@@ -14,9 +14,11 @@ import com.example.cocoding.Code.CodeRecyclerview;
 public class CodeRecyclerview_ItemDecoration extends RecyclerView.ItemDecoration {
 
     private int size10;
+    private int size20;
 
     public CodeRecyclerview_ItemDecoration(Context context){
-        size10 = dpToPx(context, 10);
+        size10 = dpToPx(context, 5);
+        size20 = dpToPx(context, 20);
 
     }
 
@@ -35,33 +37,13 @@ public class CodeRecyclerview_ItemDecoration extends RecyclerView.ItemDecoration
         int itemCount = state.getItemCount();
 
         //상하 설정
-        if(position == 0 || position == 1) {
+        if(position == 0) {
             // 첫번 째 줄 아이템
-            outRect.top = size10;
-            outRect.bottom = size10;
-        } else {
-            outRect.bottom = size10;
-        }
-
-        // spanIndex = 0 -> 왼쪽
-        // spanIndex = 1 -> 오른쪽
-        GridLayoutManager.LayoutParams lp = (GridLayoutManager.LayoutParams) view.getLayoutParams();
-        int spanIndex = lp.getSpanIndex();
-
-        if(spanIndex == 0) {
-            //왼쪽 아이템
-            outRect.left = size10;
-            outRect.right = size10;
-
-        } else if(spanIndex == 1) {
-            //오른쪽 아이템
-            outRect.left = size10;
-            outRect.right = size10;
+            outRect.top = size20;
         }
 
         outRect.top = size10;
-        outRect.right = size10;
         outRect.bottom = size10;
-        outRect.left = size10;
+        outRect.left = size20;
     }
 }

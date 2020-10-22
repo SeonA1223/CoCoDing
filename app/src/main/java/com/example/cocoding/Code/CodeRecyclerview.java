@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cocoding.Code.Block.BlockItem;
@@ -34,7 +35,7 @@ public class CodeRecyclerview extends Fragment {
     int position;
    ArrayList<BlockItem> arrayList; //RecyclerviewItem = image set 하는 class
 
-    private CodeRecyclerviewToPage mCallback; //fragment에서 activity로 데이터 전달
+
 
    //ViewPager와 연결하기 위한 positioin 설정 위해 생성자에서 설정
     public CodeRecyclerview(int position) {
@@ -48,6 +49,7 @@ public class CodeRecyclerview extends Fragment {
 
     }
 
+    private CodeRecyclerviewToPage mCallback; //fragment에서 activity로 데이터 전달
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -84,23 +86,13 @@ public class CodeRecyclerview extends Fragment {
         variable = new Variable();
         Object = new Object();
 
-
-  //      Log.e("확인", "[" + codeBlockData0.getCodeBlocks() + codeBlockData0.getCodeBlocks().size() + "]");
-
-
-        //현재 블럭 한 열당 4개 해놓았는데 1개씩으로 바뀔 수 있음 이야기해봐야함
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 1);
+       GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 1);
         arrayList = new ArrayList<BlockItem>();
         arrayList.addAll(Motion.getCodeBlocks()); //초기 설정 codeBlockData0으로 set
         codeItemAdapter = new Recyclerview_Code_ItemAdapter(context, arrayList);
         recyclerView.setLayoutManager(gridLayoutManager);
-
         recyclerView.setAdapter(codeItemAdapter);
-
         recyclerView.addItemDecoration(new CodeRecyclerview_ItemDecoration(getContext()));
-
-
-     //    Log.e("arraylist", "[" + CodeBlockPage.Position + "]");
 
         //position에 따라 arrayList 값 바뀌고 대체!
         switch (position) {
@@ -140,23 +132,15 @@ public class CodeRecyclerview extends Fragment {
         //arraylist값 바뀐 것 Adapter에 알려주기
       //  recyclerView.invalidate();
         codeItemAdapter.notifyDataSetChanged();
-
         recyclerView.setLayoutManager(gridLayoutManager);
-
         recyclerView.setAdapter(codeItemAdapter);
 
-
-
-
         return view;
-
-
     }
 
     @Override
     public void onResume() {
         super.onResume();
-
         codeItemAdapter.setOnItemClickListener(new Recyclerview_Code_ItemAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, BlockItem blockItem) {

@@ -50,9 +50,8 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
                 public void onClick(View view) {
                     int position = getAdapterPosition();
                     BlockItem blockItem;
-                    if(ArrayList != null) {
+                    if (ArrayList != null) {
                         blockItem = ArrayList.get(position);
-                        Log.d("block_image", "[" + blockItem + "]");
                         mOnItemClickListener.onItemClick(view, blockItem);
                     }
 
@@ -84,9 +83,8 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final BlockItem codeItem = ArrayList.get(position);
         holder.imageView.setImageResource(codeItem.getBlockImage());
-        Log.e("code" , "[" + codeItem.getImage() + "]");
+        Log.e("code", "[" + codeItem.getImage() + "]");
     }
-
 
 
     @Override

@@ -2,6 +2,7 @@ package com.example.cocoding.Flow;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -20,20 +21,11 @@ import com.example.cocoding.R;
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 
 public class FlowItemRecyclerview extends BottomSheetDialogFragment {
-//    private BottomSheetListener mListener;
-
-    Context context;
     FlowItemData flowItemData;
-
-
-//    public interface BottomSheetListener {
-//        void onButtonClicked(String text);
-//    }
 
     public FlowItemRecyclerview() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -46,8 +38,17 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
 
     }
 
+    @Override
+    public void onCancel(DialogInterface dialog)
+    {
+        super.onCancel(dialog);
+        IsCancelled();
 
+    }
 
+    public boolean IsCancelled(){
+        return true;
+    }
     @Override
     public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              final Bundle savedInstanceState) {
@@ -59,37 +60,29 @@ public class FlowItemRecyclerview extends BottomSheetDialogFragment {
         Recyclerview_Flow_ItemAdapter flowItemAdapter = new Recyclerview_Flow_ItemAdapter(getActivity(), flowItemData.getFlowItems());
 
         recyclerView.setLayoutManager(new GridLayoutManager(getActivity(), 3) {
-                                          @Override
-                                          public boolean canScrollVertically() {
-                                              return false;
-                                          }
+//                                          @Override
+//                                          public boolean canScrollVertically() {
+//                                              return false;
+//                                          }
                                       }
         );
 
         recyclerView.setAdapter(flowItemAdapter);
+        recyclerView.addItemDecoration(new FlowRecyclerview_ItemDecoration(getContext()));
         /*
          * 참조 사이트 https://recipes4dev.tistory.com/168
          * */
-
         flowItemAdapter.setOnItemClickListener(new Recyclerview_Flow_ItemAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
                 Bundle bundle = new Bundle();
                 bundle.putInt("itemPosition", position);
-                Log.e("frag", "[" + position + "}");
-                Log.e("bundle_Test", "[" + bundle.getInt("itemPosition") + "}");
                 getParentFragmentManager().setFragmentResult("requestKey", bundle);
-                Log.e("bundle_Test", "[" + getParentFragmentManager().toString() + "}");
             }
-
-
         });
 
-
-        Log.e("frag", "please success");
         return view;
     }
-
 
 
     //    @Override

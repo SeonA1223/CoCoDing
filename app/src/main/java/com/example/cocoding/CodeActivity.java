@@ -135,15 +135,12 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void getBlockImage(BlockItem blockItem) {
-
         if (blockItem.getID().equals("Set")) {
             LayoutInflater mInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
 
             mInflater.inflate(R.layout.setxy, linearLayout, true);
 
             ConstraintLayout constraintLayout = (ConstraintLayout) linearLayout.findViewById(R.id.setXY);
-            //  imageView = (ImageView) linearLayout.findViewById(R.id.image_setxy);
-
             constraintLayout.setTag(blockItem.getID() + id);
             id++;
 
@@ -175,15 +172,14 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
             });
 
             blockItem.setConstraintLayout(constraintLayout);
-            BlockDB.add(blockItem); //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
-        } else {
+            BlockDB.add(blockItem);
+            //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
+        }
+        else {
             ImageView imageView = new ImageView(this);
             imageView.setImageResource(blockItem.getBlockImage());
 
             linearLayout.addView(imageView);
-
-
-            //   imageView.setBackgroundColor(Color.parseColor("#afe3ff"));
 
             imageView.setTag(blockItem.getID() + id);
             id++;

@@ -22,8 +22,6 @@ public class Rotate_Left extends BlockItem {
         return "Rotate_Left";
     }
 
-
-
     public Animator getCode(){
         return ObjectAnimator.ofFloat(object, "rotation", -rotation);
     }

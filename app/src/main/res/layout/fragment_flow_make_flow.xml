@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_flow_make_flow"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,60 +12,43 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="right">
+        android:gravity="right"
+        android:orientation="horizontal">
 
         <ImageButton
             android:id="@+id/flow_shape"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/drawable_flow_shape_image_customise"
+            android:adjustViewBounds="true"
             android:background="@android:color/transparent"
-            android:adjustViewBounds="true"/>
+            android:src="@drawable/drawable_flow_shape_image_customise" />
 
 
         <ImageButton
             android:id="@+id/flow_part"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/drawable_flow_mypart_image_customise"
+            android:adjustViewBounds="true"
             android:background="@android:color/transparent"
-            android:adjustViewBounds="true"/>
-
+            android:src="@drawable/mypart_flowmain_button" />
 
 
     </LinearLayout>
 
-        <ScrollView
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/second_fragment_flow_make_flow"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:id="@+id/second_fragment_flow_make_flow"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/blank_space"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical"/>
+        </LinearLayout>
 
 
-            </LinearLayout>
-
-
-
-
-        </ScrollView>
-
+    </ScrollView>
 </LinearLayout>
-
