@@ -97,7 +97,7 @@ public class ObjectActivity extends BaseActivity {
     //각 폴더에 대한 정보를 어댑터로 넘겨주는 메소드
     public void addFolder(int i) {
         //폴더 이름은 현 폴더 리스트에 추가하여 저장
-        listName.add("folder " + Integer.toString(i + 1));
+        listName.add("Folder " + Integer.toString(i + 1));
 
         //FolderData형식의 데이터 생성
         FolderData data = new FolderData();

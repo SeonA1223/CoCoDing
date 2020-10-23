@@ -1,4 +1,4 @@
-package com.spy.cocoding.Object;
+package com.example.cocoding.Object;
 
 import android.app.Activity;
 import android.content.Context;
@@ -14,9 +14,8 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.spy.cocoding.R;
+//import com.google.firebase.firestore.FirebaseFirestore;
+import com.example.cocoding.R;
 
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -29,7 +28,7 @@ import java.util.Map;
 public class ObjectFragment extends BottomSheetDialogFragment {
     private BottomSheetListener mListener;
 
-    FirebaseFirestore db;
+//    FirebaseFirestore db;
     //firebase 에 저장을 위한 이미지 저장용 hashmap
     private Map<String, Object> photo = new HashMap<>();
 
@@ -113,7 +112,7 @@ public class ObjectFragment extends BottomSheetDialogFragment {
 
         oRecyclerView.setLayoutManager(oLayoutManager);
 
-        db = FirebaseFirestore.getInstance();
+//        db = FirebaseFirestore.getInstance();
 
         // 객체 추가하는 버튼
         FloatingActionButton addImage = (FloatingActionButton) view.findViewById(R.id.addImage);
@@ -162,8 +161,8 @@ public class ObjectFragment extends BottomSheetDialogFragment {
                     addObject(objectNum);
 
                     photo.put("photo"+objectNum, selectedImage.toString());
-                    db.collection("Object_test").document("Object")
-                            .set(photo);
+//                    db.collection("Object_test").document("Object")
+//                            .set(photo);
                     objectNum++;
                     Bundle bundle = new Bundle(1); // 파라미터의 숫자는 전달하려는 값의 갯수
                     int folderNum = bundle.getInt("folderNum");

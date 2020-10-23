@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
-import com.google.firebase.firestore.FirebaseFirestore;
+//import com.google.firebase.firestore.FirebaseFirestore;
 import com.example.cocoding.MainActivity;
 import com.example.cocoding.ObjectActivity;
 import com.example.cocoding.R;
@@ -30,7 +30,7 @@ public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolde
     private int folderNum = 10;
     String[] folder = new String[3];
 
-    FirebaseFirestore db = FirebaseFirestore.getInstance();;
+//    FirebaseFirestore db = FirebaseFirestore.getInstance();
     private Map<String, Object> pf = new HashMap<>();
 
     @Override
@@ -117,8 +117,8 @@ public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolde
                             public void onClick(DialogInterface dialog, int id)
                             {
                                 pf.put("photo0", "1");
-                                db.collection("Object_test").document("Object_folder")
-                                        .set(pf);
+//                                db.collection("Object_test").document("Object_folder")
+//                                        .set(pf);
                                 Toast.makeText(v.getContext(), "저장 완료", Toast.LENGTH_SHORT).show();
 
                             }

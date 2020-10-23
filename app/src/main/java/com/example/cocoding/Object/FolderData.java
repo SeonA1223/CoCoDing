@@ -1,4 +1,4 @@
-package com.spy.cocoding.Object;
+package com.example.cocoding.Object;
 
 // "폴더" 데이터 형식
 public class FolderData {

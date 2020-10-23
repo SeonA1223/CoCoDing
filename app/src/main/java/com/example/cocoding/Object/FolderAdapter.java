@@ -1,4 +1,4 @@
-package com.spy.cocoding.Object;
+package com.example.cocoding.Object;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.spy.cocoding.R;
+import com.example.cocoding.R;
 
 import java.util.ArrayList;
 
