@@ -1,4 +1,4 @@
-package com.example.cocoding.Object;
+package com.spy.cocoding.Object;
 
 import android.net.Uri;
 import android.os.Parcel;

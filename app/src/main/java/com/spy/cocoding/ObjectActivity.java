@@ -63,7 +63,7 @@ public class ObjectActivity extends BaseActivity {
         fAdapter = new FolderAdapter();
 
         // layoutmanager
-        fLayoutManager = new GridLayoutManager(this, 2);
+        fLayoutManager = new GridLayoutManager(this, 3);
 
         manager = getSupportFragmentManager();
 
@@ -82,9 +82,13 @@ public class ObjectActivity extends BaseActivity {
         });
         addObject.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
-                    //ObjectFragment bottomSheet = new ObjectFragment();
+//                oFragment.setStyle(STYLE_NO_TITLE, R.style.Theme_TransparentBack);
+                //ObjectFragment bottomSheet = new ObjectFragment();
                     oFragment.show(getSupportFragmentManager(), "exampleBottomSheet");
+                Bundle bundle = new Bundle(1); // 파라미터의 숫자는 전달하려는 값의 갯수
+                bundle.putInt("folderNum", folderNum);
+                oFragment.setArguments(bundle);
+
             }
         });
 

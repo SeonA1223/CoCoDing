@@ -1,4 +1,4 @@
-package com.example.cocoding.Object;
+package com.spy.cocoding.Object;
 
 import android.content.Context;
 import android.content.Intent;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.cocoding.R;
+import com.spy.cocoding.R;
 
 import java.util.ArrayList;
 
@@ -72,6 +72,8 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                         // TODO : use pos.
                         Context context = v.getContext();
                         Intent intent = new Intent(v.getContext(),Object_List.class);
+
+                        intent.putExtra("folderNum", 1);
                         context.startActivity(intent);
                     }
                 }
