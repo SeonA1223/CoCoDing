@@ -7,6 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +24,7 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
 
     public OnItemClickListener mOnItemClickListener = null;
 
+    int viewpager_position;
 
     public interface OnItemClickListener {
         void onItemClick(View view, BlockItem blockItem);
@@ -43,15 +45,15 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            imageView = (ImageView) itemView.findViewById(R.id.flow_image);
+            imageView = (ImageView) itemView.findViewById(R.id.code_image);
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    int position = getAdapterPosition();
+                    viewpager_position = getAdapterPosition();
                     BlockItem blockItem;
                     if (ArrayList != null) {
-                        blockItem = ArrayList.get(position);
+                        blockItem = ArrayList.get(viewpager_position);
                         mOnItemClickListener.onItemClick(view, blockItem);
                     }
 
@@ -71,7 +73,7 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
     @NonNull
     @Override
     public Recyclerview_Code_ItemAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.flow_item, viewGroup, false);
+        View view = LayoutInflater.from(context).inflate(R.layout.code_item, viewGroup, false);
         return new Recyclerview_Code_ItemAdapter.ViewHolder(view);
     }
 
@@ -82,6 +84,14 @@ public class Recyclerview_Code_ItemAdapter extends RecyclerView.Adapter<Recycler
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final BlockItem codeItem = ArrayList.get(position);
+
+//        if(viewpager_position == 0) {
+//            LinearLayout.LayoutParams parmas = (LinearLayout.LayoutParams) holder.imageView.getLayoutParams();
+//            parmas.width = 150;
+//            parmas.height = 10;
+//            holder.imageView.setLayoutParams(parmas);
+//        }
+
         holder.imageView.setImageResource(codeItem.getBlockImage());
         Log.e("code", "[" + codeItem.getImage() + "]");
     }

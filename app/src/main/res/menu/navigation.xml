@@ -3,18 +3,34 @@
 
     <item
         android:id="@+id/navigation_idea"
-        android:title="@string/title_idea" />
+        android:title="@string/title_idea"
+        android:textSize="16sp"
+        android:textColor="#424242"
+        android:lineSpacingExtra="5sp"
+        android:gravity="center_horizontal"/>
 
     <item
         android:id="@+id/navigation_flow"
-        android:title="@string/title_flow" />
+        android:title="@string/title_flow"
+        android:textSize="16sp"
+        android:textColor="#424242"
+        android:lineSpacingExtra="5sp"
+        android:gravity="center_horizontal"/>
 
     <item
         android:id="@+id/navigation_object"
-        android:title="@string/title_object" />
+        android:title="@string/title_object"
+        android:textSize="16sp"
+        android:textColor="#424242"
+        android:lineSpacingExtra="5sp"
+        android:gravity="center_horizontal"/>
 
     <item
         android:id="@+id/navigation_code"
-        android:title="@string/title_code" />
+        android:title="@string/title_code"
+        android:textSize="16sp"
+        android:textColor="#424242"
+        android:lineSpacingExtra="5sp"
+        android:gravity="center_horizontal"/>
 
 </menu>

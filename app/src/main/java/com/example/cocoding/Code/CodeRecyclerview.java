@@ -9,7 +9,6 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cocoding.Code.Block.BlockItem;
@@ -18,7 +17,7 @@ import com.example.cocoding.Code.Block.BlockItems;
 import com.example.cocoding.Code.Block.Control.Control;
 import com.example.cocoding.Code.Block.Event.Event;
 import com.example.cocoding.Code.Block.Motion.Motion;
-import com.example.cocoding.Code.Block.Object;
+import com.example.cocoding.Code.Block.Object.Object;
 import com.example.cocoding.Code.Block.Looks.Looks;
 import com.example.cocoding.Code.Block.Variable.Variable;
 import com.example.cocoding.R;
@@ -87,6 +86,7 @@ public class CodeRecyclerview extends Fragment {
         Object = new Object();
 
        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 1);
+       GridLayoutManager gridLayoutManager2 = new GridLayoutManager(context, 3);
         arrayList = new ArrayList<BlockItem>();
         arrayList.addAll(Motion.getCodeBlocks()); //초기 설정 codeBlockData0으로 set
         codeItemAdapter = new Recyclerview_Code_ItemAdapter(context, arrayList);
@@ -99,6 +99,7 @@ public class CodeRecyclerview extends Fragment {
             case 0:
                 arrayList.clear();
                 arrayList.addAll(Object.getCodeBlocks());
+
                 break;
             case 1:
                 arrayList.clear();
@@ -132,7 +133,11 @@ public class CodeRecyclerview extends Fragment {
         //arraylist값 바뀐 것 Adapter에 알려주기
       //  recyclerView.invalidate();
         codeItemAdapter.notifyDataSetChanged();
-        recyclerView.setLayoutManager(gridLayoutManager);
+        if(position == 0 ){
+            recyclerView.setLayoutManager(gridLayoutManager2);
+        }else {
+            recyclerView.setLayoutManager(gridLayoutManager);
+        }
         recyclerView.setAdapter(codeItemAdapter);
 
         return view;

@@ -15,6 +15,7 @@ public class BlockItem {
     public ImageView object;
     public ImageView imageView;
     ConstraintLayout constraintLayout;
+    String id;
 
     public BlockItem(int image) {
         block_image = image;
@@ -42,7 +43,11 @@ public class BlockItem {
     }
 
     public String getID() {
-        return null;
+        return id;
+    }
+
+    public void setID(String id){
+        this.id = id;
     }
 
     public void setImage(ImageView imageView) {

@@ -9,6 +9,6 @@ public class Show extends BlockItem {
 
     @Override
     public String getID() {
-        return "Change";
+        return "show";
     }
 }

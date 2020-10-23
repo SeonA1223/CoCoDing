@@ -11,6 +11,6 @@ public class Play_Clicked extends BlockItem {
 
     @Override
     public String getID() {
-        return "Send_Signal";
+        return "playClicked";
     }
 }

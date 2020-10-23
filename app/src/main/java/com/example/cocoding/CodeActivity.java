@@ -77,6 +77,7 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
 
         if (check == false) {
             code_shape.setVisibility(View.INVISIBLE);
+            linearLayout.setBackgroundResource(R.drawable.another_code);
         }
 
         Toolbar mmToolbar = (Toolbar) findViewById(R.id.code_toolbar);
@@ -177,7 +178,12 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
         }
         else {
             ImageView imageView = new ImageView(this);
-            imageView.setImageResource(blockItem.getBlockImage());
+
+            if(blockItem.getID().equals("final_line")){
+                imageView.setImageResource(R.drawable.object_finishline);
+            }else {
+                imageView.setImageResource(blockItem.getBlockImage());
+            }
 
             linearLayout.addView(imageView);
 
