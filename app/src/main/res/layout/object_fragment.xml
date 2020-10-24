@@ -28,6 +28,6 @@
         android:layout_height="50dp"
         android:layout_margin="16dp"
         android:layout_gravity="bottom|right"
-        android:src="@drawable/add_object"/>
+        android:src="@drawable/upload_objectmain_icon"/>
 
 </FrameLayout>

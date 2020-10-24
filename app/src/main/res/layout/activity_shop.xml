@@ -50,14 +50,14 @@
             android:id="@+id/shop_img"
             android:layout_width="432dp"
             android:layout_height="match_parent"
-            android:src="@drawable/shop_my_cropped"
+            android:src="@drawable/shop1"
             android:layout_gravity="center"/>
 
         <ImageView
             android:id="@+id/shop_img2"
             android:layout_width="432dp"
             android:layout_height="match_parent"
-            android:src="@drawable/shop_crop"
+            android:src="@drawable/shop2"
             android:layout_gravity="center"/>
 
     </RelativeLayout>

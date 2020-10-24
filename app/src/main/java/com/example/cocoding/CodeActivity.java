@@ -62,11 +62,11 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getRealSize(size);
-        int height = size.y;
-        int width = size.x;
+        int height = size.y-10;
+        int width = size.x-80;
 
-        linearLayout.setMinimumHeight(height);
-        linearLayout.setMinimumWidth(width);
+        linearLayout.setMinimumHeight(width);
+        linearLayout.setMinimumWidth(height);
         linearLayout.setOnDragListener(mDragListener);
 
 
@@ -77,7 +77,7 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
 
         if (check == false) {
             code_shape.setVisibility(View.INVISIBLE);
-            linearLayout.setBackgroundResource(R.drawable.another_code);
+            linearLayout.setBackgroundResource(R.drawable.coding_act);
         }
 
         Toolbar mmToolbar = (Toolbar) findViewById(R.id.code_toolbar);
