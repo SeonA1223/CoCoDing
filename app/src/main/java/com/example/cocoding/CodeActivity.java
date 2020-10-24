@@ -57,13 +57,13 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
         super.onCreate(savedInstanceState);
         code_shape = (ImageView) findViewById(R.id.code_block);
         linearLayout = (LinearLayout) findViewById(R.id.code_container);
-        scrollView = (ScrollView) findViewById(R.id.vertical_view);
+//        scrollView = (ScrollView) findViewById(R.id.vertical_view);
 
         Display display = getWindowManager().getDefaultDisplay();
         Point size = new Point();
         display.getRealSize(size);
-        int height = size.y-10;
-        int width = size.x-80;
+        int height = size.y;
+        int width = size.x;
 
         linearLayout.setMinimumHeight(width);
         linearLayout.setMinimumWidth(height);
@@ -75,10 +75,11 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
 
         Log.d("check", "[" + check);
 
-        if (check == false) {
-            code_shape.setVisibility(View.INVISIBLE);
-            linearLayout.setBackgroundResource(R.drawable.coding_act);
-        }
+//        if (check == false) {
+//            linearLayout.set
+//            code_shape.setVisibility(View.INVISIBLE);
+//            linearLayout.setBackgroundResource(R.drawable.code_coding1);
+//        }
 
         Toolbar mmToolbar = (Toolbar) findViewById(R.id.code_toolbar);
         setSupportActionBar(mmToolbar);

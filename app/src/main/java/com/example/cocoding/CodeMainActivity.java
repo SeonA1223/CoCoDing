@@ -62,8 +62,8 @@ public class CodeMainActivity extends BaseActivity {
         codeflow5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CodeActivity.class);
-                intent.putExtra("block_button", false);
+                Intent intent = new Intent(getApplicationContext(), CodeActivity2.class);
+             //   intent.putExtra("block_button", false);
                 startActivity(intent);
             }
         });

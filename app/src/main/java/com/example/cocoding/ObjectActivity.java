@@ -39,7 +39,7 @@ public class ObjectActivity extends BaseActivity {
 
     // 폴더에 해당하는 각각의 정보를 사용자에게 받아서 임시로 저장하는 공간
     List<String> listName = new ArrayList();
-    List<Integer> listImage = Arrays.asList(R.drawable.folder1_objectmain_image);
+    List<Integer> listImage = Arrays.asList(R.drawable.folder_1_objectmain_image);
 
     //초기에는 폴더가 0개에요
     private int folderNum = 0;

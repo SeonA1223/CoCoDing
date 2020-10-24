@@ -25,7 +25,7 @@
         android:textColor="#FFFFFF"
         android:cursorVisible="false"
         android:textSize="14sp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="45dp"
         app:layout_constraintStart_toStartOf="@+id/flow_condition_imageview"
         app:layout_constraintTop_toTopOf="parent" />
 

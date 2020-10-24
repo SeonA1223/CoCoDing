@@ -23,6 +23,8 @@
 
         <activity android:name=".SignupActivity" />
 
+        <activity android:name=".CodeActivity2" android:theme="@style/Theme.AppCompat.Light.NoActionBar"  />
+
         <activity android:name=".MainActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
         </activity>
 
