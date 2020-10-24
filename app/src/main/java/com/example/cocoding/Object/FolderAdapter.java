@@ -1,5 +1,6 @@
 package com.example.cocoding.Object;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -70,11 +71,10 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                     int pos = getAdapterPosition() ;
                     if (pos != RecyclerView.NO_POSITION) {
                         // TODO : use pos.
-                        Context context = v.getContext();
-                        Intent intent = new Intent(v.getContext(),Object_List.class);
-
+//                        Context context = v.getContext();
+                        Intent intent = new Intent(v.getContext(), Object_List.class);
                         intent.putExtra("folderNum", 1);
-                        context.startActivity(intent);
+                        v.getContext().startActivity(intent);
                     }
                 }
             });

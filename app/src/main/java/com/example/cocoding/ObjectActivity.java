@@ -80,6 +80,7 @@ public class ObjectActivity extends BaseActivity {
                 fRecyclerView.setAdapter(fAdapter);
             }
         });
+
         addObject.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
 //                oFragment.setStyle(STYLE_NO_TITLE, R.style.Theme_TransparentBack);

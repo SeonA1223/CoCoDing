@@ -45,6 +45,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-auth:19.4.0'
 
     implementation 'com.jaredrummler:twodscrollview:1.0.1'
+    implementation 'com.google.firebase:firebase-firestore:21.7.1'
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
