@@ -7,17 +7,27 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/listImage"
-        android:layout_width="160dp"
-        android:layout_height="160dp"
+        android:layout_width="90.6dp"
+        android:layout_height="73.3dp"
         android:background="@android:color/white"
+        android:layout_marginBottom="33.7dp"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/listName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/listImage"
+        android:layout_alignTop="@id/listImage"
+        android:layout_alignRight="@id/listImage"
+        android:layout_alignBottom="@id/listImage"
+        android:gravity="center"
         android:text="List Name"/>
+    </RelativeLayout>
 
 </LinearLayout>

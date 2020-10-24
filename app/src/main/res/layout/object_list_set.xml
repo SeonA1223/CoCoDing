@@ -8,15 +8,16 @@
 
     <ImageView
         android:id="@+id/objectImage"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
+        android:layout_width="71dp"
+        android:layout_height="71dp"
         android:background="@android:color/white"
         android:gravity="center"/>
 
     <TextView
         android:id="@+id/objectName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="71dp"
+        android:layout_height="16dp"
+        android:gravity="center"
         android:text="List Name"/>
 
 </LinearLayout>

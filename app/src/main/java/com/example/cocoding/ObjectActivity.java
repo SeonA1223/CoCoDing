@@ -63,7 +63,7 @@ public class ObjectActivity extends BaseActivity {
         fAdapter = new FolderAdapter();
 
         // layoutmanager
-        fLayoutManager = new GridLayoutManager(this, 2);
+        fLayoutManager = new GridLayoutManager(this, 3);
 
         manager = getSupportFragmentManager();
 
@@ -80,11 +80,16 @@ public class ObjectActivity extends BaseActivity {
                 fRecyclerView.setAdapter(fAdapter);
             }
         });
+
         addObject.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-
-                    //ObjectFragment bottomSheet = new ObjectFragment();
+//                oFragment.setStyle(STYLE_NO_TITLE, R.style.Theme_TransparentBack);
+                //ObjectFragment bottomSheet = new ObjectFragment();
                     oFragment.show(getSupportFragmentManager(), "exampleBottomSheet");
+                Bundle bundle = new Bundle(1); // 파라미터의 숫자는 전달하려는 값의 갯수
+                bundle.putInt("folderNum", folderNum);
+                oFragment.setArguments(bundle);
+
             }
         });
 
@@ -93,7 +98,7 @@ public class ObjectActivity extends BaseActivity {
     //각 폴더에 대한 정보를 어댑터로 넘겨주는 메소드
     public void addFolder(int i) {
         //폴더 이름은 현 폴더 리스트에 추가하여 저장
-        listName.add("folder " + Integer.toString(i + 1));
+        listName.add("Folder " + Integer.toString(i + 1));
 
         //FolderData형식의 데이터 생성
         FolderData data = new FolderData();
