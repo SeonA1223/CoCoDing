@@ -72,9 +72,6 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                     if (pos != RecyclerView.NO_POSITION) {
                         // TODO : use pos.
 //                        Context context = v.getContext();
-                        Intent intent = new Intent(v.getContext(), Object_List.class);
-                        intent.putExtra("folderNum", 1);
-                        v.getContext().startActivity(intent);
                     }
                 }
             });
@@ -85,6 +82,9 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                     if (pos != RecyclerView.NO_POSITION) {
                         // TODO : use pos.
 
+                        Intent intent = new Intent(v.getContext(), Object_List.class);
+                        intent.putExtra("folderNum", 1);
+                        v.getContext().startActivity(intent);
                     }
                 }
             });

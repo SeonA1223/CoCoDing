@@ -16,7 +16,7 @@
     <TextView
         android:id="@+id/objectName"
         android:layout_width="71dp"
-        android:layout_height="16dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:text="List Name"/>
 

@@ -30,6 +30,6 @@
         android:layout_height="50dp"
         android:layout_margin="16dp"
         android:layout_gravity="bottom|right"
-        android:src="@drawable/upload_objectmain_icon"/>
+        android:src="@drawable/plus"/>
 
 </FrameLayout>

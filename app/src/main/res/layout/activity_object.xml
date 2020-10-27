@@ -9,8 +9,7 @@
     android:background="@color/colorBackground">
 
     <androidx.appcompat.widget.Toolbar
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/colorBackground"
@@ -20,40 +19,39 @@
         android:id="@+id/object_toolbar">
 
         <ImageView
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:layout_marginLeft="2dp"
             android:src="@drawable/teamateone_ideamain_icon" />
 
         <ImageView
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:src="@drawable/teamatetwo_ideamain_icon" />
         <ImageView
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:src="@drawable/teamatethree_ideamain_icon" />
 
         <ImageView
-            android:layout_width="42dp"
-            android:layout_height="42dp"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:src="@drawable/teamatefour_ideamain_icon" />
 
         <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:layout_marginLeft="20dp"
             android:src="@drawable/objectplus_objectmain_icon"
             android:id="@+id/add_object"
             android:background="@android:color/transparent"/>
 
         <ImageButton
-            android:layout_width="48dp"
-            android:layout_height="48dp"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
             android:src="@drawable/folderplus_objectmain_icon"
             android:id="@+id/add_folder"
             android:background="@android:color/transparent"/>
-
 
 
     </androidx.appcompat.widget.Toolbar>
@@ -67,7 +65,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/object_recyclerview_folder"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="650dp"
         android:layout_marginLeft="24dp"
         android:layout_marginRight="24dp"
         app:layoutManager = "androidx.recyclerview.widget.GridLayoutManager"
