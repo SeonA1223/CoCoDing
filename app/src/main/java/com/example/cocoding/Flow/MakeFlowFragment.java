@@ -198,49 +198,47 @@ public class MakeFlowFragment extends Fragment {
         }
     };
 
-    private View.OnClickListener ConditionClick = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            if (check_flow_part) {
-                flow_condition_edittext.setText("");
-                flow_condition_imageview.setImageResource(R.drawable.press_flow_color);
-            }
-        }
-    };
-
-    private View.OnClickListener Command1_Click = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            if (check_flow_part) {
-                flow_command_imageview1.setImageResource(R.drawable.show_3_flow_color);
-
-
-             //   HorizontalScrollView horizontalScrollView =  new HorizontalScrollView(v.getContext());
-            //    linearLayout.addView(horizontalScrollView);
-//                ImageView imageView2 = new ImageView(v.getContext());
-//            imageView2.setImageResource(R.drawable.flow_color);
-//            linearLayout.addView(imageView2);
-        }
-
-
-        }
-    };
-
-    private View.OnClickListener Command2_Click = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            if (check_flow_part) {
-                flow_command_imageview2.setImageResource(R.drawable.notplay_flow_color);
-                LayoutInflater layoutInflater = (LayoutInflater) v.getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
-                layoutInflater.inflate(R.layout.flow_item_command_left, linearLayout, true);
-
-                layoutInflater.inflate(R.layout.flow_item_all, linearLayout, true);
-            }
-        }
-    };
+//    private View.OnClickListener ConditionClick = new View.OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            if (check_flow_part) {
+//                flow_condition_edittext.setText("");
+//                flow_condition_imageview.setImageResource(R.drawable.press_flow_color);
+//            }
+//        }
+//    };
+//
+//    private View.OnClickListener Command1_Click = new View.OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            if (check_flow_part) {
+//                flow_command_imageview1.setImageResource(R.drawable.show_3_flow_color);
+//
+//
+//             //   HorizontalScrollView horizontalScrollView =  new HorizontalScrollView(v.getContext());
+//            //    linearLayout.addView(horizontalScrollView);
+////                ImageView imageView2 = new ImageView(v.getContext());
+////            imageView2.setImageResource(R.drawable.flow_color);
+////            linearLayout.addView(imageView2);
+//        }
+//
+//
+//        }
+//    };
+//
+//    private View.OnClickListener Command2_Click = new View.OnClickListener() {
+//
+//        @Override
+//        public void onClick(View v) {
+//            if (check_flow_part) {
+//                flow_command_imageview2.setImageResource(R.drawable.notplay_flow_color);
+//                LayoutInflater layoutInflater = (LayoutInflater) v.getContext().getSystemService(LAYOUT_INFLATER_SERVICE);
+//                layoutInflater.inflate(R.layout.flow_item_all, linearLayout, true);
+//            }
+//        }
+//    };
 
     public void makeTextView(Context context, int imageNumber) {
         if (context != null) {
@@ -254,23 +252,18 @@ public class MakeFlowFragment extends Fragment {
                     layoutInflater.inflate(R.layout.flow_item_start, linearLayout, true);
                     flow_start_imageview = (ImageView) linearLayout.findViewById(R.id.flow_start_imageview);
                     flow_start_edittext = (EditText) linearLayout.findViewById(R.id.flow_start_edittext);
-
-
                     flow_start_imageview.setOnClickListener(StartClick);
-
                     break;
                 case 1:
                     layoutInflater.inflate(R.layout.flow_item_command, linearLayout, true);
                     flow_command_imageview1 = (ImageView) linearLayout.findViewById(R.id.flow_command_imageview1);
-                    flow_command_imageview2 = (ImageView) linearLayout.findViewById(R.id.flow_command_imageview2);
-                    flow_command_imageview1.setOnClickListener(Command1_Click);
-                    flow_command_imageview2.setOnClickListener(Command2_Click);
+                 //   flow_command_imageview1.setOnClickListener(Command1_Click);
                     break;
                 case 4:
                     layoutInflater.inflate(R.layout.flow_item_condition, linearLayout, true);
                     flow_condition_imageview = (ImageView) linearLayout.findViewById(R.id.flow_condition_imageview);
                     flow_condition_edittext = (EditText) linearLayout.findViewById(R.id.flow_condition_edittext);
-                    flow_condition_imageview.setOnClickListener(ConditionClick);
+                 //   flow_condition_imageview.setOnClickListener(ConditionClick);
                     break;
             }
 

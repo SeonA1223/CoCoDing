@@ -55,6 +55,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/codemain_toolbar">
 
@@ -64,6 +65,14 @@
             android:layout_height="0dp"
             android:background="@color/colorBackground"
             android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/codeflow0"
+                android:layout_width="wrap_content"
+                android:layout_height="130dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:src="@drawable/codeboxrectanglefour_codemain_image_blue" />
 
             <ImageView
                 android:id="@+id/codeflow1"
@@ -84,89 +93,46 @@
                     android:layout_height="130dp"
                     android:layout_marginHorizontal="60dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/codeboxrectanglefour_codemain_image_blue" />
+                    android:src="@drawable/codeboxrectangleone_codemain_image_purple" />
 
                 <ImageView
                     android:id="@+id/codeflow3"
                     android:layout_width="wrap_content"
                     android:layout_height="130dp"
                     android:layout_marginTop="20dp"
-                    android:src="@drawable/codeboxrectanglefour_codemain_image_blue" />
+                    android:src="@drawable/codeboxrectangleone_codemain_image_purple" />
 
             </LinearLayout>
+
 
             <ImageView
                 android:id="@+id/codeflow4"
                 android:layout_width="wrap_content"
                 android:layout_height="130dp"
-                android:layout_marginHorizontal="60dp"
+                android:layout_marginStart="230dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrectanglefour_codemain_image_blue" />
+                android:src="@drawable/codeboxrectanglethree_codemain_image_green" />
 
             <ImageView
                 android:id="@+id/codeflow5"
                 android:layout_width="wrap_content"
                 android:layout_height="130dp"
+                android:layout_marginStart="230dp"
                 android:layout_marginHorizontal="60dp"
                 android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrectangleone_codemain_image_purple" />
+                android:src="@drawable/codeboxrectanglethree_codemain_image_green" />
 
             <ImageView
                 android:id="@+id/codeflow6"
                 android:layout_width="wrap_content"
                 android:layout_height="130dp"
-                android:layout_marginHorizontal="60dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrectangleone_codemain_image_purple" />
-
-            <ImageView
-                android:id="@+id/codeflow7"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="60dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrectangleone_codemain_image_purple" />
-
-
-            <ImageView
-                android:id="@+id/codeflow8"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="60dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrhombus_codemain_image_green" />
-
-            <ImageView
-                android:id="@+id/codeflow9"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
+                android:layout_marginStart="230dp"
                 android:layout_marginHorizontal="60dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/codeboxrectanglethree_codemain_image_green" />
 
-            <ImageView
-                android:id="@+id/codeflow10"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="60dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrectanglethree_codemain_image_green" />
 
-            <ImageView
-                android:id="@+id/codeflow11"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="60dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrectanglethree_codemain_image_green" />
 
-            <ImageView
-                android:id="@+id/codeflow12"
-                android:layout_width="wrap_content"
-                android:layout_height="130dp"
-                android:layout_marginHorizontal="60dp"
-                android:layout_marginTop="20dp"
-                android:src="@drawable/codeboxrectanglethree_codemain_image_green" />
 
 
         </LinearLayout>

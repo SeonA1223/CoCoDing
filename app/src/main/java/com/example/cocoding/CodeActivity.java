@@ -176,15 +176,12 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
             blockItem.setConstraintLayout(constraintLayout);
             BlockDB.add(blockItem);
             //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
-        }
-        else {
+        } else {
             ImageView imageView = new ImageView(this);
 
-            if(blockItem.getID().equals("final_line")){
-                imageView.setImageResource(R.drawable.object_finishline);
-            }else {
-                imageView.setImageResource(blockItem.getBlockImage());
-            }
+
+            imageView.setImageResource(blockItem.getBlockImage());
+
 
             linearLayout.addView(imageView);
 
