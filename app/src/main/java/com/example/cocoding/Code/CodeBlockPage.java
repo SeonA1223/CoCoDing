@@ -41,8 +41,8 @@ public class CodeBlockPage extends BottomSheetDialogFragment {
         tabLayout.addTab(tabLayout.newTab().setText("Looks"), 2);
         tabLayout.addTab(tabLayout.newTab().setText("Event"), 3);
         tabLayout.addTab(tabLayout.newTab().setText("Control"), 4);
-        tabLayout.addTab(tabLayout.newTab().setText("calculation"), 5);
-        tabLayout.addTab(tabLayout.newTab().setText("variable"), 6);
+        tabLayout.addTab(tabLayout.newTab().setText("Operators"), 5);
+        tabLayout.addTab(tabLayout.newTab().setText("Variable"), 6);
         tabLayout.setTabMode(MODE_SCROLLABLE);
 
         //   Log.e("확인", "[" + tabLayout.getSelectedTabPosition() + "]");

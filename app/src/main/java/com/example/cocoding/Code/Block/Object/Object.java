@@ -6,38 +6,51 @@ import com.example.cocoding.R;
 
 public class Object extends BlockItems {
 
-    BlockItem character1;
-    BlockItem character2;
-    BlockItem character3;
-    BlockItem one;
-    BlockItem two;
-    BlockItem three;
-    BlockItem final_line;
+    BlockItem object_1;
+    BlockItem object_2;
+    BlockItem object_3;
+    BlockItem object_4;
+    BlockItem object_5;
+    BlockItem object_6;
+    BlockItem object_7;
+    BlockItem object_8;
+    BlockItem object_9;
 
     public Object() {
-        character1 =  new BlockItem(R.drawable.character1);
-        character2 = new BlockItem(R.drawable.character2);
-        character3 = new BlockItem(R.drawable.character3);
-        one = new BlockItem(R.drawable.one);
-        two = new BlockItem(R.drawable.two);
-        three = new BlockItem(R.drawable.three);
-        final_line = new BlockItem(R.drawable.final_line);
+        object_1 =  new BlockItem(R.drawable.objact_1);
+        object_2 = new BlockItem(R.drawable.objact_2);
+        object_3 = new BlockItem(R.drawable.objact_3);
+        object_4 = new BlockItem(R.drawable.objact_4);
+        object_5 = new BlockItem(R.drawable.objact_5);
+        object_6 = new BlockItem(R.drawable.objact_6);
+        object_7 = new BlockItem(R.drawable.objact_7);
+        object_8 = new BlockItem(R.drawable.objact_8);
+        object_9 = new BlockItem(R.drawable.objact_9);
 
-        character1.setID("character1");
-        character2.setID("character2");
-        final_line.setID("final_line");
+            object_1.setID("left_beaver");
+        object_2.setID("right_beaver");
+        object_3.setID("win");
+        object_4.setID("vs");
+        object_5.setID("left_snow");
+        object_6.setID("right_snow");
+        object_7.setID("hp_bar");
+        object_8.setID("hp");
+        object_9.setID("background");
+//
+//
 
+        CodeBlocks.add(object_1);
+        CodeBlocks.add(object_2);
+        CodeBlocks.add(object_3);
 
+        CodeBlocks.add(object_4);
 
-        CodeBlocks.add(one);
-        CodeBlocks.add(two);
-        CodeBlocks.add(three);
+        CodeBlocks.add(object_5);
+        CodeBlocks.add(object_6);
+        CodeBlocks.add(object_7);
 
-        CodeBlocks.add(final_line);
-
-        CodeBlocks.add(character1);
-        CodeBlocks.add(character2);
-        CodeBlocks.add(character3);
+        CodeBlocks.add(object_8);
+        CodeBlocks.add(object_9);
 
     }
 

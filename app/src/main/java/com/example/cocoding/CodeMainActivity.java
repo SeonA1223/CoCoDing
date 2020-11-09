@@ -14,13 +14,10 @@ import com.example.cocoding.Code.ExecutionActivity;
 
 public class CodeMainActivity extends BaseActivity {
 
-    ImageView codeflow1, codeflow2, codeflow3, codeflow4,
-            codeflow5, codeflow6, codeflow7, codeflow8,
-            codeflow9, codeflow10, codeflow11, codeflow12;
+    ImageView codeflow0, codeflow1, codeflow2, codeflow3, codeflow4,
+            codeflow5, codeflow6;
 
     ImageView execution;
-
-
 
 
     @Override
@@ -37,20 +34,16 @@ public class CodeMainActivity extends BaseActivity {
         getSupportActionBar().setTitle("");
 
 
+        codeflow0 = (ImageView) findViewById(R.id.codeflow0);
         codeflow1 = (ImageView) findViewById(R.id.codeflow1);
         codeflow2 = (ImageView) findViewById(R.id.codeflow2);
         codeflow3 = (ImageView) findViewById(R.id.codeflow3);
         codeflow4 = (ImageView) findViewById(R.id.codeflow4);
         codeflow5 = (ImageView) findViewById(R.id.codeflow5);
         codeflow6 = (ImageView) findViewById(R.id.codeflow6);
-        codeflow7 = (ImageView) findViewById(R.id.codeflow7);
-        codeflow8 = (ImageView) findViewById(R.id.codeflow8);
-        codeflow9 = (ImageView) findViewById(R.id.codeflow9);
-        codeflow10 = (ImageView) findViewById(R.id.codeflow10);
-        codeflow11 = (ImageView) findViewById(R.id.codeflow11);
-        codeflow12 = (ImageView) findViewById(R.id.codeflow12);
 
-        codeflow1.setOnClickListener(new View.OnClickListener() {
+
+        codeflow0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), CodeActivity.class);
@@ -59,11 +52,11 @@ public class CodeMainActivity extends BaseActivity {
             }
         });
 
-        codeflow5.setOnClickListener(new View.OnClickListener() {
+        codeflow1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), CodeActivity2.class);
-             //   intent.putExtra("block_button", false);
+                //   intent.putExtra("block_button", false);
                 startActivity(intent);
             }
         });
@@ -75,34 +68,24 @@ public class CodeMainActivity extends BaseActivity {
                 startActivity(intent);
             }
         });
-
-
-
-
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(requestCode == 100){
-            if(resultCode==RESULT_OK){
-                codeflow1.setImageResource(R.drawable.blue_shape_1_codemain_png);
-                codeflow2.setImageResource(R.drawable.blue_shape_2_codemain_png);
-                codeflow3.setImageResource(R.drawable.blue_shape_3_codemain_png);
-                codeflow4.setImageResource(R.drawable.blue_shape_4_codemain_png);
-                codeflow5.setImageResource(R.drawable.purple_shape_1_codemain_png);
-                codeflow6.setImageResource(R.drawable.purple_shape_2_codemain_png);
-                codeflow7.setImageResource(R.drawable.purple_shape_2_codemain_png);
-                codeflow8.setImageResource(R.drawable.purple_shape_3_codemain_png);
-                codeflow9.setImageResource(R.drawable.green_shape_1_codemain_png);
-                codeflow10.setImageResource(R.drawable.green_shape_2_codemain_png);
-                codeflow11.setImageResource(R.drawable.green_shape_3_codemain_png);
-                codeflow12.setImageResource(R.drawable.green_shape_4_codemain_png);
+        if (requestCode == 100) {
+            if (resultCode == RESULT_OK) {
+                codeflow0.setImageResource(R.drawable.blue_shape_2_codemain_png);
+                codeflow1.setImageResource(R.drawable.purple_shape);
+                codeflow2.setImageResource(R.drawable.purple_rectangle);
+                codeflow3.setImageResource(R.drawable.purple_rectangle_two);
+                codeflow4.setImageResource(R.drawable.green_shape_2_codemain_png);
+                codeflow5.setImageResource(R.drawable.green_shape_3_codemain_png);
+                codeflow6.setImageResource(R.drawable.green_shape_4_codemain_png);
             }
         }
     }
-
 
     @Override
     int getNavigationMenuItemId() {
