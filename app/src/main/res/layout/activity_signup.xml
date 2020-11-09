@@ -36,7 +36,8 @@
         android:backgroundTint="#f5f5f5"
         android:background="@drawable/edittext_shape"
         android:hint="    PASSWORD"
-        android:textColorHint="#848484"/>
+        android:textColorHint="#848484"
+        android:inputType="textPassword"/>
 
     <Button
         android:layout_width="match_parent"
