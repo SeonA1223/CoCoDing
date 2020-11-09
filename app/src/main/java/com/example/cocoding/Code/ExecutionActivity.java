@@ -83,16 +83,13 @@ public class ExecutionActivity extends AppCompatActivity {
 
 
         final AnimatorSet animSet = new AnimatorSet();
-        ObjectAnimator left_snowball_move = ObjectAnimator.ofFloat(left_snowball, "translationX", 0, 500);
-        ObjectAnimator right_snowball_move = ObjectAnimator.ofFloat(right_snowball, "translationX", 0, -500);
+        ObjectAnimator left_snowball_move = ObjectAnimator.ofFloat(left_snowball, "translationX", 0, 400);
+        ObjectAnimator right_snowball_move = ObjectAnimator.ofFloat(right_snowball, "translationX", 0, -400);
         ObjectAnimator right_snowball_hide = ObjectAnimator.ofFloat(right_snowball, "alpha", 0);
         ObjectAnimator left_snowball_hide = ObjectAnimator.ofFloat(left_snowball, "alpha", 0);
 
-      //  left_speed = random.nextInt(1500 - 1000 + 1) + 1000;
-      //  right_speed = random.nextInt(1500 - 1000 + 1) + 1000;
-
-        left_speed = 1200;
-        right_speed = 1000;
+          left_speed = random.nextInt(1500 - 1000 + 1) + 1000;
+          right_speed = random.nextInt(1500 - 1000 + 1) + 1000;
 
         left_snowball_move.setDuration(left_speed);
         right_snowball_move.setDuration(right_speed);
@@ -106,9 +103,13 @@ public class ExecutionActivity extends AppCompatActivity {
         animSet.addListener(new AnimatorListenerAdapter() {
             int num = 7;
 
+
             @Override
             public void onAnimationEnd(Animator animation) {
                 if (num > 0) {
+
+                    left_speed = random.nextInt(1500 - 1000 + 1) + 1000;
+                    right_speed = random.nextInt(1500 - 1000 + 1) + 1000;
 
                     left_snowball_move.setDuration(left_speed);
                     right_snowball_move.setDuration(right_speed);
@@ -131,7 +132,7 @@ public class ExecutionActivity extends AppCompatActivity {
                                     imageview.setVisibility(View.INVISIBLE);
                                 }
 
-                                ObjectAnimator left_beaver_win = ObjectAnimator.ofFloat(left_beaver, "translationX", 0, 400);
+                                ObjectAnimator left_beaver_win = ObjectAnimator.ofFloat(left_beaver, "translationX", 0, 350);
                                 left_beaver_win.start();
                                 win.setVisibility(View.VISIBLE);
                                 return;
@@ -151,8 +152,8 @@ public class ExecutionActivity extends AppCompatActivity {
                                 for (ImageView imageview : right_hp) {
                                     imageview.setVisibility(View.INVISIBLE);
                                 }
-                               // right_beaver.setImageResource(R.drawable.execution_left_beaver_win);
-                                ObjectAnimator right_beaver_win = ObjectAnimator.ofFloat(right_beaver, "translationX", 0, -400);
+                                // right_beaver.setImageResource(R.drawable.execution_left_beaver_win);
+                                ObjectAnimator right_beaver_win = ObjectAnimator.ofFloat(right_beaver, "translationX", 0, -350);
                                 right_beaver_win.start();
                                 win.setVisibility(View.VISIBLE);
                                 return;

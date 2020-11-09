@@ -225,17 +225,16 @@ public class MakeFlowFragment extends Fragment {
                 flow_command_imageview1.setImageResource(R.drawable.color_two_initialize);
 
 
-             //   HorizontalScrollView horizontalScrollView =  new HorizontalScrollView(v.getContext());
-            //    linearLayout.addView(horizontalScrollView);
+                //   HorizontalScrollView horizontalScrollView =  new HorizontalScrollView(v.getContext());
+                //    linearLayout.addView(horizontalScrollView);
 //                ImageView imageView2 = new ImageView(v.getContext());
 //            imageView2.setImageResource(R.drawable.flow_color);
 //            linearLayout.addView(imageView2);
-        }
+            }
 
 
         }
     };
-
 
 
     public void makeTextView(Context context, int imageNumber) {
@@ -258,14 +257,16 @@ public class MakeFlowFragment extends Fragment {
                     flow_command_edittext = (EditText) linearLayout.findViewById(R.id.flow_command_edittext);
                     flow_command_imageview1.setOnClickListener(Command1_Click);
                     break;
-                case 4:
-                    layoutInflater.inflate(R.layout.flow_item_condition, linearLayout, true);
+                case 2:
                     layoutInflater.inflate(R.layout.flow_item_last, linearLayout, true);
-                    flow_condition_imageview = (ImageView) linearLayout.findViewById(R.id.flow_condition_imageview);
-                    flow_condition_edittext = (EditText) linearLayout.findViewById(R.id.flow_condition_edittext);
                     last1 = (ImageView) linearLayout.findViewById(R.id.last1);
                     last2 = (ImageView) linearLayout.findViewById(R.id.last2);
                     last3 = (ImageView) linearLayout.findViewById(R.id.last3);
+                    break;
+                case 4:
+                    layoutInflater.inflate(R.layout.flow_item_condition, linearLayout, true);
+                    flow_condition_imageview = (ImageView) linearLayout.findViewById(R.id.flow_condition_imageview);
+                    flow_condition_edittext = (EditText) linearLayout.findViewById(R.id.flow_condition_edittext);
                     flow_condition_imageview.setOnClickListener(ConditionClick);
                     break;
             }
