@@ -43,6 +43,8 @@
         <activity android:name=".CodeMainActivity"  android:parentActivityName=".MainActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
 
         <activity android:name=".Object.Object_List" android:parentActivityName=".ObjectActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Object.Object_List2" android:parentActivityName=".ObjectActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Object.Object_List3" android:parentActivityName=".ObjectActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
 
         <activity android:name=".Idea.Idea_Topic" android:parentActivityName=".IdeaActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".Idea.Idea_Topic_Content" android:parentActivityName=".IdeaActivity"  android:theme="@style/Theme.AppCompat.Light.NoActionBar" />

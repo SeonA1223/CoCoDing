@@ -86,6 +86,7 @@ public class ObjectActivity extends BaseActivity {
 //                oFragment.setStyle(STYLE_NO_TITLE, R.style.Theme_TransparentBack);
                 //ObjectFragment bottomSheet = new ObjectFragment();
                     oFragment.show(getSupportFragmentManager(), "exampleBottomSheet");
+
                 Bundle bundle = new Bundle(1); // 파라미터의 숫자는 전달하려는 값의 갯수
                 bundle.putInt("folderNum", folderNum);
                 oFragment.setArguments(bundle);

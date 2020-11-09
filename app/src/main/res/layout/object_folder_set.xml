@@ -26,6 +26,8 @@
         android:layout_alignTop="@id/listImage"
         android:layout_alignRight="@id/listImage"
         android:layout_alignBottom="@id/listImage"
+        android:fontFamily="@font/roboto_medium"
+        android:textSize="15sp"
         android:gravity="center"
         android:text="List Name"/>
     </RelativeLayout>

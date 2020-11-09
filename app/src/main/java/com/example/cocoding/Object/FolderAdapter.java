@@ -3,6 +3,7 @@ package com.example.cocoding.Object;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,8 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.cocoding.R;
 
 import java.util.ArrayList;
+
+import static android.content.ContentValues.TAG;
 
 public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder>{
 
@@ -72,20 +75,45 @@ public class FolderAdapter extends RecyclerView.Adapter<FolderAdapter.ViewHolder
                     if (pos != RecyclerView.NO_POSITION) {
                         // TODO : use pos.
 //                        Context context = v.getContext();
-                        Intent intent = new Intent(v.getContext(), Object_List.class);
-                        intent.putExtra("folderNum", 1);
-                        v.getContext().startActivity(intent);
+//                        Intent intent = new Intent(v.getContext(), Object_List.class);
+//                        intent.putExtra("folderNum", 1);
+//                        v.getContext().startActivity(intent);
                     }
+                }
+                public void longClick(View v){
+
                 }
             });
             listName.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     int pos = getAdapterPosition() ;
-                    if (pos != RecyclerView.NO_POSITION) {
-                        // TODO : use pos.
-
+                    Log.e(TAG, "folder"+pos);
+                    switch(pos) {
+                        case 0:
+                            Intent intent0 = new Intent(v.getContext(), Object_List.class);
+                            intent0.putExtra("folderNum", 1);
+                            v.getContext().startActivity(intent0);
+                            break;
+                        case 1:
+                            Intent intent1 = new Intent(v.getContext(), Object_List2.class);
+                            intent1.putExtra("folderNum", 2);
+                            v.getContext().startActivity(intent1);
+                            break;
+                        case 2:
+                            Intent intent2 = new Intent(v.getContext(), Object_List3.class);
+                            intent2.putExtra("folderNum", 2);
+                            v.getContext().startActivity(intent2);
+                            break;
                     }
+
+//                    if (pos != RecyclerView.NO_POSITION) {
+//                        // TODO : use pos.
+//                        Intent intent = new Intent(v.getContext(), Object_List.class);
+//                        intent.putExtra("folderNum", 1);
+//                        v.getContext().startActivity(intent);
+//
+//                    }
                 }
             });
         }
