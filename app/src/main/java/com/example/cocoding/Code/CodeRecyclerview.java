@@ -12,14 +12,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.cocoding.Code.Block.BlockItem;
-import com.example.cocoding.Code.Block.Caculation.Calculation;
+import com.example.cocoding.Code.Block.Operators.Operators;
 import com.example.cocoding.Code.Block.BlockItems;
 import com.example.cocoding.Code.Block.Control.Control;
 import com.example.cocoding.Code.Block.Event.Event;
 import com.example.cocoding.Code.Block.Motion.Motion;
 import com.example.cocoding.Code.Block.Object.Object;
 import com.example.cocoding.Code.Block.Looks.Looks;
-import com.example.cocoding.Code.Block.Variable.Variable;
+import com.example.cocoding.Code.Block.Variables.Variables;
 import com.example.cocoding.R;
 
 import java.util.ArrayList;
@@ -29,7 +29,7 @@ public class CodeRecyclerview extends Fragment {
     //viewpager 내에 보여지는 recyclerview
     RecyclerView recyclerView;
     Recyclerview_Code_ItemAdapter codeItemAdapter;
-    BlockItems Motion, Shape, Event, Control, Calculation, variable, Object; //data 모음
+    BlockItems Motion, Shape, Event, Control, Operators, variable, Object; //data 모음
     Context context;
     int position;
    ArrayList<BlockItem> arrayList; //RecyclerviewItem = image set 하는 class
@@ -81,8 +81,8 @@ public class CodeRecyclerview extends Fragment {
         Shape = new Looks();
         Event = new Event();
         Control = new Control();
-        Calculation = new Calculation();
-        variable = new Variable();
+        Operators = new Operators();
+        variable = new Variables();
         Object = new Object();
 
        GridLayoutManager gridLayoutManager = new GridLayoutManager(context, 1);
@@ -120,7 +120,7 @@ public class CodeRecyclerview extends Fragment {
                 break;
             case 5:
                 arrayList.clear();
-                arrayList.addAll(Calculation.getCodeBlocks());
+                arrayList.addAll(Operators.getCodeBlocks());
                 break;
             case 6:
                 arrayList.clear();

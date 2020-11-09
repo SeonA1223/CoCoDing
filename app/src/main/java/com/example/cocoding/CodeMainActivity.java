@@ -76,13 +76,13 @@ public class CodeMainActivity extends BaseActivity {
 
         if (requestCode == 100) {
             if (resultCode == RESULT_OK) {
-                codeflow0.setImageResource(R.drawable.blue_shape_1_codemain_png);
-                codeflow1.setImageResource(R.drawable.blue_shape_2_codemain_png);
-                codeflow2.setImageResource(R.drawable.purple_shape_1_codemain_png);
-                codeflow3.setImageResource(R.drawable.purple_shape_2_codemain_png);
+                codeflow0.setImageResource(R.drawable.blue_shape_2_codemain_png);
+                codeflow1.setImageResource(R.drawable.purple_shape);
+                codeflow2.setImageResource(R.drawable.purple_rectangle);
+                codeflow3.setImageResource(R.drawable.purple_rectangle_two);
                 codeflow4.setImageResource(R.drawable.green_shape_2_codemain_png);
                 codeflow5.setImageResource(R.drawable.green_shape_3_codemain_png);
-                codeflow5.setImageResource(R.drawable.green_shape_4_codemain_png);
+                codeflow6.setImageResource(R.drawable.green_shape_4_codemain_png);
             }
         }
     }

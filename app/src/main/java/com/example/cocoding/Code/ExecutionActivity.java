@@ -84,13 +84,15 @@ public class ExecutionActivity extends AppCompatActivity {
 
         final AnimatorSet animSet = new AnimatorSet();
         ObjectAnimator left_snowball_move = ObjectAnimator.ofFloat(left_snowball, "translationX", 0, 500);
-        ObjectAnimator right_snowball_move = ObjectAnimator.ofFloat(right_snowball, "translationX", 0, -400);
+        ObjectAnimator right_snowball_move = ObjectAnimator.ofFloat(right_snowball, "translationX", 0, -500);
         ObjectAnimator right_snowball_hide = ObjectAnimator.ofFloat(right_snowball, "alpha", 0);
         ObjectAnimator left_snowball_hide = ObjectAnimator.ofFloat(left_snowball, "alpha", 0);
 
-        left_speed = random.nextInt(1500 - 1000 + 1) + 1000;
-        right_speed = random.nextInt(1500 - 1000 + 1) + 1000;
+      //  left_speed = random.nextInt(1500 - 1000 + 1) + 1000;
+      //  right_speed = random.nextInt(1500 - 1000 + 1) + 1000;
 
+        left_speed = 1200;
+        right_speed = 1000;
 
         left_snowball_move.setDuration(left_speed);
         right_snowball_move.setDuration(right_speed);
@@ -107,11 +109,6 @@ public class ExecutionActivity extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animator animation) {
                 if (num > 0) {
-                    left_speed = random.nextInt(1500 - 1000 + 1) + 1000;
-                    right_speed = random.nextInt(1500 - 1000 + 1) + 1000;
-                    Log.d("Left_speed check", "" + left_speed);
-                    Log.d("right_speed check", "" + right_speed);
-
 
                     left_snowball_move.setDuration(left_speed);
                     right_snowball_move.setDuration(right_speed);
@@ -119,43 +116,43 @@ public class ExecutionActivity extends AppCompatActivity {
                     left_snowball.setX(0);
                     right_snowball.setX(0);
                     if (left_speed > right_speed) {
-                        if (!left_hp.empty()) {
-                            left_hp.peek().setVisibility(View.INVISIBLE);
-                            left_hp.pop();
+                        if (!right_hp.empty()) {
+                            right_hp.peek().setVisibility(View.INVISIBLE);
+                            right_hp.pop();
 
                             left_hp_count -= 1;
 
                             if (left_hp_count == 0) {
                                 right_beaver.setVisibility(View.INVISIBLE);
-                                left_hp_bar.setVisibility(View.INVISIBLE);
                                 right_hp_bar.setVisibility(View.INVISIBLE);
+                                left_hp_bar.setVisibility(View.INVISIBLE);
                                 vs.setVisibility(View.INVISIBLE);
-                                for (ImageView imageview : right_hp) {
+                                for (ImageView imageview : left_hp) {
                                     imageview.setVisibility(View.INVISIBLE);
                                 }
-                               // left_beaver.setImageResource(R.drawable.execution_left_beaver_win);
-                                ObjectAnimator left_beaver_win = ObjectAnimator.ofFloat(left_beaver, "translationX", 0, 270);
+
+                                ObjectAnimator left_beaver_win = ObjectAnimator.ofFloat(left_beaver, "translationX", 0, 400);
                                 left_beaver_win.start();
                                 win.setVisibility(View.VISIBLE);
                                 return;
                             }
                         }
                     } else {
-                        if (!right_hp.empty()) {
-                            right_hp.peek().setVisibility(View.INVISIBLE);
-                            right_hp.pop();
+                        if (!left_hp.empty()) {
+                            left_hp.peek().setVisibility(View.INVISIBLE);
+                            left_hp.pop();
 
                             right_hp_count -= 1;
                             if (right_hp_count == 0) {
                                 left_beaver.setVisibility(View.INVISIBLE);
-                                left_hp_bar.setVisibility(View.INVISIBLE);
                                 right_hp_bar.setVisibility(View.INVISIBLE);
+                                left_hp_bar.setVisibility(View.INVISIBLE);
                                 vs.setVisibility(View.INVISIBLE);
-                                for (ImageView imageview : left_hp) {
+                                for (ImageView imageview : right_hp) {
                                     imageview.setVisibility(View.INVISIBLE);
                                 }
                                // right_beaver.setImageResource(R.drawable.execution_left_beaver_win);
-                                ObjectAnimator right_beaver_win = ObjectAnimator.ofFloat(right_beaver, "translationX", 0, -270);
+                                ObjectAnimator right_beaver_win = ObjectAnimator.ofFloat(right_beaver, "translationX", 0, -400);
                                 right_beaver_win.start();
                                 win.setVisibility(View.VISIBLE);
                                 return;

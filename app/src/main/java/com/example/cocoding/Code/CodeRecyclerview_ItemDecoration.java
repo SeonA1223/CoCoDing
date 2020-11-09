@@ -18,7 +18,7 @@ public class CodeRecyclerview_ItemDecoration extends RecyclerView.ItemDecoration
 
     public CodeRecyclerview_ItemDecoration(Context context){
         size10 = dpToPx(context, 5);
-        size20 = dpToPx(context, 20);
+        size20 = dpToPx(context, 30);
 
     }
 
