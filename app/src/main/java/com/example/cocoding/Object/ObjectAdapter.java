@@ -3,6 +3,7 @@ package com.example.cocoding.Object;
 import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,16 +14,22 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.example.cocoding.MainActivity;
 import com.example.cocoding.ObjectActivity;
 import com.example.cocoding.R;
 
+import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolder> {
+
+    final String[] folderList = new String[] {"folder1", "folder2", "folder3"};
 
 
     //Fragment>oRecyclerView 에서 가져온 정보를 ObjectData형식으로 현 자바 파일 속 arraylist속에 차곡차곡 저장할거에요
@@ -69,6 +76,8 @@ public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolde
 
     // 아이템 뷰를 저장하는 뷰홀더 클래스.
     public class ViewHolder extends RecyclerView.ViewHolder {
+
+
         //보여줘야 하는 것들
         private TextView objectName;
         private ImageView userObjectImage;
@@ -84,11 +93,42 @@ public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolde
 
 
             userObjectImage.setOnClickListener(new View.OnClickListener() {
+                int selected = 0;
                 @Override
                 public void onClick(final View v) {
                     int pos = getAdapterPosition() ;
                     if (pos != RecyclerView.NO_POSITION) {
                         // TODO : 객체 클릭시 폴더에 넣는거 여기에 작업,,
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
+                        builder.setTitle("이미지 복사").setMessage("선택하세요.");
+                        new AlertDialog.Builder(v.getContext()).setTitle("Choose Folder").setSingleChoiceItems(folderList, -1, new DialogInterface.OnClickListener()
+                        { @Override public void onClick(DialogInterface dialog, int which)
+                        {
+                            Toast.makeText(v.getContext(), "saved folder : " + folderList[which], Toast.LENGTH_SHORT).show();
+                            selected = which;
+                        }
+                        })
+                                .setNeutralButton("closed",null)
+                                .setPositiveButton("OK",new DialogInterface.OnClickListener(){
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int a) {
+
+                                        Uri uri  = objectData.get(pos).getuserObjectImage();
+
+                                        DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
+                                        DatabaseReference conditionRef = mRootRef.child("object").child("folder"+(selected+1)).child("object1").child("object_uri");
+                                        conditionRef.setValue(uri.toString());
+                                        Toast.makeText(v.getContext(), "success" , Toast.LENGTH_SHORT).show();
+                                    }
+
+
+                                }
+                       )
+                                .setNegativeButton("cancel", null)
+                                .show();
+
+
 
 /*                        Bundle bundle = new Bundle();
                         //bundle.putParcelableArrayList(objectData.get(pos).toString(), objectData);
@@ -98,43 +138,6 @@ public class ObjectAdapter  extends RecyclerView.Adapter<ObjectAdapter.ViewHolde
 //                            folder[i] = "폴더"+i;
 //                        }
 
-                        AlertDialog.Builder builder = new AlertDialog.Builder(v.getContext());
-                        builder.setTitle("폴더1에 저장").setMessage("선택하세요.");
-
-
-                        builder.setItems(folder, new DialogInterface.OnClickListener(){
-                            @Override
-                            public void onClick(DialogInterface dialog, int pos)
-                            {
-                               // String[] items = getResources().getStringArray(R.array.LAN);
-
-                                Toast.makeText(v.getContext(),folder[pos],Toast.LENGTH_LONG).show();
-                            }
-                        });
-
-                        builder.setPositiveButton("OK", new DialogInterface.OnClickListener(){
-                            @Override
-                            public void onClick(DialogInterface dialog, int id)
-                            {
-                                pf.put("photo0", "1");
-                                db.collection("cocodingObject").document("Object_Folder")
-                                        .set(pf);
-                                Toast.makeText(v.getContext(), "저장 완료", Toast.LENGTH_SHORT).show();
-
-                            }
-                        });
-                        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener(){
-                            @Override
-                            public void onClick(DialogInterface dialog, int id)
-                            {
-                                Toast.makeText(v.getContext(), folderNum+"Cancel Click", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-
-
-
-                        AlertDialog alertDialog = builder.create();
-                        alertDialog.show();
                     }
 
                 }

@@ -1,19 +1,29 @@
 package com.example.cocoding.Object;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.example.cocoding.R;
 
@@ -26,6 +36,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ObjectFragment extends BottomSheetDialogFragment {
+
     private BottomSheetListener mListener;
 
     FirebaseFirestore db;
@@ -116,6 +127,7 @@ public class ObjectFragment extends BottomSheetDialogFragment {
 
         // 객체 추가하는 버튼
         FloatingActionButton addImage = (FloatingActionButton) view.findViewById(R.id.addImage);
+//        addImage.setSize(FloatingActionButton.SIZE_AUTO);
 
         //fab 속에 있는 addImage 버튼을 누르면 갤러리에서 이미지를 가지고옴
         addImage.setOnClickListener(new View.OnClickListener() {

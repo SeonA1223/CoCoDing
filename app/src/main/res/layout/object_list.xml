@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/colorBackground">
+    android:id="@+id/folder1"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/f1"
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
     <androidx.appcompat.widget.Toolbar
         xmlns:android="http://schemas.android.com/apk/res/android"
@@ -18,57 +27,125 @@
         android:id="@+id/object_toolbar">
 
         <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:layout_marginLeft="2dp"
             android:src="@drawable/teamateone_ideamain_icon" />
 
         <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:src="@drawable/teamatetwo_ideamain_icon" />
         <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:src="@drawable/teamatethree_ideamain_icon" />
 
         <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
             android:src="@drawable/teamatefour_ideamain_icon" />
 
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:layout_marginLeft="20dp"
-            android:src="@drawable/objectplus_objectmain_icon"
-            android:id="@+id/add_object"
-            android:background="@android:color/transparent"/>
-
-        <ImageButton
-            android:layout_width="60dp"
-            android:layout_height="60dp"
-            android:src="@drawable/folderplus_objectmain_icon"
-            android:id="@+id/add_folder"
-            android:background="@android:color/transparent"/>
 
 
 
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="22dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="26dp"
+        android:text="Folder 1"
+        android:layout_marginBottom="12dp"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="20sp"
+        android:id="@+id/test"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
         android:orientation="horizontal">
+
+    <ImageView
+        android:layout_width="72dp"
+        android:layout_height="73dp"
+        android:src="@drawable/objact_1"
+        android:id="@+id/image11"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="6.4dp"
+            android:layout_marginTop="7.1dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="16sp"
+                android:text="beaver1"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
+                android:textSize="13sp"
+                android:text="Beaver on the left side.\nHe throws bigger snowball."/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:orientation="horizontal">
+            <ImageView
+                android:layout_width="72dp"
+                android:layout_height="73dp"
+                android:src="@drawable/objact_2"
+                android:id="@+id/image12"/>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="6.4dp"
+                android:layout_marginTop="7.1dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="16sp"
+                    android:text="beaver2"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_medium"
+                    android:textSize="13sp"
+                    android:text="Beaver on the right side."/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        </LinearLayout>
+
 
     </LinearLayout>
 
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/image"/>
-
-
-
 </LinearLayout>
+
