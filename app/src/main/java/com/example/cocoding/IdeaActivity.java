@@ -61,7 +61,6 @@ public class IdeaActivity extends BaseActivity {
     TextView idea_topic_contents_textview;
     TextView idea_algorithm_textview;
 
-    int num = 2;
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference conditionRef = mRootRef.child("idea").child("idea_topic");
@@ -193,12 +192,8 @@ public class IdeaActivity extends BaseActivity {
         linearLayout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                final EditText editText = new EditText(this);
-//
-//                AlertDialog.Builder dlg = new AlertDialog.Builder(this);
-//                Intent intent = new Intent(getApplicationContext(), Idea_Algorithm.class);
-//                startActivity(intent);
-                show();
+                Intent intent = new Intent(getApplicationContext(), Idea_Algorithm.class);
+                startActivity(intent);
             }
         });
 
@@ -206,7 +201,6 @@ public class IdeaActivity extends BaseActivity {
     }
 
     void show() {
-        Log.d("값 체크", ""+ num);
 
         ImageView image2 = (ImageView) findViewById(R.id.gray);
         ImageView image3 = (ImageView) findViewById(R.id.gray2);
