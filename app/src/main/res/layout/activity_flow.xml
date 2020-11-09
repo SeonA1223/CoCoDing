@@ -40,10 +40,20 @@
                 android:layout_height="54dp"
                 android:src="@drawable/teamatethree_ideamain_icon" />
 
-            <ImageView
-                android:layout_width="54dp"
-                android:layout_height="54dp"
-                android:src="@drawable/teamatefour_ideamain_icon" />
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:src="@drawable/teamatefour_ideamain_icon" />
+                <ImageView
+                    android:layout_width="54dp"
+                    android:layout_height="54dp"
+                    android:src="@drawable/gray_teammate"/>
+
+            </RelativeLayout>
 
 
 

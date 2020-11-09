@@ -6,11 +6,14 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
 
 import com.example.cocoding.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -34,6 +37,14 @@ public class Object_List extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.object_list);
+
+        Toolbar mToolbar = (Toolbar) findViewById(R.id.object_toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setHomeAsUpIndicator(R.drawable.drawable_back_image_customise);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setTitle("");
+
+
 //
 //        db=FirebaseFirestore.getInstance();
 //
@@ -102,6 +113,17 @@ public class Object_List extends AppCompatActivity {
 //        });
 
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            }
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

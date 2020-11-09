@@ -17,15 +17,15 @@ public class Object extends BlockItems {
     BlockItem object_9;
 
     public Object() {
-        object_1 =  new BlockItem(R.drawable.objact_1);
-        object_2 = new BlockItem(R.drawable.objact_2);
-        object_3 = new BlockItem(R.drawable.objact_3);
-        object_4 = new BlockItem(R.drawable.objact_4);
-        object_5 = new BlockItem(R.drawable.objact_5);
-        object_6 = new BlockItem(R.drawable.objact_6);
-        object_7 = new BlockItem(R.drawable.objact_7);
-        object_8 = new BlockItem(R.drawable.objact_8);
-        object_9 = new BlockItem(R.drawable.objact_9);
+        object_1 =  new BlockItem(R.drawable.objact_block1);
+        object_2 = new BlockItem(R.drawable.objact_block2);
+        object_3 = new BlockItem(R.drawable.objact_block3);
+        object_4 = new BlockItem(R.drawable.objact_block4);
+        object_5 = new BlockItem(R.drawable.objact_block5);
+        object_6 = new BlockItem(R.drawable.objact_block6);
+        object_7 = new BlockItem(R.drawable.objact_block7);
+        object_8 = new BlockItem(R.drawable.objact_block8);
+        object_9 = new BlockItem(R.drawable.objact_block9);
 
             object_1.setID("left_beaver");
         object_2.setID("right_beaver");
