@@ -4,23 +4,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:id="@+id/edit_email"
-    android:hint="EMAIL"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="\nSign Up"
+        android:textAlignment="center"
+        android:fontFamily="@font/roboto_bold"
+        android:textSize="30sp"
+        android:textColor="#424242"/>
+
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/edit_email"
+        android:backgroundTint="#f5f5f5"
+        android:background="@drawable/edittext_shape"
+        android:hint="    EMAIL"
+        android:textColorHint="#848484"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
         android:id="@+id/edit_pass"
-        android:hint="PASSWORD"/>
+        android:backgroundTint="#f5f5f5"
+        android:background="@drawable/edittext_shape"
+        android:hint="    PASSWORD"
+        android:textColorHint="#848484"/>
 
     <Button
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/btn_join"
-        android:text="JOIN"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="J O I N"/>
 
 
 

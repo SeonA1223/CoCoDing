@@ -30,21 +30,47 @@
             android:layout_marginLeft="2dp"
             android:src="@drawable/teamateone_ideamain_icon" />
 
-        <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:src="@drawable/teamatetwo_ideamain_icon" />
-        <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:src="@drawable/teamatethree_ideamain_icon" />
+
+            <ImageView
+                android:id="@+id/gray"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/gray_teammate"/>
+
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/teamatethree_ideamain_icon" />
+            <ImageView
+                android:id="@+id/gray2"
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/gray_teammate"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/teamatefour_ideamain_icon" />
+            <ImageView
+                android:layout_width="54dp"
+                android:layout_height="54dp"
+                android:src="@drawable/gray_teammate"/>
+
+        </RelativeLayout>
+
 
         <ImageView
-            android:layout_width="54dp"
-            android:layout_height="54dp"
-            android:src="@drawable/teamatefour_ideamain_icon" />
-
-        <ImageView
+            android:id="@+id/mate_add"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginLeft="77dp"

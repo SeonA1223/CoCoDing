@@ -1,6 +1,8 @@
 package com.example.cocoding;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -15,8 +17,10 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -47,6 +51,7 @@ import java.util.Date;
 
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
+import androidx.fragment.app.DialogFragment;
 
 import static android.content.ContentValues.TAG;
 
@@ -56,10 +61,13 @@ public class IdeaActivity extends BaseActivity {
     TextView idea_topic_contents_textview;
     TextView idea_algorithm_textview;
 
+    int num = 2;
+
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference conditionRef = mRootRef.child("idea").child("idea_topic");
     DatabaseReference conditionRef1 = mRootRef.child("idea").child("idea_topic_content");
     DatabaseReference conditionRef2 = mRootRef.child("idea").child("idea_algorithm");
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,7 +82,8 @@ public class IdeaActivity extends BaseActivity {
         Log.e("come?", "[" + savedInstanceState + "]");
 
 
-        ImageView man = (ImageView)findViewById(R.id.man);
+        // ImageView man = (ImageView)findViewById(R.id.man);
+        ImageView mate_add = (ImageView) findViewById(R.id.mate_add);
 
         LinearLayout linearLayout = (LinearLayout) findViewById(R.id.idea_topic);
         LinearLayout linearLayout1 = (LinearLayout) findViewById(R.id.idea_topic_contents);
@@ -83,6 +92,15 @@ public class IdeaActivity extends BaseActivity {
         idea_topic_textview = (TextView) findViewById(R.id.idea_topic_textview);
         idea_topic_contents_textview = (TextView) findViewById(R.id.idea_topic_contents_textview);
         idea_algorithm_textview = (TextView) findViewById(R.id.idea_algorithm_textview);
+
+        mate_add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                show();
+
+            }
+        });
+
 
         conditionRef.addValueEventListener(new ValueEventListener() {
             @Override
@@ -175,13 +193,53 @@ public class IdeaActivity extends BaseActivity {
         linearLayout2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), Idea_Algorithm.class);
-                startActivity(intent);
+//                final EditText editText = new EditText(this);
+//
+//                AlertDialog.Builder dlg = new AlertDialog.Builder(this);
+//                Intent intent = new Intent(getApplicationContext(), Idea_Algorithm.class);
+//                startActivity(intent);
+                show();
             }
         });
 
 
+    }
 
+    void show() {
+        Log.d("값 체크", ""+ num);
+
+        ImageView image2 = (ImageView) findViewById(R.id.gray);
+        ImageView image3 = (ImageView) findViewById(R.id.gray2);
+
+
+        final EditText edittext = new EditText(this);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Teammate Invitation");
+        builder.setMessage("Input teammate's email");
+        builder.setView(edittext);
+        builder.setPositiveButton("SEND",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        String a = edittext.getText().toString();
+                        Toast.makeText(getApplicationContext(), "Invite " + a, Toast.LENGTH_LONG).show();
+
+                        if (a.equals("seona@naver.com")) {
+                            image2.setImageResource(R.drawable.teamatetwo_ideamain_icon);
+                        }else if(a.equals("inyeong@naver.com")){
+                            image2.setImageResource(R.drawable.teamatetwo_ideamain_icon);
+                            image3.setImageResource(R.drawable.teamatethree_ideamain_icon);
+                        }
+
+                    }
+                });
+        builder.setNegativeButton("CANCEL",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+
+                    }
+                });
+        builder.show();
     }
 
 
@@ -197,16 +255,15 @@ public class IdeaActivity extends BaseActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case android.R.id.home:{ //toolbar의 back키 눌렀을 때 동작
-               // finish();
+        switch (item.getItemId()) {
+            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
+                // finish();
                 NavUtils.navigateUpFromSameTask(this);
                 return true;
             }
         }
         return super.onOptionsItemSelected(item);
     }
-
 
 
 }

@@ -4,17 +4,42 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/logedit_email"
-        android:hint="EMAIL"/>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="\nLog In"
+            android:textAlignment="center"
+            android:fontFamily="@font/roboto_bold"
+            android:textSize="30sp"
+            android:textColor="#424242"/>
+
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginRight="16dp"
+        android:id="@+id/logedit_email"
+        android:backgroundTint="#f5f5f5"
+        android:background="@drawable/edittext_shape"
+        android:hint="    EMAIL"
+        android:textColorHint="#848484"/>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="16dp"
         android:id="@+id/logedit_pass"
-        android:hint="PASSWORD"/>
+        android:backgroundTint="#f5f5f5"
+        android:background="@drawable/edittext_shape"
+        android:hint="    PASSWORD"
+        android:textColorHint="#848484"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,15 +49,27 @@
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/btn_login"
-        android:text="LOG IN"/>
+        android:layout_marginLeft="75dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="   LOG IN   "/>
 
     <Button
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:id="@+id/btn_sign"
-        android:text="SIGN UP"/>
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:textSize="17sp"
+        android:fontFamily="@font/roboto_bold"
+        android:text="  SIGN UP  "/>
 
     </LinearLayout>
 
