@@ -17,6 +17,7 @@
     </ImageView>
 
     <EditText
+        android:id="@+id/arg1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:cursorVisible="false"
@@ -28,6 +29,7 @@
         app:layout_constraintVertical_bias="0.571" />
 
     <EditText
+        android:id="@+id/arg2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:cursorVisible="false"

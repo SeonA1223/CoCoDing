@@ -49,16 +49,19 @@ public class Looks extends BlockItems {
 
         looks_stop = new Show(R.drawable.looks_stop);
 
+        CodeBlocks.add(looks_show);
+        CodeBlocks.add(looks_hide);
         CodeBlocks.add(looks_change_scale);
         CodeBlocks.add(looks_go_backward);
         CodeBlocks.add(looks_go_forward);
         CodeBlocks.add(looks_go_very_front);
         CodeBlocks.add(looks_say);
-        CodeBlocks.add(looks_hide);
         CodeBlocks.add(looks_set_scale);
-        CodeBlocks.add(looks_show);
         CodeBlocks.add(looks_stop);
 
+        for(BlockItem blockItem : CodeBlocks){
+            blockItem.setType("Looks");
+        }
     }
 
 

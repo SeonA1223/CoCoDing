@@ -3,15 +3,18 @@ package com.example.cocoding;
 import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.ClipDescription;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 
 import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.Display;
+import android.view.DragAndDropPermissions;
 import android.view.DragEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -27,59 +30,53 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.cocoding.Code.Block.BlockItem;
+import com.example.cocoding.Code.Block.Execution;
 import com.example.cocoding.Code.CodeBlockPage;
 import com.example.cocoding.Code.CodeRecyclerviewToPage;
+import com.example.cocoding.Code.ExecutionEachActivity;
 
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage {
+@RequiresApi(api = Build.VERSION_CODES.N)
+public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewToPage {
 
     ImageView code_shape; //버튼 클릭시 CodeBlockPage fragment 뜸
-    LinearLayout linearLayout;
+    //LinearLayout linearLayout;
+    ConstraintLayout constraintLayout, parent_constrainLayout;
     CodeBlockPage codeBlockPage;
-    LinkedList<BlockItem> BlockDB;
 
     ScrollView scrollView;
     float fromX, fromY;
-    ImageView selected_Image;
+    ImageView selected_Image, execution;
     ConstraintLayout selected_constraintLayout;
     String tag;
     int id = 0;
+    int count = 0;
+
+    ArrayList<BlockItem> BlockDB, ObjectDB, AllDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_code);
+
         code_shape = (ImageView) findViewById(R.id.code_block);
-        linearLayout = (LinearLayout) findViewById(R.id.code_container);
-//        scrollView = (ScrollView) findViewById(R.id.vertical_view);
-
-        Display display = getWindowManager().getDefaultDisplay();
-        Point size = new Point();
-        display.getRealSize(size);
-        int height = size.y;
-        int width = size.x;
-
-        linearLayout.setMinimumHeight(width);
-        linearLayout.setMinimumWidth(height);
-        linearLayout.setOnDragListener(mDragListener);
-
-
+        constraintLayout = (ConstraintLayout) findViewById(R.id.code_container);
+        parent_constrainLayout = (ConstraintLayout) findViewById(R.id.code_main_container);
+        execution = (ImageView) findViewById(R.id.execution_each);
+        constraintLayout.setOnDragListener(mDragListener);
         Intent intent = getIntent();
         boolean check = intent.getBooleanExtra("block_button", true);
 
-        Log.d("check", "[" + check);
-
-//        if (check == false) {
-//            linearLayout.set
-//            code_shape.setVisibility(View.INVISIBLE);
-//            linearLayout.setBackgroundResource(R.drawable.code_coding1);
-//        }
 
         Toolbar mmToolbar = (Toolbar) findViewById(R.id.code_toolbar);
         setSupportActionBar(mmToolbar);
@@ -87,77 +84,61 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
+       BlockDB = new ArrayList<>();
+       ObjectDB = new ArrayList<>();
+       AllDB = new ArrayList<>();
 
-        BlockDB = new LinkedList<>();
+        execution.setOnClickListener(new Button.OnClickListener(){
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), ExecutionEachActivity.class);
+                if(count > 4) count = 4;
+                if(!AllDB.isEmpty()) {
+                    intent.putExtra("count", count);
+                    startActivity(intent);
+                    Log.d("count", ": " + count);
+                    count++;
+                }
+            }
+        });
 
         codeBlockPage = new CodeBlockPage();
-
-//        if(!BlockDB.isEmpty()){
-//            horizontalScrollView = new HorizontalScrollView(this);
-//            horizontalScrollView.setMinimumHeight(height);
-//            scrollView.addView(horizontalScrollView);
-//        }
-
         code_shape.setOnClickListener(new Button.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-//                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-//                transaction.add(R.id.content, codeBlockPage);
-//                transaction.commit();
                 codeBlockPage.show(getSupportFragmentManager(), "check");
 
             }
         });
     }
 
-    @Override
-    int getNavigationMenuItemId() {
-        return R.id.navigation_code;
-    }
-
-    @Override
-    int getContentViewId() {
-        return R.layout.activity_code;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home: { //toolbar의 back키 눌렀을 때 동작
-                setResult(RESULT_OK);
-                finish();
-                return true;
-            }
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void getBlockImage(BlockItem blockItem) {
         if (blockItem.getID().equals("Set")) {
-            LayoutInflater mInflater = (LayoutInflater) getSystemService(LAYOUT_INFLATER_SERVICE);
+            int layout = blockItem.getLayout();
+            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            inflater.inflate(layout, constraintLayout, true);
 
-            mInflater.inflate(R.layout.setxy, linearLayout, true);
-
-            ConstraintLayout constraintLayout = (ConstraintLayout) linearLayout.findViewById(R.id.setXY);
-            constraintLayout.setTag(blockItem.getID() + id);
+            ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.setXY);
+            blockLayout.setTag(blockItem.getID() + id);
             id++;
 
-            constraintLayout.setOnTouchListener(new View.OnTouchListener() {
+            blockLayout.setOnTouchListener(new View.OnTouchListener() {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     int action = motionEvent.getAction();
+                    Log.d("check", "same?");
                     switch (action) {
                         case MotionEvent.ACTION_DOWN:
                             if (view != null) {
                                 tag = view.getTag().toString();
                                 ClipData.Item item = new ClipData.Item(tag);
                                 ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
-                                fromX = motionEvent.getX();
-                                fromY = motionEvent.getY();
+//                                fromX = motionEvent.getX();
+//                                fromY = motionEvent.getY();
                                 View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                     view.startDragAndDrop(dragData, builder, null, 0);
@@ -173,18 +154,12 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
                 }
             });
 
-            blockItem.setConstraintLayout(constraintLayout);
-            BlockDB.add(blockItem);
+            blockItem.setConstraintLayout(blockLayout);
+            AllDB.add(blockItem);
             //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
         } else {
             ImageView imageView = new ImageView(this);
-
-
             imageView.setImageResource(blockItem.getBlockImage());
-
-
-            linearLayout.addView(imageView);
-
             imageView.setTag(blockItem.getID() + id);
             id++;
             imageView.setOnTouchListener(new View.OnTouchListener() {
@@ -197,8 +172,6 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
                                 tag = view.getTag().toString();
                                 ClipData.Item item = new ClipData.Item(tag);
                                 ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
-                                fromX = motionEvent.getX();
-                                fromY = motionEvent.getY();
                                 View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
                                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                                     view.startDragAndDrop(dragData, builder, null, 0);
@@ -214,19 +187,23 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
                 }
             });
 
+            constraintLayout.addView(imageView);
             blockItem.setImage(imageView);
-            BlockDB.add(blockItem); //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
-
+            if(blockItem.getType().equals("Object")){
+                ObjectDB.add(blockItem);
+                AllDB.add(blockItem);
+            }else {
+                BlockDB.add(blockItem); //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
+                AllDB.add(blockItem);
+            }
         }
-
-
     }
 
     View.OnDragListener mDragListener = (view, dragEvent) -> {
         int id = view.getId();
         Log.d("tag", tag);
         int action = dragEvent.getAction();
-        for (BlockItem Tag : BlockDB) {
+        for (BlockItem Tag : AllDB) {
             if (Tag.getImage() != null) {
                 if (Tag.getImage().getTag() == tag) {
                     selected_Image = Tag.getImage();
@@ -244,20 +221,23 @@ public class CodeActivity extends BaseActivity implements CodeRecyclerviewToPage
                 if (selected_Image != null) {
                     float x = dragEvent.getX() - ((float) selected_Image.getWidth() / 2);
                     float y = dragEvent.getY() - ((float) selected_Image.getHeight() / 2);
+                    Log.d("value check", "" + x + "and " + y);
                     selected_Image.setX(x);
                     selected_Image.setY(y);
-                } else {
-                    float x = dragEvent.getX() - ((float) selected_constraintLayout.getWidth() / 2);
-                    float y = dragEvent.getY() - ((float) selected_constraintLayout.getHeight() / 2);
-                    selected_constraintLayout.setX(x);
-                    selected_constraintLayout.setY(y);
+                    selected_Image = null;
+                } else if  (selected_constraintLayout != null){
+                    float a = dragEvent.getX() - ((float) selected_constraintLayout.getWidth() / 2);
+                    float b = dragEvent.getY() - ((float) selected_constraintLayout.getHeight() / 2);
+                    selected_constraintLayout.setX(a);
+                    selected_constraintLayout.setY(b);
+                    Log.d("constraint check", "" + a + "and " + b);
+                    selected_constraintLayout = null;
                 }
             }
         }
 
         return true;
     };
-
 }
 //        if(BlockDB != null) {
 //            Log.d("이미지 들어가는지 확인", "1");

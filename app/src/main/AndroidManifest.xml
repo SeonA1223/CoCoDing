@@ -32,6 +32,8 @@
 
         <activity android:name=".CodeActivity2" android:theme="@style/Theme.AppCompat.Light.NoActionBar"  />
 
+        <activity android:name=".Code.ExecutionEachActivity" android:theme="@style/Theme.AppCompat.Light.NoActionBar"  />
+
 
 
         <activity

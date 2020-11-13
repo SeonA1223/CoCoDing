@@ -62,7 +62,9 @@ public class Event extends BlockItems {
         CodeBlocks.add(event_send_signal);
         CodeBlocks.add(event_send_signal_andwait);
 
-
+        for(BlockItem blockItem : CodeBlocks){
+            blockItem.setType("Event");
+        }
     }
 
 }

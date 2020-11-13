@@ -17,12 +17,17 @@ public class Motion extends BlockItems {
         motion_rotate_right = new Rotate_Right(R.drawable.motion_rotate_right);
         motion_change = new Change(R.drawable.motion_change);
         motion_set = new Set(R.drawable.motion_set);
+        motion_set.setLayout(R.layout.setxy);
 
         CodeBlocks.add(motion_set);
+        CodeBlocks.add(motion_change);
         CodeBlocks.add(motion_rotate_left);
         CodeBlocks.add(motion_rotate_right);
-        CodeBlocks.add(motion_change);
 
+
+        for(BlockItem blockItem : CodeBlocks){
+            blockItem.setType("Motion");
+        }
 
 
     }

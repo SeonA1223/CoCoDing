@@ -27,7 +27,7 @@ public class Object extends BlockItems {
         object_8 = new BlockItem(R.drawable.objact_block8);
         object_9 = new BlockItem(R.drawable.objact_block9);
 
-            object_1.setID("left_beaver");
+        object_1.setID("left_beaver");
         object_2.setID("right_beaver");
         object_3.setID("win");
         object_4.setID("vs");
@@ -36,6 +36,7 @@ public class Object extends BlockItems {
         object_7.setID("hp_bar");
         object_8.setID("hp");
         object_9.setID("background");
+
 //
 //
 
@@ -52,6 +53,9 @@ public class Object extends BlockItems {
         CodeBlocks.add(object_8);
         CodeBlocks.add(object_9);
 
+        for(BlockItem blockItem : CodeBlocks){
+            blockItem.setType("Object");
+        }
     }
 
 

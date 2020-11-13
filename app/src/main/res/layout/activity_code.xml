@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/container"
+    android:id="@+id/code_main_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -33,20 +33,11 @@
             android:layout_height="54dp"
             android:src="@drawable/teamatethree_ideamain_icon" />
 
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:src="@drawable/gray_teammate" />
 
-            <ImageView
-                android:layout_width="54dp"
-                android:layout_height="54dp"
-                android:src="@drawable/teamatefour_ideamain_icon" />
-            <ImageView
-                android:layout_width="54dp"
-                android:layout_height="54dp"
-                android:src="@drawable/gray_teammate"/>
-
-        </RelativeLayout>
 
         <ImageView
             android:id="@+id/code_block"
@@ -56,6 +47,7 @@
             android:src="@drawable/playbutton_coding_pressed" />
 
         <ImageView
+            android:id="@+id/execution_each"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/playbutton_codemain_icon" />
@@ -63,31 +55,24 @@
 
     </androidx.appcompat.widget.Toolbar>
 
-    
-
-    <ScrollView
-        android:id="@+id/vertical_view"
-        android:layout_width="match_parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/code_container"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/include"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/code_toolbar"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/code_toolbar" />
 
-            <LinearLayout
-                android:id="@+id/code_container"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical" />
-
-
-    </ScrollView>
 
     <include
+        android:id="@+id/include"
         layout="@layout/element_bottom_navigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
