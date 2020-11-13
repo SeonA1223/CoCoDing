@@ -114,15 +114,20 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
         });
     }
 
+
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     public void getBlockImage(BlockItem blockItem) {
+        LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
         if (blockItem.getID().equals("Set")) {
             int layout = blockItem.getLayout();
-            LayoutInflater inflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
             inflater.inflate(layout, constraintLayout, true);
 
             ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.setXY);
+
             blockLayout.setTag(blockItem.getID() + id);
             id++;
 
@@ -157,7 +162,130 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
             blockItem.setConstraintLayout(blockLayout);
             AllDB.add(blockItem);
             //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
-        } else {
+        }else if (blockItem.getID().equals("Rotate_Right")) {
+            int layout = blockItem.getLayout();
+
+            inflater.inflate(layout, constraintLayout, true);
+
+            ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.rotate_right);
+
+            blockLayout.setTag(blockItem.getID() + id);
+            id++;
+
+            blockLayout.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    int action = motionEvent.getAction();
+                    Log.d("check", "same?");
+                    switch (action) {
+                        case MotionEvent.ACTION_DOWN:
+                            if (view != null) {
+                                tag = view.getTag().toString();
+                                ClipData.Item item = new ClipData.Item(tag);
+                                ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
+//                                fromX = motionEvent.getX();
+//                                fromY = motionEvent.getY();
+                                View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    view.startDragAndDrop(dragData, builder, null, 0);
+                                } else {
+                                    view.startDrag(dragData, builder, null, 0);
+                                }
+                            }
+
+                            break;
+                    }
+                    return view.performClick();
+
+                }
+            });
+
+            blockItem.setConstraintLayout(blockLayout);
+            AllDB.add(blockItem);
+            //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
+        }else if (blockItem.getID().equals("Rotate_Left")) {
+            int layout = blockItem.getLayout();
+
+            inflater.inflate(layout, constraintLayout, true);
+
+            ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.rotate_left);
+
+            blockLayout.setTag(blockItem.getID() + id);
+            id++;
+
+            blockLayout.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    int action = motionEvent.getAction();
+                    Log.d("check", "same?");
+                    switch (action) {
+                        case MotionEvent.ACTION_DOWN:
+                            if (view != null) {
+                                tag = view.getTag().toString();
+                                ClipData.Item item = new ClipData.Item(tag);
+                                ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
+//                                fromX = motionEvent.getX();
+//                                fromY = motionEvent.getY();
+                                View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    view.startDragAndDrop(dragData, builder, null, 0);
+                                } else {
+                                    view.startDrag(dragData, builder, null, 0);
+                                }
+                            }
+
+                            break;
+                    }
+                    return view.performClick();
+
+                }
+            });
+
+            blockItem.setConstraintLayout(blockLayout);
+            AllDB.add(blockItem);
+            //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
+        }else if (blockItem.getID().equals("Change")) {
+            int layout = blockItem.getLayout();
+
+            inflater.inflate(layout, constraintLayout, true);
+
+            ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.changexy);
+
+            blockLayout.setTag(blockItem.getID() + id);
+            id++;
+
+            blockLayout.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    int action = motionEvent.getAction();
+                    Log.d("check", "same?");
+                    switch (action) {
+                        case MotionEvent.ACTION_DOWN:
+                            if (view != null) {
+                                tag = view.getTag().toString();
+                                ClipData.Item item = new ClipData.Item(tag);
+                                ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
+//                                fromX = motionEvent.getX();
+//                                fromY = motionEvent.getY();
+                                View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    view.startDragAndDrop(dragData, builder, null, 0);
+                                } else {
+                                    view.startDrag(dragData, builder, null, 0);
+                                }
+                            }
+
+                            break;
+                    }
+                    return view.performClick();
+
+                }
+            });
+
+            blockItem.setConstraintLayout(blockLayout);
+            AllDB.add(blockItem);
+            //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
+        }else {
             ImageView imageView = new ImageView(this);
             imageView.setImageResource(blockItem.getBlockImage());
             imageView.setTag(blockItem.getID() + id);
