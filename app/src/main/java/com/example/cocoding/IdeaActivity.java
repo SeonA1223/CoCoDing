@@ -61,6 +61,8 @@ public class IdeaActivity extends BaseActivity {
     TextView idea_topic_contents_textview;
     TextView idea_algorithm_textview;
 
+    int user_number = 4;
+
 
     DatabaseReference mRootRef = FirebaseDatabase.getInstance().getReference();
     DatabaseReference conditionRef = mRootRef.child("idea").child("idea_topic");

@@ -165,7 +165,7 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
         }else if (blockItem.getID().equals("Rotate_Right")) {
             int layout = blockItem.getLayout();
 
-            inflater.inflate(layout, constraintLayout, true);
+            inflater.inflate(R.layout.rotate_right, constraintLayout, true);
 
             ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.rotate_right);
 
@@ -206,7 +206,7 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
         }else if (blockItem.getID().equals("Rotate_Left")) {
             int layout = blockItem.getLayout();
 
-            inflater.inflate(layout, constraintLayout, true);
+            inflater.inflate(R.layout.rotate_left, constraintLayout, true);
 
             ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.rotate_left);
 
@@ -245,9 +245,9 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
             AllDB.add(blockItem);
             //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
         }else if (blockItem.getID().equals("Change")) {
-            int layout = blockItem.getLayout();
+            //int layout = blockItem.getLayout();
 
-            inflater.inflate(layout, constraintLayout, true);
+            inflater.inflate(R.layout.changexy, constraintLayout, true);
 
             ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.changexy);
 
@@ -286,52 +286,11 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
             AllDB.add(blockItem);
             //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
         }else if (blockItem.getID().equals("playClicked")) {
-            int layout = blockItem.getLayout();
+          //  int layout = blockItem.getLayout();
 
-            inflater.inflate(layout, constraintLayout, true);
+            inflater.inflate(R.layout.play_click, constraintLayout, true);
 
             ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.play_click);
-
-            blockLayout.setTag(blockItem.getID() + id);
-            id++;
-
-            blockLayout.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View view, MotionEvent motionEvent) {
-                    int action = motionEvent.getAction();
-                    Log.d("check", "same?");
-                    switch (action) {
-                        case MotionEvent.ACTION_DOWN:
-                            if (view != null) {
-                                tag = view.getTag().toString();
-                                ClipData.Item item = new ClipData.Item(tag);
-                                ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
-//                                fromX = motionEvent.getX();
-//                                fromY = motionEvent.getY();
-                                View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                                    view.startDragAndDrop(dragData, builder, null, 0);
-                                } else {
-                                    view.startDrag(dragData, builder, null, 0);
-                                }
-                            }
-
-                            break;
-                    }
-                    return view.performClick();
-
-                }
-            });
-
-            blockItem.setConstraintLayout(blockLayout);
-            AllDB.add(blockItem);
-            //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
-        }else if (blockItem.getID().equals("left_beaver")) {
-            int layout = blockItem.getLayout();
-
-            inflater.inflate(layout, constraintLayout, true);
-
-            ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.object_block);
 
             blockLayout.setTag(blockItem.getID() + id);
             id++;
@@ -413,18 +372,21 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
         int id = view.getId();
         Log.d("tag", tag);
         int action = dragEvent.getAction();
-        for (BlockItem Tag : AllDB) {
-            if (Tag.getImage() != null) {
-                if (Tag.getImage().getTag() == tag) {
-                    selected_Image = Tag.getImage();
-                    Log.d("test1", "[" + Tag + "]");
-                    Log.d("test2", "[" + Tag.getCode() + "]");
+        if(action == DragEvent.ACTION_DRAG_STARTED){
+            for (BlockItem Tag : AllDB) {
+                if (Tag.getImage() != null) {
+                    if (Tag.getImage().getTag() == tag) {
+                        selected_Image = Tag.getImage();
+                        Log.d("test1", "[" + Tag + "]");
+                        Log.d("test2", "[" + Tag.getCode() + "]");
+                    }
+                } else {
+                    if (Tag.getConstraintLayout().getTag() == tag)
+                        selected_constraintLayout = Tag.getConstraintLayout();
                 }
-            } else {
-                if (Tag.getConstraintLayout().getTag() == tag)
-                    selected_constraintLayout = Tag.getConstraintLayout();
             }
         }
+
 
         if (action == DragEvent.ACTION_DROP) {
             if (id == R.id.code_container) {

@@ -37,15 +37,15 @@ public class ExecutionEachActivity extends AppCompatActivity implements Executio
         linearLayout.addView(imageView);
 
         if (count == 0) {
-            imageView.setX(-100);
-            imageView.setY(-100);
+            imageView.setX(0);
+            imageView.setY(0);
         } else if (count == 1) {
             imageView.setX(200);
             imageView.setY(200);
         } else if (count == 2) {
             imageView.setX(200);
             imageView.setY(200);
-            ObjectAnimator translationY = ObjectAnimator.ofFloat(imageView, "translationY", 0, 500);
+            ObjectAnimator translationY = ObjectAnimator.ofFloat(imageView, "translationY", 0, 700);
             translationY.setDuration(1000);
             ObjectAnimator translationX = ObjectAnimator.ofFloat(imageView, "translationX", 0, 300);
             translationX.setDuration(1000);
@@ -55,32 +55,30 @@ public class ExecutionEachActivity extends AppCompatActivity implements Executio
         } else if (count == 3) {
             imageView.setX(200);
             imageView.setY(200);
-            ObjectAnimator translationY = ObjectAnimator.ofFloat(imageView, "translationY", 0, 500);
+            AnimatorSet animatorSet = new AnimatorSet();
+            ObjectAnimator translationY = ObjectAnimator.ofFloat(imageView, "translationY", 0, 700);
             translationY.setDuration(1000);
             ObjectAnimator translationX = ObjectAnimator.ofFloat(imageView, "translationX", 0, 300);
             translationX.setDuration(1000);
-
+            animatorSet.playTogether(translationX, translationY);
             ObjectAnimator rotation = ObjectAnimator.ofFloat(imageView, "rotation", 180);
             rotation.setDuration(1000);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(translationX, translationY);
-            animatorSet.playSequentially(rotation);
+            animatorSet.playSequentially(translationY, rotation);
             animatorSet.start();
         } else {
             imageView.setX(200);
             imageView.setY(200);
-            ObjectAnimator translationY = ObjectAnimator.ofFloat(imageView, "translationY", 0, 500);
+            AnimatorSet animatorSet = new AnimatorSet();
+            ObjectAnimator translationY = ObjectAnimator.ofFloat(imageView, "translationY", 0, 700);
             translationY.setDuration(1000);
             ObjectAnimator translationX = ObjectAnimator.ofFloat(imageView, "translationX", 0, 300);
             translationX.setDuration(1000);
-
+            animatorSet.playTogether(translationX, translationY);
             ObjectAnimator rotation = ObjectAnimator.ofFloat(imageView, "rotation", 180);
             rotation.setDuration(1000);
-
+            animatorSet.playSequentially(translationY, rotation);
             ObjectAnimator translation = ObjectAnimator.ofFloat(imageView, "alpha", 0);
             translation.setDuration(1000);
-            AnimatorSet animatorSet = new AnimatorSet();
-            animatorSet.playTogether(translationX, translationY);
             animatorSet.playSequentially(rotation, translation);
             animatorSet.start();
         }

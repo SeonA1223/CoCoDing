@@ -10,6 +10,6 @@ public class Hide extends BlockItem {
 
     @Override
     public String getID() {
-        return "Change";
+        return "hide";
     }
 }

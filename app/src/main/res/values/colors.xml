@@ -4,8 +4,9 @@
     <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#03DAC5</color>
     <color name="colorBackground">#FFFFFF</color>
-
-
+    <color name="userColor_blue">#5F8DFF</color>
+    <color name="userColor_purple">#ADA9FF</color>
+    <color name="userColor_green">#78EA83</color>
 
 
 </resources>
