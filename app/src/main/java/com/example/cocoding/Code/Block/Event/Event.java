@@ -43,6 +43,7 @@ public class Event extends BlockItems {
         event_object_clicked_start = new Object_Clicked_Start(R.drawable.event_object_clicked_start);
 
         event_play_clicked = new Play_Clicked(R.drawable.event_play_clicked);
+        event_play_clicked.setLayout(R.id.play_click);
 
         event_receive_signal = new Receive_Signal(R.drawable.event_receive_signal);
 

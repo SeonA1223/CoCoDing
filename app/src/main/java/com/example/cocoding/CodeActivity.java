@@ -285,6 +285,88 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
             blockItem.setConstraintLayout(blockLayout);
             AllDB.add(blockItem);
             //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
+        }else if (blockItem.getID().equals("playClicked")) {
+            int layout = blockItem.getLayout();
+
+            inflater.inflate(layout, constraintLayout, true);
+
+            ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.play_click);
+
+            blockLayout.setTag(blockItem.getID() + id);
+            id++;
+
+            blockLayout.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    int action = motionEvent.getAction();
+                    Log.d("check", "same?");
+                    switch (action) {
+                        case MotionEvent.ACTION_DOWN:
+                            if (view != null) {
+                                tag = view.getTag().toString();
+                                ClipData.Item item = new ClipData.Item(tag);
+                                ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
+//                                fromX = motionEvent.getX();
+//                                fromY = motionEvent.getY();
+                                View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    view.startDragAndDrop(dragData, builder, null, 0);
+                                } else {
+                                    view.startDrag(dragData, builder, null, 0);
+                                }
+                            }
+
+                            break;
+                    }
+                    return view.performClick();
+
+                }
+            });
+
+            blockItem.setConstraintLayout(blockLayout);
+            AllDB.add(blockItem);
+            //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
+        }else if (blockItem.getID().equals("left_beaver")) {
+            int layout = blockItem.getLayout();
+
+            inflater.inflate(layout, constraintLayout, true);
+
+            ConstraintLayout blockLayout = (ConstraintLayout) constraintLayout.findViewById(R.id.object_block);
+
+            blockLayout.setTag(blockItem.getID() + id);
+            id++;
+
+            blockLayout.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+                    int action = motionEvent.getAction();
+                    Log.d("check", "same?");
+                    switch (action) {
+                        case MotionEvent.ACTION_DOWN:
+                            if (view != null) {
+                                tag = view.getTag().toString();
+                                ClipData.Item item = new ClipData.Item(tag);
+                                ClipData dragData = new ClipData(tag, new String[]{ClipDescription.MIMETYPE_TEXT_PLAIN}, item);
+//                                fromX = motionEvent.getX();
+//                                fromY = motionEvent.getY();
+                                View.DragShadowBuilder builder = new View.DragShadowBuilder(view);
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                                    view.startDragAndDrop(dragData, builder, null, 0);
+                                } else {
+                                    view.startDrag(dragData, builder, null, 0);
+                                }
+                            }
+
+                            break;
+                    }
+                    return view.performClick();
+
+                }
+            });
+
+            blockItem.setConstraintLayout(blockLayout);
+            AllDB.add(blockItem);
+            //여기 imageview가 없음,,, 여기는 온리 코드부분만 가져와야할듯???
         }else {
             ImageView imageView = new ImageView(this);
             imageView.setImageResource(blockItem.getBlockImage());

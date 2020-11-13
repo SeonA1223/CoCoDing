@@ -18,6 +18,7 @@ public class Object extends BlockItems {
 
     public Object() {
         object_1 =  new BlockItem(R.drawable.objact_block1);
+        object_1.setLayout(R.id.object_block);
         object_2 = new BlockItem(R.drawable.objact_block2);
         object_3 = new BlockItem(R.drawable.objact_block3);
         object_4 = new BlockItem(R.drawable.objact_block4);
