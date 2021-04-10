@@ -4,4 +4,6 @@
     <string name="title_flow">Flow</string>
     <string name="title_object">Object</string>
     <string name="title_code">Code</string>
+    <string name ="flow_start">flow_start</string>
+    <string name ="flow_command">flow_command</string>
 </resources>

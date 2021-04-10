@@ -21,11 +21,12 @@
         android:id="@+id/flow_start_edittext"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:fontFamily="@font/roboto_medium"
         android:cursorVisible="false"
+        android:fontFamily="@font/roboto_medium"
         android:textColor="#FFFFFF"
-        android:textSize="14sp"
+        android:textSize="5sp"
+        app:layout_constraintEnd_toEndOf="@+id/flow_start_imageview"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/flow_start_imageview"
         app:layout_constraintTop_toTopOf="parent" />
 

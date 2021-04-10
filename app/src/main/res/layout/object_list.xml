@@ -109,7 +109,7 @@
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/roboto_medium"
                 android:textSize="13sp"
-                android:text="Beaver on the left side.\nHe throws bigger snowball."/>
+                android:text="Beaver on the right side."/>
 
         </LinearLayout>
 

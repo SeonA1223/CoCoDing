@@ -45,6 +45,7 @@ import com.example.cocoding.Code.ExecutionEachActivity;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewToPage {
@@ -62,7 +63,7 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
     int id = 0;
     int count = 0;
 
-    ArrayList<BlockItem> BlockDB, ObjectDB, AllDB;
+    List<BlockItem> BlockDB, ObjectDB, AllDB;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,9 +85,9 @@ public class CodeActivity extends AppCompatActivity implements CodeRecyclerviewT
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle("");
 
-       BlockDB = new ArrayList<>();
-       ObjectDB = new ArrayList<>();
-       AllDB = new ArrayList<>();
+       BlockDB = new LinkedList<>();
+       ObjectDB = new LinkedList<>();
+       AllDB = new LinkedList<>();
 
         execution.setOnClickListener(new Button.OnClickListener(){
 

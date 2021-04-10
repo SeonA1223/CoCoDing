@@ -24,8 +24,9 @@ public class Motion extends BlockItems {
 
         CodeBlocks.add(motion_set);
         CodeBlocks.add(motion_change);
-        CodeBlocks.add(motion_rotate_left);
         CodeBlocks.add(motion_rotate_right);
+        CodeBlocks.add(motion_rotate_left);
+
 
 
         for(BlockItem blockItem : CodeBlocks){
