@@ -60,7 +60,7 @@
 
 ##### 메인페이지
 
-<img src="/images/main.jpg" width="700px">
+<img src="/images/main.jpg" width="400px">
 
 ##### 아이디어 회의
 
