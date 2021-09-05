@@ -76,7 +76,7 @@
 ##### 객체 - 이미지 업로드
 
 <div>
-	<img src="/images/객체추가.jpg">
+	<img src="/images/객체추가.jpg" width="200px">
     <img src="/images/객체추가2.jpg">.
     <img src="/images/객체추가3.jpg">
 </div>
