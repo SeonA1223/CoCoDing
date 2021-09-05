@@ -56,24 +56,24 @@
 
 
 
-#### Pages in Detail
+## Pages in Detail
 
-##### 메인페이지
+### 메인페이지
 
 <img src="/images/main.jpg">
 
-##### 아이디어 회의
+### 아이디어 회의
 
 <img src="/images/아이디어회의.jpg" width="220px">
 
-##### 순서도
+### 순서도
 
 <div>
     <img src="/images/순서도.jpg" width="220px">
     <img src="/images/순서도색.jpg" width="220px">
 </div>
 
-##### 객체 - 이미지 업로드
+### 객체 - 이미지 업로드
 
 <div>
     <img src="/images/객체추가.jpg" width="220px">
@@ -81,7 +81,7 @@
     <img src="/images/객체추가3.jpg" width="220px">
 </div>
 
-##### 코드블록
+### 코드블록
 
  - 블록을 드래그 앤 드랍을 이용해 배치 
 
