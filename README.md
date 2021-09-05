@@ -64,20 +64,20 @@
 
 ##### 아이디어 회의
 
-<img src="/images/아이디어회의.jpg">
+<img src="/images/아이디어회의.jpg" width="200px">
 
 ##### 순서도
 
 <div>
-    <img src="/images/순서도.jpg">
+    <img src="/images/순서도.jpg" width="200px">
     <img src="/images/순서도색.jpg">
 </div>
 
 ##### 객체 - 이미지 업로드
 
 <div>
-	<img src="/images/객체추가.jpg" width="200px">
-    <img src="/images/객체추가2.jpg">.
+<img src="/images/객체추가.jpg">
+    <img src="/images/객체추가2.jpg" width="200px">
     <img src="/images/객체추가3.jpg">
 </div>
 
